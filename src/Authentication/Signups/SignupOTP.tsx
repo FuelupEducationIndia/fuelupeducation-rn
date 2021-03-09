@@ -1,12 +1,23 @@
 import React from 'react'
-import { Box, Card, Text } from '../../theme'
-import { Button, RoundedIconButton } from '../../components'
+import { Box, Card, Text, TouchBox } from '../../theme'
+import {
+  Button,
+  RoundedIconButton,
+  TextInput,
+  TextInputRef,
+} from '../../components'
 import { AuthNavigationProps } from '../../types/navigation'
-import { TextInput } from 'react-native'
+import { Keyboard } from 'react-native'
+import SignupOTPImage from '../../assets/svgs/signupOTP.svg'
 
 const SignupOTP = ({ navigation }: AuthNavigationProps<'SignupOTP'>) => {
+  const phone = React.useRef<TextInputRef>(null)
   return (
-    <Box flex={1} backgroundColor='background'>
+    <TouchBox
+      flex={1}
+      backgroundColor='background'
+      activeOpacity={1}
+      onPress={() => Keyboard.dismiss()}>
       <Card variant='top' justifyContent='flex-end'>
         <RoundedIconButton
           icon='x-circle'
@@ -24,19 +35,41 @@ const SignupOTP = ({ navigation }: AuthNavigationProps<'SignupOTP'>) => {
           Enter your mobile number to Sign Up into your Lesson account
         </Text>
       </Card>
-      <Box flex={1} margin='s'>
-        <Box flexDirection='row' justifyContent='center' alignItems='center'>
+      <Box margin='s' marginTop='l'>
+        <Box
+          flexDirection='row'
+          justifyContent='center'
+          alignItems='center'
+          paddingHorizontal='xl'>
           <TextInput
+            placeholder='+91'
+            textContentType='telephoneNumber'
+            keyboardType='phone-pad'
+            returnKeyType='next'
+            returnKeyLabel='Next'
+            maxLength={4}
+            onSubmitEditing={() => phone.current?.focus()}
+          />
+          <TextInput
+            ref={phone}
+            containerStyle={{ flex: 1 }}
             placeholder='Phone Number'
-            placeholderTextColor='#ae7f75a5'
-            focusable={true}
+            textContentType='telephoneNumber'
+            keyboardType='phone-pad'
           />
         </Box>
-        <Box flexDirection='row' justifyContent='center' alignItems='center'>
+        <Box
+          flexDirection='row'
+          justifyContent='center'
+          alignItems='center'
+          paddingTop='xl'>
           <Button variant='secondary' paddingHorizontal='xl' label='Continue' />
         </Box>
       </Box>
-    </Box>
+      <Box flex={1}>
+        <SignupOTPImage height='90%' width='85%' />
+      </Box>
+    </TouchBox>
   )
 }
 

@@ -10,7 +10,7 @@ const palette = {
   white: '#fff',
   offWhite: 'rgba(255, 255, 255, 0.3)',
 
-  grey: '#444547',
+  grey: '#c1b8c9',
   lightGrey: '#c3c0c7',
 
   red: '#f44336',
