@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Modal, Keyboard, StyleSheet } from 'react-native'
 import { Box, Card, Text, TouchBox } from '../../theme'
 import {
@@ -8,8 +8,10 @@ import {
   TextInputRef,
 } from '../../components'
 import IconSvg from '../../assets/icons/icon.svg'
+import { Picker } from '@react-native-picker/picker'
 
 export default function Basicinfo({ navigation }) {
+  const [selectedLanguage, setSelectedLanguage] = useState()
   return (
     <TouchBox
       flex={1}
@@ -60,6 +62,51 @@ export default function Basicinfo({ navigation }) {
           <Box>
             <TextInput style={{ width: 100 }} placeholder='First Name' />
             <TextInput style={{ margin: 10 }} placeholder='Last Name' />
+            <Picker
+              selectedValue={selectedLanguage}
+              style={{ borderBottomWidth: 1, borderBottomColor: '#000' }}
+              onValueChange={(itemValue, itemIndex) =>
+                setSelectedLanguage(itemValue)
+              }>
+              <Picker.Item label='india' value='india' />
+              <Picker.Item label='indonaisa' value='indonaisa' />
+            </Picker>
+            <Picker
+              selectedValue={selectedLanguage}
+              style={{ borderBottomWidth: 1, borderBottomColor: '#000' }}
+              onValueChange={(itemValue, itemIndex) =>
+                setSelectedLanguage(itemValue)
+              }>
+              <Picker.Item label='mumbai' value='mumbai' />
+              <Picker.Item label='Jakarta' value='Jakarta' />
+            </Picker>
+            <Picker
+              selectedValue={selectedLanguage}
+              style={{ borderBottomWidth: 1, borderBottomColor: '#000' }}
+              onValueChange={(itemValue, itemIndex) =>
+                setSelectedLanguage(itemValue)
+              }>
+              <Picker.Item label='student' value='student' />
+              <Picker.Item label='Employee' value='Employee' />
+            </Picker>
+            <Picker
+              selectedValue={selectedLanguage}
+              style={{ borderBottomWidth: 1, borderBottomColor: '#000' }}
+              onValueChange={(itemValue, itemIndex) =>
+                setSelectedLanguage(itemValue)
+              }>
+              <Picker.Item label='Collage Student' value='Collage Student' />
+              <Picker.Item label='School Student' value='School Student' />
+            </Picker>
+            <Picker
+              selectedValue={selectedLanguage}
+              style={{ borderBottomWidth: 1, borderBottomColor: '#000' }}
+              onValueChange={(itemValue, itemIndex) =>
+                setSelectedLanguage(itemValue)
+              }>
+              <Picker.Item label='india' value='india' />
+              <Picker.Item label='indonaisa' value='indonaisa' />
+            </Picker>
           </Box>
         </Box>
       </View>
