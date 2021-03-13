@@ -1,5 +1,11 @@
 {
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "cSpell.words": [
+    "Recaptcha",
+    "Whatsapp",
+    "mirosoft",
+    "svgs"
+  ]
 }

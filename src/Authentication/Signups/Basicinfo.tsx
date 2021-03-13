@@ -10,9 +10,7 @@ import {
 import IconSvg from '../../assets/icons/icon.svg'
 import { AuthNavigationProps } from '../../types/navigation'
 
-export default function BasicInfo({
-  navigation,
-}: AuthNavigationProps<'BasicInfo'>) {
+const BasicInfo = ({ navigation }: AuthNavigationProps<'BasicInfo'>) => {
   const [selectedLanguage, setSelectedLanguage] = useState()
   return (
     <TouchBox
@@ -131,3 +129,4 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
 })
+export default BasicInfo

@@ -23,6 +23,7 @@ export type AuthRoutes = {
   SignupOTP: undefined
   SignIn: undefined
   BasicInfo: undefined
+  SignUp: undefined
 }
 
 export const stackScreenOptions = {
