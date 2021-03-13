@@ -1,4 +1,4 @@
-import { height } from '../constants'
+import { height, width } from '../constants'
 
 const cardVariants = {
   defaults: {
@@ -21,6 +21,17 @@ const cardVariants = {
     color: 'white',
     borderBottomLeftRadius: 'xl',
     borderBottomRightRadius: 'xl',
+  },
+  form: {
+    height: height - 100,
+    width: width - 50,
+    backgroundColor: 'background',
+    borderRadius: 's',
+    shadowColor: 'text',
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 1 },
+    shadowRadius: 1,
+    elevation: 5,
   },
 }
 

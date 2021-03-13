@@ -8,9 +8,11 @@ import {
   TextInputRef,
 } from '../../components'
 import IconSvg from '../../assets/icons/icon.svg'
-import { Picker } from '@react-native-picker/picker'
+import { AuthNavigationProps } from '../../types/navigation'
 
-export default function Basicinfo({ navigation }) {
+export default function BasicInfo({
+  navigation,
+}: AuthNavigationProps<'BasicInfo'>) {
   const [selectedLanguage, setSelectedLanguage] = useState()
   return (
     <TouchBox
@@ -62,7 +64,7 @@ export default function Basicinfo({ navigation }) {
           <Box>
             <TextInput style={{ width: 100 }} placeholder='First Name' />
             <TextInput style={{ margin: 10 }} placeholder='Last Name' />
-            <Picker
+            {/* <Picker
               selectedValue={selectedLanguage}
               style={{ borderBottomWidth: 1, borderBottomColor: '#000' }}
               onValueChange={(itemValue, itemIndex) =>
@@ -106,7 +108,7 @@ export default function Basicinfo({ navigation }) {
               }>
               <Picker.Item label='india' value='india' />
               <Picker.Item label='indonaisa' value='indonaisa' />
-            </Picker>
+            </Picker> */}
           </Box>
         </Box>
       </View>

@@ -58,6 +58,7 @@ export const TouchBox = createBox<Theme, TouchBoxProps>(TouchableOpacity)
 
 export const Text = createText<Theme>()
 export const Box = createBox<Theme>()
+
 export const useTheme = () => useReTheme<Theme>()
 
 const buttonVariant = createVariant({ themeKey: 'buttonVariants' })

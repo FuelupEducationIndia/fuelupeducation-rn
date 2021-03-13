@@ -21,6 +21,8 @@ export interface AuthNavigationProps<RouteName extends keyof AuthRoutes> {
 export type AuthRoutes = {
   Start: undefined
   SignupOTP: undefined
+  SignIn: undefined
+  BasicInfo: undefined
 }
 
 export const stackScreenOptions = {
