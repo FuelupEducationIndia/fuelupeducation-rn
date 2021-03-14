@@ -1,12 +1,6 @@
 import React, { useState } from 'react'
 import theme, { Box, Card, Text, TouchBox } from '../../theme'
-import {
-  Button,
-  // RoundedIconButton,
-  TextInput,
-  Divider,
-  // TextInputRef,
-} from '../../components'
+import { Button, TextInput, Divider, IconButton } from '../../components'
 
 import { AuthNavigationProps } from '../../types/navigation'
 import { Keyboard, KeyboardAvoidingView } from 'react-native'
@@ -81,25 +75,16 @@ const SignUp = ({ navigation }: AuthNavigationProps<'SignIn'>) => {
             marginTop='m'
             width={100}
             alignSelf='center'
+            onPress={() => navigation.navigate('SignUpSuccess', 'id')}
           />
         </KeyboardAvoidingView>
         <Divider text='or' width={150} widthText={20} left={70} />
         <Box justifyContent='center' top={8} flexDirection='row'>
-          <TouchBox height={40} width={40} margin='s'>
-            <GoogleSvg height={40} width={40} />
-          </TouchBox>
-          <TouchBox height={40} width={40} margin='s'>
-            <FacebookSvg height={40} width={40} />
-          </TouchBox>
-          <TouchBox height={40} width={40} margin='s'>
-            <Microsoft height={40} width={40} />
-          </TouchBox>
-          <TouchBox height={40} width={40} margin='s'>
-            <Telegram height={40} width={40} />
-          </TouchBox>
-          <TouchBox height={40} width={40} margin='s'>
-            <Whatsapp height={40} width={40} />
-          </TouchBox>
+          <IconButton Icon={GoogleSvg} />
+          <IconButton Icon={FacebookSvg} />
+          <IconButton Icon={Microsoft} />
+          <IconButton Icon={Telegram} />
+          <IconButton Icon={Whatsapp} />
         </Box>
 
         <TouchBox

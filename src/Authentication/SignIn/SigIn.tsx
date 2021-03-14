@@ -1,12 +1,6 @@
 import React, { useState, useRef } from 'react'
 import theme, { Box, Card, Text, TouchBox } from '../../theme'
-import {
-  Button,
-  // RoundedIconButton,
-  TextInput,
-  Divider,
-  // TextInputRef,
-} from '../../components'
+import { Button, IconButton, TextInput, Divider } from '../../components'
 import { CustomPicker } from 'react-native-custom-picker'
 
 import { AuthNavigationProps } from '../../types/navigation'
@@ -23,8 +17,6 @@ import CheckBox from '@react-native-community/checkbox'
 
 import Recaptcha from 'react-native-recaptcha-that-works'
 
-const Astric = () => <Text style={{ color: 'red' }}>*</Text>
-
 const SignIn = ({ navigation }: AuthNavigationProps<'SignIn'>) => {
   const [email, setEmail] = useState('')
   const [Password, setPassword] = useState('')
@@ -36,14 +28,15 @@ const SignIn = ({ navigation }: AuthNavigationProps<'SignIn'>) => {
   const [reCap, setReCap] = useState(false)
   const [key, setKey] = useState('')
   const $recaptcha: any = useRef()
-  const options = ['Teacher', 'Student', 'Parent', 'admin']
+  const options = ['Teacher', 'Student']
   const options1 = ['Biometric', 'Face ID', 'QR Code']
-  LogBox.ignoreAllLogs()
+  LogBox.ignoreLogs(['componentWillReceiveProps'])
+
   const handleClosePress = () => {
     setReCap(false)
     $recaptcha.current.close()
   }
-  console.log(Astric())
+
   return (
     <TouchBox
       flex={1}
@@ -107,14 +100,21 @@ const SignIn = ({ navigation }: AuthNavigationProps<'SignIn'>) => {
             Privacy Policy of FuelUp Eduction,
           </Text>
         </Box>
-        <Box
+        <TouchBox
           height={60}
           backgroundColor='silver'
           marginTop='m'
           alignItems='center'
           flexDirection='row'
           borderWidth={0.3}
-          borderColor='text'>
+          borderColor='text'
+          onPress={() => {
+            if (reCap == false) {
+              $recaptcha.current.open()
+            } else {
+              setReCap(true)
+            }
+          }}>
           <CheckBox
             disabled={false}
             value={reCap}
@@ -122,6 +122,8 @@ const SignIn = ({ navigation }: AuthNavigationProps<'SignIn'>) => {
               if (reCap == false) {
                 $recaptcha.current.open()
                 setReCap(vale)
+              } else {
+                setReCap(true)
               }
             }}
             onCheckColor={theme.colors.primary}
@@ -168,7 +170,7 @@ const SignIn = ({ navigation }: AuthNavigationProps<'SignIn'>) => {
               setKey(token)
             }}
           />
-        </Box>
+        </TouchBox>
         <Button
           label='Sign In'
           variant='secondary'
@@ -179,21 +181,11 @@ const SignIn = ({ navigation }: AuthNavigationProps<'SignIn'>) => {
         />
         <Divider text='or' width={150} widthText={20} left={70} />
         <Box justifyContent='center' top={8} flexDirection='row'>
-          <TouchBox height={40} width={40} margin='s'>
-            <GoogleSvg height={40} width={40} />
-          </TouchBox>
-          <TouchBox height={40} width={40} margin='s'>
-            <FacebookSvg height={40} width={40} />
-          </TouchBox>
-          <TouchBox height={40} width={40} margin='s'>
-            <Microsoft height={40} width={40} />
-          </TouchBox>
-          <TouchBox height={40} width={40} margin='s'>
-            <Telegram height={40} width={40} />
-          </TouchBox>
-          <TouchBox height={40} width={40} margin='s'>
-            <Whatsapp height={40} width={40} />
-          </TouchBox>
+          <IconButton Icon={GoogleSvg} />
+          <IconButton Icon={FacebookSvg} />
+          <IconButton Icon={Microsoft} />
+          <IconButton Icon={Telegram} />
+          <IconButton Icon={Whatsapp} />
         </Box>
         <Divider
           text='Use Biometric Sign In'
