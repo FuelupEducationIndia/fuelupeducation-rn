@@ -1,17 +1,11 @@
-import React, { useState } from 'react'
-import { View, Modal, Keyboard, StyleSheet } from 'react-native'
+import React from 'react'
+import { View, Keyboard, StyleSheet } from 'react-native'
 import { Box, Card, Text, TouchBox } from '../../theme'
-import {
-  Button,
-  RoundedIconButton,
-  TextInput,
-  TextInputRef,
-} from '../../components'
+import { RoundedIconButton, TextInput } from '../../components'
 import IconSvg from '../../assets/icons/icon.svg'
 import { AuthNavigationProps } from '../../types/navigation'
 
 const BasicInfo = ({ navigation }: AuthNavigationProps<'BasicInfo'>) => {
-  const [selectedLanguage, setSelectedLanguage] = useState()
   return (
     <TouchBox
       flex={1}

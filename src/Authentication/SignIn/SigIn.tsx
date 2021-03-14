@@ -23,9 +23,15 @@ import CheckBox from '@react-native-community/checkbox'
 
 import Recaptcha from 'react-native-recaptcha-that-works'
 
+const Astric = () => <Text style={{ color: 'red' }}>*</Text>
+
 const SignIn = ({ navigation }: AuthNavigationProps<'SignIn'>) => {
   const [email, setEmail] = useState('')
   const [Password, setPassword] = useState('')
+  const [Role, setRole] = useState('')
+
+  const [SignInMethod, setSignInMethod] = useState('')
+
   const [toggleCheckBox, setToggleCheckBox] = useState(false)
   const [reCap, setReCap] = useState(false)
   const [key, setKey] = useState('')
@@ -37,7 +43,7 @@ const SignIn = ({ navigation }: AuthNavigationProps<'SignIn'>) => {
     setReCap(false)
     $recaptcha.current.close()
   }
-
+  console.log(Astric())
   return (
     <TouchBox
       flex={1}
@@ -80,9 +86,11 @@ const SignIn = ({ navigation }: AuthNavigationProps<'SignIn'>) => {
             onChangeText={(text) => setPassword(text)}
           />
           <CustomPicker
-            placeholder='Role'
+            placeholder={'Role'}
             options={options}
-            onValueChange={(value) => {}}
+            onValueChange={(value: any) => {
+              setRole(value)
+            }}
           />
         </KeyboardAvoidingView>
 
@@ -196,7 +204,9 @@ const SignIn = ({ navigation }: AuthNavigationProps<'SignIn'>) => {
         <CustomPicker
           placeholder='Select a Method'
           options={options1}
-          onValueChange={(value) => {}}
+          onValueChange={(value: any) => {
+            setSignInMethod(value)
+          }}
         />
         <TouchBox
           flexDirection='row'
