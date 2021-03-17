@@ -1,2 +1,2 @@
-export { Button, RoundedIconButton } from './Button'
-export { TextInput, TextInputRef } from './Form'
+export { Button, RoundedIconButton, IconButton } from './Button'
+export { TextInput, TextInputRef, Divider } from './Form'

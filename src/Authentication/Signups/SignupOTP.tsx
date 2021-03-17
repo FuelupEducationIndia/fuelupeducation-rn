@@ -63,7 +63,12 @@ const SignupOTP = ({ navigation }: AuthNavigationProps<'SignupOTP'>) => {
           justifyContent='center'
           alignItems='center'
           paddingTop='xl'>
-          <Button variant='secondary' paddingHorizontal='xl' label='Continue' />
+          <Button
+            variant='secondary'
+            onPress={() => navigation.navigate('BasicInfo')}
+            paddingHorizontal='xl'
+            label='Continue'
+          />
         </Box>
       </Box>
       <Box flex={1}>

@@ -44,7 +44,7 @@ const StartScreen = ({ navigation }: AuthNavigationProps<'Start'>) => {
         </Box>
         <TouchBox
           activeOpacity={0.8}
-          onPress={() => navigation.navigate('SignupOTP')}
+          onPress={() => navigation.navigate('SignIn')}
           backgroundColor='secondary'
           paddingVertical='m'
           paddingHorizontal='l'
