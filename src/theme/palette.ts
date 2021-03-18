@@ -17,7 +17,6 @@ const palette = {
 
   blue: '#10A9E5',
   background: '#fefdff',
-  dark: '#f1f3f4',
 }
 
 const colors = {
@@ -32,7 +31,6 @@ const colors = {
   danger: palette.red,
   blue: palette.blue,
   background: palette.background,
-  silver: palette.dark,
 }
 
 export default colors
