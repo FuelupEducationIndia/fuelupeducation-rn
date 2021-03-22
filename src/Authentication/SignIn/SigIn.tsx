@@ -1,6 +1,12 @@
 import React, { useState, useRef } from 'react'
 import theme, { Box, Card, Text, TouchBox } from '../../theme'
-import { Button, IconButton, TextInput, Divider } from '../../components'
+import {
+  Button,
+  IconButton,
+  TextInput,
+  Divider,
+  TextInputRef,
+} from '../../components'
 import { CustomPicker } from 'react-native-custom-picker'
 
 import { AuthNavigationProps } from '../../types/navigation'
@@ -15,7 +21,7 @@ import Whatsapp from './../../assets/icons/whatsapp.svg'
 
 import CheckBox from '@react-native-community/checkbox'
 
-import Recaptcha from 'react-native-recaptcha-that-works'
+import Recaptcha, { RecaptchaHandles } from 'react-native-recaptcha-that-works'
 
 const SignIn = ({ navigation }: AuthNavigationProps<'SignIn'>) => {
   const [email, setEmail] = useState('')
@@ -27,14 +33,17 @@ const SignIn = ({ navigation }: AuthNavigationProps<'SignIn'>) => {
   const [toggleCheckBox, setToggleCheckBox] = useState(false)
   const [reCap, setReCap] = useState(false)
   const [key, setKey] = useState('')
-  const $recaptcha: any = useRef()
+  const recaptcha = useRef<RecaptchaHandles>(null)
+
+  const passRef = useRef<TextInputRef>(null)
+
   const options = ['Teacher', 'Student']
   const options1 = ['Biometric', 'Face ID', 'QR Code']
   LogBox.ignoreLogs(['componentWillReceiveProps'])
 
   const handleClosePress = () => {
     setReCap(false)
-    $recaptcha.current.close()
+    recaptcha.current?.close()
   }
 
   return (
@@ -66,15 +75,13 @@ const SignIn = ({ navigation }: AuthNavigationProps<'SignIn'>) => {
             placeholder='Email/Phone Number '
             keyboardType='email-address'
             value={email}
-            onSubmitEditing={() => passwordInputForm.focus()}
+            onSubmitEditing={() => passRef.current?.focus()}
             onChangeText={(text) => setEmail(text)}
           />
           <TextInput
             placeholder='Password'
             secureTextEntry={true}
-            ref={(input) => {
-              passwordInputForm = input
-            }}
+            ref={passRef}
             value={Password}
             onChangeText={(text) => setPassword(text)}
           />
@@ -109,8 +116,8 @@ const SignIn = ({ navigation }: AuthNavigationProps<'SignIn'>) => {
           borderWidth={0.3}
           borderColor='text'
           onPress={() => {
-            if (reCap == false) {
-              $recaptcha.current.open()
+            if (reCap === false) {
+              recaptcha.current?.open()
             } else {
               setReCap(true)
             }
@@ -119,8 +126,8 @@ const SignIn = ({ navigation }: AuthNavigationProps<'SignIn'>) => {
             disabled={false}
             value={reCap}
             onValueChange={(vale) => {
-              if (reCap == false) {
-                $recaptcha.current.open()
+              if (reCap === false) {
+                recaptcha.current?.open()
                 setReCap(vale)
               } else {
                 setReCap(true)
@@ -141,7 +148,7 @@ const SignIn = ({ navigation }: AuthNavigationProps<'SignIn'>) => {
           </Box>
 
           <Recaptcha
-            ref={$recaptcha}
+            ref={recaptcha}
             lang='en'
             baseUrl='http://127.0.0.1' // add your own base Yrl of website
             headerComponent={
@@ -150,7 +157,7 @@ const SignIn = ({ navigation }: AuthNavigationProps<'SignIn'>) => {
             siteKey='6LejsqwZAAAAAGsmSDWH5g09dOyNoGMcanBllKPF' //register yourself at google console to get siteKey
             theme='light'
             onClose={() => {
-              if (key != '') {
+              if (key !== '') {
                 setReCap(true)
               } else {
                 setReCap(false)
