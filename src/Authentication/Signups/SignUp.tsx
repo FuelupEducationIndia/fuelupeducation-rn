@@ -11,7 +11,7 @@ import Microsoft from './../../assets/icons/mirosoft.svg'
 import Telegram from './../../assets/icons/telegram.svg'
 import Whatsapp from './../../assets/icons/whatsapp.svg'
 
-const SignUp = ({ navigation }: AuthNavigationProps<'SignIn'>) => {
+const SignUp = ({ navigation }: AuthNavigationProps<'SignUp'>) => {
   const [email, setEmail] = useState('')
   const [Password, setPassword] = useState('')
   const [PasswordC, setPasswordC] = useState('')
