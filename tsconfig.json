@@ -30,5 +30,5 @@
     "jest.config.js",
     "react-native.config.js"
   ],
-  "include": ["index.js", "./declarations.d.ts"]
+  "include": ["./index.ts", "./declarations.d.ts"]
 }
