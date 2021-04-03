@@ -7,6 +7,8 @@ export default function App() {
 
   const [typeIndex, setTypeIndex] = useState(0)
   const [optionsIndex, setOptionsIndex] = useState(0)
+  const [bottomNavigation, setBottomNavigation] = useState(0)
+
   const [institutionName, setInstitutionName] = useState("")
   const [address, setAddress] = useState("")
   const [city, setCity] = useState("")
@@ -27,6 +29,14 @@ export default function App() {
     { label: 'Create Certificate' }
   ]
 
+  const BOTTOM_NAVIGATION = [
+    { icon: require('./images/Home.png'), label: "Home" },
+    { icon: require('./images/search1.png'), label: "Search" },
+    { icon: require('./images/myCourses.png'), label: "My Courses" },
+    { icon: require('./images/profile.png'), label: "Profile" },
+    { icon: require('./images/more.png'), label: "More" },
+  ]
+
   const InformationComponent = ({ half, label, placeholder, setValue, value, picker }) => {
     return (
       <View style={{ width: half ? '45%' : '100%', flexDirection: 'column', justifyContent: 'space-between', height: 58, marginTop: 20 }}>
@@ -42,7 +52,7 @@ export default function App() {
               height: 35,
               color: '#707070'
             }}
-            >
+          >
             <Picker.Item label="Select" color="black" value="none" />
             <Picker.Item label="Example 1" color="black" value="ex1" />
             <Picker.Item label="Example 2" color="black" value="ex2" />
@@ -65,13 +75,13 @@ export default function App() {
   return (
     <View behavior="padding" style={styles.container}>
       <StatusBar backgroundColor="transparent" style="light" />
-     
+
       <View style={styles.topHeader}>
         <View style={styles.topHeaderTop}>
           <TouchableOpacity onPress={() => alert("DRAWER OPENED")}>
-            <Image source={require('./images/Vector.png')} resizeMode="contain" />
+            <Image source={require('./assets/Vector.png')} resizeMode="contain" />
           </TouchableOpacity>
-          <Image source={require('./images/WomanTel.png')} resizeMode="contain" />
+          <Image source={require('./assets/WomanTel.png')} resizeMode="contain" />
           <View style={styles.topHeaderTexts}>
             <Text style={styles.topHeaderTitle} >Welcoma Sheela!</Text>
             <Text style={styles.TopHeaderSubtitle} >Check what's up with your schedule...</Text>
@@ -88,7 +98,7 @@ export default function App() {
           })}
         </View>
       </View>
-     
+
       <View style={styles.certificateOptions}>
         {OPTIONS_CERTIFICATE.map((item, index) => {
           const pressedOption = optionsIndex === index ? { backgroundColor: 'black', width: '100%', height: '100%', borderRadius: 100 } : { backgroundColor: 'transparent' }
@@ -116,11 +126,11 @@ export default function App() {
       </View>
 
       <ScrollView contentContainerStyle={styles.contentScrollView} style={styles.mainScrollView}>
-       
+
         <View style={{ width: '100%', borderBottomWidth: 1, borderColor: 'lightgray', paddingBottom: 10 }}>
           <Text style={{ alignSelf: 'center', fontSize: 16, fontWeight: 'bold' }}>Enter Institution Information</Text>
         </View>
-      
+
         <View>
 
           <InformationComponent label="Institution Name" placeholder="Type institution name here..." value={institutionName} setValue={setInstitutionName} />
@@ -151,7 +161,19 @@ export default function App() {
           <Text style={styles.saveForLater} onPress={() => alert("Saved for later")}>Save for later</Text>
         </View>
       </ScrollView>
+      <View style={styles.navigationOtions}>
+        {BOTTOM_NAVIGATION.map((item, index) => {
+          const bottomPressed = index === bottomNavigation ? 'white' : 'gray';
+          return (
+            <TouchableOpacity style={{ alignItems: 'center', paddingVertical: 3 }} onPress={() => setBottomNavigation(index)}>
+              <Image source={item.icon} style={{ tintColor: bottomPressed }} resizeMode="contain" width={20} height={20} />
+              <Text style={{ color: bottomPressed, fontSize: 12, opacity: bottomPressed ? 1 : 0.7 }}>{item.label}</Text>
+            </TouchableOpacity>
+          )
+        })}
 
+
+      </View>
     </View>
   );
 }
@@ -249,12 +271,26 @@ const styles = StyleSheet.create({
     color: '#380885',
     borderColor: '#380885'
   },
-  contentScrollView: { minHeight: 700 },
+  contentScrollView: { minHeight: 650 },
   mainScrollView: {
     backgroundColor: '#FFF',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     paddingVertical: 20,
-    paddingHorizontal: 20
+    paddingHorizontal: 20,
+    marginBottom:20,
+    borderBottomLeftRadius:20,
+    borderBottomRightRadius:20
+  },
+  navigationOtions: {
+    width: '100%',
+    backgroundColor: '#380885',
+    height: 65,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    paddingVertical: 4
   }
+
+
 });
