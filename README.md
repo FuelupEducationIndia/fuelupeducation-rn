@@ -1,13 +1,4 @@
 # fuelupeducation-rn
-React native mobile app for fuelup education
-
-Fork the Repo .
-
-Once added in repo . Make your branch in repo
-
-Then start coding with our file structure and 
-Push code to branch which created and then
-Generate pull request to Merge with master 
-
-
-Do not merge directly into master  
+# READ THIS dOCS
+I have seen your code that code work good but you need to use custom component and styling. You can check waht kind of component and style we use for our app.
+you can check the style and Component in Sign in and Sign Up screen for better understanding
