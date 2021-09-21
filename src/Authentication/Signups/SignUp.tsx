@@ -75,7 +75,7 @@ const SignUp = ({ navigation }: AuthNavigationProps<'SignUp'>) => {
             marginTop='m'
             width={100}
             alignSelf='center'
-            onPress={() => navigation.navigate('SignUpSuccess', 'id')}
+            onPress={() => navigation.navigate('SignUpInfo')}
           />
         </KeyboardAvoidingView>
         <Divider text='or' width={150} widthText={20} left={70} />

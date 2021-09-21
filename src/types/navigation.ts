@@ -24,6 +24,7 @@ export type AuthRoutes = {
   SignIn: undefined
   BasicInfo: undefined
   SignUp: undefined
+  SignUpInfo: undefined
   SignUpSuccess: String
 }
 
