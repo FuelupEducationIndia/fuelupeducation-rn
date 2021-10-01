@@ -3,7 +3,7 @@ import React from 'react'
 import RNBootSplash from 'react-native-bootsplash'
 import { AppRoutes, stackScreenOptions } from './src/types/navigation'
 import AuthNavigator from './src/Authentication'
-
+import TeachersNavigator from './src/Teachers'
 const AppStack = createStackNavigator<AppRoutes>()
 
 const App = () => {
@@ -12,8 +12,12 @@ const App = () => {
   }, [])
 
   return (
-    <AppStack.Navigator screenOptions={stackScreenOptions} headerMode='none'>
+    <AppStack.Navigator
+      initialRouteName='Teacher'
+      screenOptions={stackScreenOptions}
+      headerMode='none'>
       <AppStack.Screen name='Authentication' component={AuthNavigator} />
+      <AppStack.Screen name='Teacher' component={TeachersNavigator} />
     </AppStack.Navigator>
   )
 }
