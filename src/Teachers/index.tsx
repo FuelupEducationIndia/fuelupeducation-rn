@@ -3,6 +3,7 @@ import React from 'react'
 import { TouchableOpacity, Text, View, StyleSheet } from 'react-native'
 import { TeacherRoutes } from '../types/navigation'
 import { HomeTab } from './TeacherBottomTabs'
+import theme from '../theme'
 
 // Tab Icons import
 import HomeIcon from '../assets/svgs/home-icon.svg'
@@ -19,7 +20,7 @@ const TeachersNavigator = () => (
     tabBarOptions={{
       showLabel: false,
       style: {
-        backgroundColor: '#380885',
+        backgroundColor: theme.colors.primary,
         height: 76,
       },
     }}
@@ -34,8 +35,13 @@ const TeachersNavigator = () => (
       options={{
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center' }}>
-            <HomeIcon fill={focused ? 'white' : '#707070'} />
-            <Text style={styles(focused).tabBarLabel}>Home</Text>
+            <HomeIcon
+              fill={focused ? theme.colors.white : theme.colors.offWhite}
+            />
+            <Text
+              style={[theme.textVariants.body, styles(focused).tabBarLabel]}>
+              Home
+            </Text>
           </View>
         ),
       }}
@@ -46,8 +52,13 @@ const TeachersNavigator = () => (
       options={{
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center' }}>
-            <SearchIcon fill={focused ? 'white' : '#707070'} />
-            <Text style={styles(focused).tabBarLabel}>Search</Text>
+            <SearchIcon
+              fill={focused ? theme.colors.white : theme.colors.offWhite}
+            />
+            <Text
+              style={[theme.textVariants.body, styles(focused).tabBarLabel]}>
+              Search
+            </Text>
           </View>
         ),
       }}
@@ -58,8 +69,13 @@ const TeachersNavigator = () => (
       options={{
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center' }}>
-            <MyCourseIcon fill={focused ? 'white' : '#707070'} />
-            <Text style={styles(focused).tabBarLabel}>My Course</Text>
+            <MyCourseIcon
+              fill={focused ? theme.colors.white : theme.colors.offWhite}
+            />
+            <Text
+              style={[theme.textVariants.body, styles(focused).tabBarLabel]}>
+              My Course
+            </Text>
           </View>
         ),
       }}
@@ -70,8 +86,13 @@ const TeachersNavigator = () => (
       options={{
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center' }}>
-            <ProfileIcon fill={focused ? 'white' : '#707070'} />
-            <Text style={styles(focused).tabBarLabel}>Profile</Text>
+            <ProfileIcon
+              fill={focused ? theme.colors.white : theme.colors.offWhite}
+            />
+            <Text
+              style={[theme.textVariants.body, styles(focused).tabBarLabel]}>
+              Profile
+            </Text>
           </View>
         ),
       }}
@@ -82,8 +103,13 @@ const TeachersNavigator = () => (
       options={{
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center' }}>
-            <MoreIcon fill={focused ? 'white' : '#707070'} />
-            <Text style={styles(focused).tabBarLabel}>More</Text>
+            <MoreIcon
+              fill={focused ? theme.colors.white : theme.colors.offWhite}
+            />
+            <Text
+              style={[theme.textVariants.body, styles(focused).tabBarLabel]}>
+              More
+            </Text>
           </View>
         ),
       }}
@@ -94,8 +120,7 @@ const TeachersNavigator = () => (
 const styles = (focused: Boolean) =>
   StyleSheet.create({
     tabBarLabel: {
-      fontSize: 12,
-      color: focused ? 'white' : '#707070',
+      color: focused ? theme.colors.white : theme.colors.offWhite,
     },
   })
 
