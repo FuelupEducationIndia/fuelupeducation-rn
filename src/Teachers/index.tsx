@@ -2,7 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import React from 'react'
 import { TouchableOpacity, Text, View, StyleSheet } from 'react-native'
 import { TeacherRoutes } from '../types/navigation'
-import { HomeTab } from './TeacherScreens'
+import { HomeTab } from './TeacherBottomTabs'
 
 // Tab Icons import
 import HomeIcon from '../assets/svgs/home-icon.svg'
