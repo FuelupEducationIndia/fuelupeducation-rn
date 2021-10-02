@@ -37,6 +37,10 @@ export type AuthRoutes = {
 
 export type TeacherRoutes = {
   Home: undefined
+  Search: undefined
+  MyCourse: undefined
+  Profile: undefined
+  More: undefined
 }
 
 export const stackScreenOptions = {
