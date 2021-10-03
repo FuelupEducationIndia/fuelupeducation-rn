@@ -4,7 +4,8 @@ import {
   StackNavigationProp,
 } from '@react-navigation/stack'
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs'
-import { NavigationTabScreenProps } from 'react-navigation-tabs'
+import { MaterialTopTabScreenProps } from '@react-navigation/material-top-tabs'
+// import { NavigationTabScreenProps } from 'react-navigation-tabs'
 
 export interface AppNavigationProps<RouteName extends keyof AppRoutes> {
   navigation: StackNavigationProp<AppRoutes, RouteName>
@@ -29,7 +30,7 @@ export interface TeacherNavigationProps<RouteName extends keyof TeacherRoutes> {
 export interface TeacherHomeTabProps<
   RouteName extends keyof TeacherHomeTabRoutes
 > {
-  navigation: NavigationTabScreenProps<TeacherHomeTabRoutes, RouteName>
+  navigation: MaterialTopTabScreenProps<TeacherHomeTabRoutes, RouteName>
   route: RouteProp<TeacherHomeTabRoutes, RouteName>
 }
 
@@ -58,6 +59,7 @@ export type TeacherHomeTabRoutes = {
   Exams: undefined
   Assignments: undefined
   Attendance: undefined
+  Certificate: undefined
 }
 
 export const stackScreenOptions = {

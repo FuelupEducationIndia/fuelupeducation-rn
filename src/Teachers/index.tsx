@@ -36,7 +36,7 @@ const TeachersNavigator = () => (
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center' }}>
             <HomeIcon
-              fill={focused ? theme.colors.white : theme.colors.offWhite}
+              fill={focused ? theme.colors.white : theme.colors.darkSilver}
             />
             <Text
               style={[theme.textVariants.body, styles(focused).tabBarLabel]}>
@@ -53,7 +53,7 @@ const TeachersNavigator = () => (
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center' }}>
             <SearchIcon
-              fill={focused ? theme.colors.white : theme.colors.offWhite}
+              fill={focused ? theme.colors.white : theme.colors.darkSilver}
             />
             <Text
               style={[theme.textVariants.body, styles(focused).tabBarLabel]}>
@@ -70,7 +70,7 @@ const TeachersNavigator = () => (
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center' }}>
             <MyCourseIcon
-              fill={focused ? theme.colors.white : theme.colors.offWhite}
+              fill={focused ? theme.colors.white : theme.colors.darkSilver}
             />
             <Text
               style={[theme.textVariants.body, styles(focused).tabBarLabel]}>
@@ -87,7 +87,7 @@ const TeachersNavigator = () => (
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center' }}>
             <ProfileIcon
-              fill={focused ? theme.colors.white : theme.colors.offWhite}
+              fill={focused ? theme.colors.white : theme.colors.darkSilver}
             />
             <Text
               style={[theme.textVariants.body, styles(focused).tabBarLabel]}>
@@ -104,7 +104,7 @@ const TeachersNavigator = () => (
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center' }}>
             <MoreIcon
-              fill={focused ? theme.colors.white : theme.colors.offWhite}
+              fill={focused ? theme.colors.white : theme.colors.darkSilver}
             />
             <Text
               style={[theme.textVariants.body, styles(focused).tabBarLabel]}>
@@ -120,7 +120,7 @@ const TeachersNavigator = () => (
 const styles = (focused: Boolean) =>
   StyleSheet.create({
     tabBarLabel: {
-      color: focused ? theme.colors.white : theme.colors.offWhite,
+      color: focused ? theme.colors.white : theme.colors.darkSilver,
     },
   })
 

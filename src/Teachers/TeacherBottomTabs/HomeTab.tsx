@@ -54,22 +54,20 @@ const HomeTab = () => {
       <TeacherHomeTopTab.Navigator
         tabBarOptions={{
           showLabel: true,
+          bounces: true,
           style: {
             backgroundColor: theme.colors.primary,
           },
           scrollEnabled: true,
           indicatorStyle: {
             backgroundColor: theme.colors.secondary,
-            marginBottom: 6,
+            marginBottom: 8,
+            flex: 1,
           },
-          tabStyle: { width: 120 },
+          tabStyle: { width: 'auto', paddingHorizontal: 12 },
           labelStyle: { color: 'white' },
-          contentContainerStyle: {
-            marginLeft: 10,
-          },
-          indicatorContainerStyle: {
-            marginLeft: 10,
-          },
+          contentContainerStyle: {},
+          indicatorContainerStyle: {},
         }}>
         <TeacherHomeTopTab.Screen
           name='BrowseCourse'
@@ -140,6 +138,18 @@ const HomeTab = () => {
             ),
           }}
         />
+        <TeacherHomeTopTab.Screen
+          name='Certificate'
+          component={BrowseCourse}
+          options={{
+            tabBarLabel: ({ focused }) => (
+              <Text
+                style={[theme.textVariants.body, styles(focused).tabBarLabel]}>
+                Certificate
+              </Text>
+            ),
+          }}
+        />
       </TeacherHomeTopTab.Navigator>
     </>
   )
@@ -148,7 +158,8 @@ const HomeTab = () => {
 const styles = (focused: Boolean) =>
   StyleSheet.create({
     tabBarLabel: {
-      color: focused ? theme.colors.white : theme.colors.offWhite,
+      color: focused ? theme.colors.white : theme.colors.offBlue,
+      textAlign: 'center',
     },
   })
 
