@@ -15,7 +15,7 @@ const HomeTab = () => {
   return (
     <>
       <SafeAreaView style={{ backgroundColor: theme.colors.primary }}>
-        <DrawerIcon style={{ position: 'absolute', top: 60, left: 20 }} />
+        <DrawerIcon style={{ position: 'absolute', top: 70, left: 20 }} />
         <Card padding='s'>
           <Box
             style={{
@@ -52,22 +52,17 @@ const HomeTab = () => {
         </Card>
       </SafeAreaView>
       <TeacherHomeTopTab.Navigator
-        tabBarOptions={{
-          showLabel: true,
-          bounces: true,
-          style: {
+        screenOptions={{
+          tabBarShowLabel: true,
+          tabBarItemStyle: { width: 'auto' },
+          tabBarStyle: {
             backgroundColor: theme.colors.primary,
           },
-          scrollEnabled: true,
-          indicatorStyle: {
+          tabBarIndicatorStyle: {
             backgroundColor: theme.colors.secondary,
             marginBottom: 8,
-            flex: 1,
           },
-          tabStyle: { width: 'auto', paddingHorizontal: 12 },
-          labelStyle: { color: 'white' },
-          contentContainerStyle: {},
-          indicatorContainerStyle: {},
+          tabBarScrollEnabled: true,
         }}>
         <TeacherHomeTopTab.Screen
           name='BrowseCourse'

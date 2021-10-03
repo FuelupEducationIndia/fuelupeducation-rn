@@ -5,31 +5,31 @@ import { CustomPicker } from 'react-native-custom-picker'
 import Recaptcha, { RecaptchaHandles } from 'react-native-recaptcha-that-works'
 
 import { AuthNavigationProps } from '../../types/navigation'
-import { Keyboard, KeyboardAvoidingView, LogBox} from 'react-native'
+import { Keyboard, KeyboardAvoidingView, LogBox } from 'react-native'
 import IconSvg from './../../assets/icons/icon.svg'
 import RIconSvg from './../../assets/icons/recaptcha.svg'
 import CheckBox from '@react-native-community/checkbox'
 import DatePicker from 'react-native-datepicker'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
-const countryOption = ['India','Indonesia','Pakistan','USA']
-const cityOption = ['Jaipur','Jakarta']
-const roleOption = ['Student','Teacher']
+const countryOption = ['India', 'Indonesia', 'Pakistan', 'USA']
+const cityOption = ['Jaipur', 'Jakarta']
+const roleOption = ['Student', 'Teacher']
 const studentStream = ['School Student', 'College Student']
 
 const SignUpInfo = ({ navigation }: AuthNavigationProps<'SignUpInfo'>) => {
   const [firstName, setfirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [country, setCountry] = useState('')
-  const [city , setCity] = useState('')
+  const [city, setCity] = useState('')
   const [role, setRole] = useState('')
-  const [stream, setStream] = useState('');
+  const [stream, setStream] = useState('')
   const [toggleCheckBox, setToggleCheckBox] = useState(false)
   const recaptcha = useRef<RecaptchaHandles>(null)
   const [reCap, setReCap] = useState(false)
   const [key, setKey] = useState('')
-  
-  const [date, setDate] = useState();
+
+  const [date, setDate] = useState()
 
   LogBox.ignoreLogs(['componentWillReceiveProps'])
 
@@ -63,12 +63,21 @@ const SignUpInfo = ({ navigation }: AuthNavigationProps<'SignUpInfo'>) => {
           alignItems='center'
           style={{ height: 170 }}>
           <IconSvg height={50} width={30} />
-          <Text textAlign='center' marginLeft={'s'} fontSize={28} variant='hero'>
+          <Text
+            textAlign='center'
+            marginLeft={'s'}
+            fontSize={28}
+            variant='hero'>
             Welcome!
           </Text>
         </Box>
       </Card>
-      <Card paddingHorizontal={'xl'} variant='form' top={-100} borderRadius={'round'} alignSelf='center'>
+      <Card
+        paddingHorizontal={'xl'}
+        variant='form'
+        top={-100}
+        height='100%'
+        alignSelf='center'>
         <Text
           variant='body'
           style={{ color: theme.colors.primaryLight, textAlign: 'center' }}>
@@ -88,27 +97,31 @@ const SignUpInfo = ({ navigation }: AuthNavigationProps<'SignUpInfo'>) => {
             onChangeText={(text) => setLastName(text)}
           />
           <DatePicker
-              style={{width:'100%',marginTop:7,paddingRight:5}}
-              date={date}
-              mode="date"
-              placeholder="Date Of Birth"
-              format="DD-MM-YYYY"
-              minDate="1970-01-01"
-              maxDate="2016-06-01"
-              confirmBtnText="Confirm"
-              cancelBtnText="Cancel"
-              customStyles={{
-                dateInput: {
-                  marginLeft: '3%',
-                  borderWidth:0,
-                  borderBottomWidth:1,
-                  alignItems:'flex-start',
-                  paddingLeft:4,
-                }
-              }}
-              iconComponent={<MaterialCommunityIcons size={26} name='calendar-range'/>}
-              onDateChange={(datStr:String,date:Date) => {setDate(date)}}
-            />
+            style={{ width: '100%', marginTop: 7, paddingRight: 5 }}
+            date={date}
+            mode='date'
+            placeholder='Date Of Birth'
+            format='DD-MM-YYYY'
+            minDate='1970-01-01'
+            maxDate='2016-06-01'
+            confirmBtnText='Confirm'
+            cancelBtnText='Cancel'
+            customStyles={{
+              dateInput: {
+                marginLeft: '3%',
+                borderWidth: 0,
+                borderBottomWidth: 1,
+                alignItems: 'flex-start',
+                paddingLeft: 4,
+              },
+            }}
+            iconComponent={
+              <MaterialCommunityIcons size={26} name='calendar-range' />
+            }
+            onDateChange={(datStr: String, date: Date) => {
+              setDate(date)
+            }}
+          />
           <CustomPicker
             placeholder='Select your country'
             options={countryOption}
@@ -139,97 +152,97 @@ const SignUpInfo = ({ navigation }: AuthNavigationProps<'SignUpInfo'>) => {
           />
         </KeyboardAvoidingView>
         <Box flexDirection='row' marginTop='m'>
-            <CheckBox
-              disabled={false}
-              value={toggleCheckBox}
-              onValueChange={(vale) => {
-                setToggleCheckBox(vale)
-              }}
-            />
-            <Text variant='slogan'>
-              I have read and agree the term and conditions,{'\n'} as well as
-              the Privacy Policy of FuelUp Eduction,
-            </Text>
+          <CheckBox
+            disabled={false}
+            value={toggleCheckBox}
+            onValueChange={(vale) => {
+              setToggleCheckBox(vale)
+            }}
+          />
+          <Text variant='slogan'>
+            I have read and agree the term and conditions,{'\n'} as well as the
+            Privacy Policy of FuelUp Eduction,
+          </Text>
         </Box>
         <TouchBox
-            height={60}
-            backgroundColor='silver'
-            marginTop='m'
-            alignItems='center'
-            flexDirection='row'
-            borderWidth={0.3}
-            borderColor='text'
-            onPress={() => {
+          height={60}
+          backgroundColor='silver'
+          marginTop='m'
+          alignItems='center'
+          flexDirection='row'
+          borderWidth={0.3}
+          borderColor='text'
+          onPress={() => {
+            if (reCap === false) {
+              recaptcha.current?.open()
+            } else {
+              setReCap(true)
+            }
+          }}>
+          <CheckBox
+            disabled={false}
+            value={reCap}
+            onValueChange={(vale) => {
               if (reCap === false) {
                 recaptcha.current?.open()
+                setReCap(vale)
               } else {
                 setReCap(true)
               }
-            }}>
-            <CheckBox
-              disabled={false}
-              value={reCap}
-              onValueChange={(vale) => {
-                if (reCap === false) {
-                  recaptcha.current?.open()
-                  setReCap(vale)
-                } else {
-                  setReCap(true)
-                }
-              }}
-              onCheckColor={theme.colors.primary}
-              tintColors={{
-                true: theme.colors.primary,
-                false: theme.colors.text,
-              }}
-            />
+            }}
+            onCheckColor={theme.colors.primary}
+            tintColors={{
+              true: theme.colors.primary,
+              false: theme.colors.text,
+            }}
+          />
 
-            <Text variant='body' color='grey'>
-              I'm not a robot
-            </Text>
-            <Box right={-100}>
-              <RIconSvg height={30} width={30} />
-            </Box>
+          <Text variant='body' color='grey'>
+            I'm not a robot
+          </Text>
+          <Box right={-100}>
+            <RIconSvg height={30} width={30} />
+          </Box>
 
-            <Recaptcha
-              ref={recaptcha}
-              lang='en'
-              baseUrl='http://127.0.0.1' // add your own base Yrl of website
-              headerComponent={
-                <Button label='Close' onPress={handleClosePress} />
-              }
-              siteKey='6LejsqwZAAAAAGsmSDWH5g09dOyNoGMcanBllKPF' //register yourself at google console to get siteKey
-              theme='light'
-              onClose={() => {
-                if (key !== '') {
-                  setReCap(true)
-                } else {
-                  setReCap(false)
-                }
-              }}
-              onError={() => {
-                setReCap(false)
-                alert('onError event')
-              }}
-              onExpire={() => {
-                alert('onExpire event')
-                setReCap(false)
-              }}
-              onVerify={(token) => {
+          <Recaptcha
+            ref={recaptcha}
+            lang='en'
+            baseUrl='http://127.0.0.1' // add your own base Yrl of website
+            headerComponent={
+              <Button label='Close' onPress={handleClosePress} />
+            }
+            siteKey='6LejsqwZAAAAAGsmSDWH5g09dOyNoGMcanBllKPF' //register yourself at google console to get siteKey
+            theme='light'
+            onClose={() => {
+              if (key !== '') {
                 setReCap(true)
+              } else {
+                setReCap(false)
+              }
+            }}
+            onError={() => {
+              setReCap(false)
+              alert('onError event')
+            }}
+            onExpire={() => {
+              alert('onExpire event')
+              setReCap(false)
+            }}
+            onVerify={(token) => {
+              setReCap(true)
 
-                setKey(token)
-              }}
-            />
-          </TouchBox>
+              setKey(token)
+            }}
+          />
+        </TouchBox>
         <Button
-            label='Continue'
-            variant='secondary'
-            paddingHorizontal='s'
-            marginTop='m'
-            width={100}
-            alignSelf='center'
-            onPress={() => navigation.navigate('SignUpSuccess','id')}
+          label='Continue'
+          variant='secondary'
+          paddingHorizontal='s'
+          marginTop='m'
+          width={100}
+          alignSelf='center'
+          onPress={() => navigation.navigate('SignUpSuccess', 'id')}
         />
       </Card>
     </TouchBox>

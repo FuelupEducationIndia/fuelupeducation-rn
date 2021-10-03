@@ -17,17 +17,14 @@ const TeachersTab = createBottomTabNavigator<TeacherRoutes>()
 const TeachersNavigator = () => (
   <TeachersTab.Navigator
     initialRouteName='Home'
-    tabBarOptions={{
-      showLabel: false,
-      style: {
-        backgroundColor: theme.colors.primary,
-        height: 76,
-      },
-    }}
+    defaultScreenOptions={{}}
     screenOptions={{
       tabBarButton: (props) => (
         <TouchableOpacity activeOpacity={0.6} {...props} />
       ),
+      tabBarShowLabel: false,
+      headerShown: false,
+      tabBarStyle: { backgroundColor: theme.colors.primary, height: 65 },
     }}>
     <TeachersTab.Screen
       name='Home'

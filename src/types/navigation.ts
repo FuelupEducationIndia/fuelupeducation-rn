@@ -5,7 +5,6 @@ import {
 } from '@react-navigation/stack'
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs'
 import { MaterialTopTabScreenProps } from '@react-navigation/material-top-tabs'
-// import { NavigationTabScreenProps } from 'react-navigation-tabs'
 
 export interface AppNavigationProps<RouteName extends keyof AppRoutes> {
   navigation: StackNavigationProp<AppRoutes, RouteName>
@@ -64,4 +63,5 @@ export type TeacherHomeTabRoutes = {
 
 export const stackScreenOptions = {
   cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+  headerShown: false,
 }
