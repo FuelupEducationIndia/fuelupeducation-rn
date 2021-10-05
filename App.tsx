@@ -14,8 +14,7 @@ const App = () => {
   return (
     <AppStack.Navigator
       initialRouteName='Teacher'
-      screenOptions={stackScreenOptions}
-      headerMode='none'>
+      screenOptions={stackScreenOptions}>
       <AppStack.Screen name='Authentication' component={AuthNavigator} />
       <AppStack.Screen name='Teacher' component={TeachersNavigator} />
     </AppStack.Navigator>

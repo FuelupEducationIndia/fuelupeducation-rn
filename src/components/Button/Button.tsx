@@ -33,7 +33,7 @@ const Button = ({
       onPress={!loading ? onPress : () => true}
       {...props}>
       {icon && !loading ? (
-        <Icon name='icon' color={theme.colors[color]} />
+        <Icon name={icon} color={theme.colors[color]} />
       ) : null}
       {loading ? (
         <ActivityIndicator color={theme.colors[color]} size='small' />
