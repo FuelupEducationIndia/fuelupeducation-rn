@@ -29,6 +29,11 @@ const textVariants = {
     fontSize: 11,
     color: 'grey',
   },
+  courseTitle: {
+    fontSize: 16,
+    color: 'text',
+    fontFamily: 'Mulish-Bold',
+  },
 }
 
 export default textVariants

@@ -1,6 +1,8 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { bottomTabBarScreenOptions } from '../types/navigation'
 import React from 'react'
-import { TouchableOpacity, Text, View, StyleSheet } from 'react-native'
+import { TouchableOpacity, View } from 'react-native'
+import { Text } from '../theme'
 import { TeacherRoutes } from '../types/navigation'
 import { HomeTab } from './TeacherBottomTabs'
 import theme from '../theme'
@@ -17,14 +19,11 @@ const TeachersTab = createBottomTabNavigator<TeacherRoutes>()
 const TeachersNavigator = () => (
   <TeachersTab.Navigator
     initialRouteName='Home'
-    defaultScreenOptions={{}}
     screenOptions={{
       tabBarButton: (props) => (
         <TouchableOpacity activeOpacity={0.6} {...props} />
       ),
-      tabBarShowLabel: false,
-      headerShown: false,
-      tabBarStyle: { backgroundColor: theme.colors.primary, height: 65 },
+      ...bottomTabBarScreenOptions,
     }}>
     <TeachersTab.Screen
       name='Home'
@@ -32,11 +31,8 @@ const TeachersNavigator = () => (
       options={{
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center' }}>
-            <HomeIcon
-              fill={focused ? theme.colors.white : theme.colors.darkSilver}
-            />
-            <Text
-              style={[theme.textVariants.body, styles(focused).tabBarLabel]}>
+            <HomeIcon fill={color(focused)} />
+            <Text variant='body' color={focused ? 'white' : 'darkSilver'}>
               Home
             </Text>
           </View>
@@ -49,11 +45,8 @@ const TeachersNavigator = () => (
       options={{
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center' }}>
-            <SearchIcon
-              fill={focused ? theme.colors.white : theme.colors.darkSilver}
-            />
-            <Text
-              style={[theme.textVariants.body, styles(focused).tabBarLabel]}>
+            <SearchIcon fill={color(focused)} />
+            <Text variant='body' color={focused ? 'white' : 'darkSilver'}>
               Search
             </Text>
           </View>
@@ -66,11 +59,8 @@ const TeachersNavigator = () => (
       options={{
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center' }}>
-            <MyCourseIcon
-              fill={focused ? theme.colors.white : theme.colors.darkSilver}
-            />
-            <Text
-              style={[theme.textVariants.body, styles(focused).tabBarLabel]}>
+            <MyCourseIcon fill={color(focused)} />
+            <Text variant='body' color={focused ? 'white' : 'darkSilver'}>
               My Course
             </Text>
           </View>
@@ -83,11 +73,8 @@ const TeachersNavigator = () => (
       options={{
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center' }}>
-            <ProfileIcon
-              fill={focused ? theme.colors.white : theme.colors.darkSilver}
-            />
-            <Text
-              style={[theme.textVariants.body, styles(focused).tabBarLabel]}>
+            <ProfileIcon fill={color(focused)} />
+            <Text variant='body' color={focused ? 'white' : 'darkSilver'}>
               Profile
             </Text>
           </View>
@@ -100,11 +87,8 @@ const TeachersNavigator = () => (
       options={{
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center' }}>
-            <MoreIcon
-              fill={focused ? theme.colors.white : theme.colors.darkSilver}
-            />
-            <Text
-              style={[theme.textVariants.body, styles(focused).tabBarLabel]}>
+            <MoreIcon fill={color(focused)} />
+            <Text variant='body' color={focused ? 'white' : 'darkSilver'}>
               More
             </Text>
           </View>
@@ -114,11 +98,7 @@ const TeachersNavigator = () => (
   </TeachersTab.Navigator>
 )
 
-const styles = (focused: Boolean) =>
-  StyleSheet.create({
-    tabBarLabel: {
-      color: focused ? theme.colors.white : theme.colors.darkSilver,
-    },
-  })
-
+const color = (focused: boolean) => {
+  return focused ? theme.colors.white : theme.colors.darkSilver
+}
 export default TeachersNavigator

@@ -63,6 +63,7 @@ const HomeTab = () => {
             marginBottom: 8,
           },
           tabBarScrollEnabled: true,
+          tabBarBounces: true,
         }}>
         <TeacherHomeTopTab.Screen
           name='BrowseCourse'

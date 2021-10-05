@@ -1,77 +1,97 @@
 import React from 'react'
-import { View, Text, ScrollView, TextInput, StyleSheet } from 'react-native'
+import { View, ScrollView, StyleSheet, FlatList } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import SearchIcon from '../../assets/svgs/search-icon.svg'
-import theme, { Card } from '../../theme'
+import theme, { Card, Text } from '../../theme'
 import { width } from '../../constants'
+import Icon from 'react-native-vector-icons/Feather'
+import { SearchBar, CourseCard } from '../../components'
 
-import FilterIcon from '../../assets/svgs/filter-icon.svg'
+// Testing Data
+import Thumbnail from '../../assets/images/thumbnail1.png'
+import Thumbnai2 from '../../assets/images/thumbnail2.png'
+import Thumbnai3 from '../../assets/images/thumbnail3.png'
+
+const data = [
+  {
+    id: '1',
+    title: 'Micro-organisms s sdf ssdfasd',
+    thumbnail: Thumbnail,
+    author: 'Sarah William',
+  },
+  {
+    id: '2',
+    title: 'Micro-organisms',
+    thumbnail: Thumbnai2,
+    author: 'Sarah William',
+  },
+  {
+    id: '3',
+    title: 'Micro-organisms',
+    thumbnail: Thumbnai3,
+    author: 'Sarah William',
+  },
+  {
+    id: '4',
+    title: 'Micro-organisms',
+    thumbnail: Thumbnail,
+    author: 'Sarah William',
+  },
+  {
+    id: '5',
+    title: 'Micro-organisms',
+    thumbnail: Thumbnai2,
+    author: 'Sarah William',
+  },
+  {
+    id: '6',
+    title: 'Micro-organisms',
+    thumbnail: Thumbnai3,
+    author: 'Sarah William',
+  },
+]
 
 const BrowserCourse = () => {
+  const renderItem = ({ item }: any) => (
+    <CourseCard
+      id={item.id}
+      title={item.title}
+      thumbnail={item.thumbnail}
+      author={item.author}
+    />
+  )
+
   return (
     <ScrollView>
-      <Card backgroundColor='white'>
-        <View style={styles.searchBar}>
-          <TextInput
-            placeholder='Search Certificate...'
-            style={[theme.textVariants.body, styles.searchInput]}
-          />
-          <TouchableOpacity activeOpacity={0.8} style={styles.searchButton}>
-            <SearchIcon height={20} fill={theme.colors.darkSilver} />
-          </TouchableOpacity>
-        </View>
-        <View
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-          }}>
+      <Card
+        variant='elevated'
+        borderRadius='l'
+        marginBottom='l'
+        backgroundColor='white'>
+        <SearchBar style={{ width: width - 3 * theme.spacing.l }} />
+        <View style={{ alignItems: 'flex-start' }}>
           <TouchableOpacity activeOpacity={0.9} style={styles.filterButton}>
-            <Text
-              style={[
-                theme.textVariants.body,
-                { color: theme.colors.primary },
-              ]}>
+            <Text variant='body' marginRight='s' color='primary'>
               Filter
             </Text>
-            <FilterIcon />
+            <Icon name={'filter'} color={theme.colors.primary} size={15} />
           </TouchableOpacity>
         </View>
+        <FlatList
+          style={{
+            paddingTop: theme.spacing.m,
+            paddingBottom: theme.spacing.m,
+          }}
+          data={data}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+          numColumns={2}
+        />
       </Card>
     </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
-  searchBar: {
-    display: 'flex',
-    flexDirection: 'row',
-    paddingVertical: 15,
-    width: width - 3 * theme.spacing.l,
-  },
-  searchInput: {
-    backgroundColor: '#F5F4F4',
-    color: theme.colors.darkSilver,
-    paddingLeft: theme.spacing.l,
-    borderColor: theme.colors.darkSilver,
-    width: '100%',
-    height: 45,
-    borderWidth: 0.2,
-    borderRightWidth: 0,
-    borderTopLeftRadius: 5,
-    borderBottomLeftRadius: 5,
-  },
-  searchButton: {
-    height: 45,
-    width: 45,
-    backgroundColor: '#F5F4F4',
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: 0.2,
-    borderTopRightRadius: 5,
-    borderBottomRightRadius: 5,
-  },
   filterButton: {
     backgroundColor: theme.colors.lightBlue,
     display: 'flex',
