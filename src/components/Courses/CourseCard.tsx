@@ -10,22 +10,20 @@ const CourseCard = ({ title, thumbnail, author }: any) => {
       backgroundColor='white'
       borderRadius='m'
       padding='none'
-      width={
-        (Dimensions.get('window').width -
-          2 * theme.spacing.s -
-          2 * theme.spacing.l) /
-        2
-      }
+      width={(Dimensions.get('window').width - 6 * theme.spacing.s) / 2}
       margin='s'>
       <Image style={styles.thumbnail} source={thumbnail} />
       <View style={{ padding: theme.spacing.s }}>
         <View style={styles.title}>
-          <Text numberOfLines={1} variant='courseTitle'>
+          <Text
+            numberOfLines={1}
+            style={{ width: '90%' }}
+            variant='courseTitle'>
             {title}
           </Text>
           <BookMarkIcon style={{ marginLeft: theme.spacing.s }} />
         </View>
-        <Text variant='body' color='darkSilver'>
+        <Text numberOfLines={1} variant='body' color='darkSilver'>
           By {author}
         </Text>
       </View>
@@ -46,7 +44,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    flexWrap: 'wrap',
   },
 })
 

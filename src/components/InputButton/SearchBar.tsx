@@ -26,15 +26,16 @@ const styles = StyleSheet.create({
   searchBar: {
     display: 'flex',
     flexDirection: 'row',
-    paddingVertical: 15,
+    width: '100%',
+    alignItems: 'stretch',
   },
   searchInput: {
     backgroundColor: '#F5F4F4',
     color: theme.colors.darkSilver,
     paddingLeft: theme.spacing.l,
     borderColor: theme.colors.darkSilver,
-    width: '100%',
     height: 45,
+    flex: 1,
     borderWidth: 0.2,
     borderRightWidth: 0,
     borderTopLeftRadius: 5,

@@ -2,9 +2,8 @@ import React from 'react'
 import { View, ScrollView, StyleSheet, FlatList } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import theme, { Card, Text } from '../../theme'
-import { width } from '../../constants'
 import Icon from 'react-native-vector-icons/Feather'
-import { SearchBar, CourseCard } from '../../components'
+import { SearchBar, CourseCard, Button } from '../../components'
 
 // Testing Data
 import Thumbnail from '../../assets/images/thumbnail1.png'
@@ -51,6 +50,18 @@ const data = [
 ]
 
 const BrowserCourse = () => {
+  const [search, setSearch] = React.useState('')
+
+  const onSearch = () => {
+    console.log('searching')
+    return
+  }
+  const onPrev = () => {
+    return
+  }
+  const onNext = () => {
+    return
+  }
   const renderItem = ({ item }: any) => (
     <CourseCard
       id={item.id}
@@ -66,8 +77,13 @@ const BrowserCourse = () => {
         variant='elevated'
         borderRadius='l'
         marginBottom='l'
-        backgroundColor='white'>
-        <SearchBar style={{ width: width - 3 * theme.spacing.l }} />
+        backgroundColor='white'
+        padding='s'>
+        <SearchBar
+          value={search}
+          onChange={(text: string) => setSearch(text)}
+          onSubmit={() => onSearch()}
+        />
         <View style={{ alignItems: 'flex-start' }}>
           <TouchableOpacity activeOpacity={0.9} style={styles.filterButton}>
             <Text variant='body' marginRight='s' color='primary'>
@@ -77,15 +93,36 @@ const BrowserCourse = () => {
           </TouchableOpacity>
         </View>
         <FlatList
-          style={{
-            paddingTop: theme.spacing.m,
-            paddingBottom: theme.spacing.m,
-          }}
           data={data}
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
           numColumns={2}
         />
+        <View
+          style={{
+            marginVertical: theme.spacing.s,
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'flex-end',
+          }}>
+          <Button
+            onPress={onPrev}
+            variant='default'
+            style={{ backgroundColor: 'white' }}
+            iconSize={18}
+            label='Previous'
+            icon='chevron-left'
+          />
+          <Button
+            onPress={onNext}
+            variant='default'
+            style={{ backgroundColor: 'white' }}
+            iconSize={18}
+            label='Next'
+            icon='chevron-right'
+            iconRight={true}
+          />
+        </View>
       </Card>
     </ScrollView>
   )
@@ -100,6 +137,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
     borderRadius: 5,
+    marginVertical: theme.spacing.s,
   },
 })
 export default BrowserCourse

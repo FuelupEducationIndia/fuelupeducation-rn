@@ -6,14 +6,20 @@ import { ActivityIndicator } from 'react-native'
 export interface ButtonProps extends React.ComponentProps<typeof BaseButton> {
   loading?: boolean
   label: string
+  labelColor?: string
   icon?: string
+  iconSize?: number
+  iconRight?: boolean
   block?: boolean
 }
 
 const Button = ({
   loading,
   icon,
+  iconRight,
+  iconSize,
   label,
+  labelColor,
   block,
   onPress = () => true,
   ...props
@@ -25,7 +31,7 @@ const Button = ({
       : 'white'
   return (
     <BaseButton
-      flexDirection='row'
+      flexDirection={iconRight ? 'row-reverse' : 'row'}
       justifyContent='center'
       activeOpacity={0.7}
       alignItems='center'
@@ -33,7 +39,7 @@ const Button = ({
       onPress={!loading ? onPress : () => true}
       {...props}>
       {icon && !loading ? (
-        <Icon name={icon} color={theme.colors[color]} />
+        <Icon name={icon} color={theme.colors[color]} size={iconSize} />
       ) : null}
       {loading ? (
         <ActivityIndicator color={theme.colors[color]} size='small' />
