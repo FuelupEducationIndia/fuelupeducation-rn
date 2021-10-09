@@ -17,7 +17,7 @@ const CourseCard = ({ title, thumbnail, author }: any) => {
         <View style={styles.title}>
           <Text
             numberOfLines={1}
-            style={{ width: '90%' }}
+            style={{ width: '85%' }}
             variant='courseTitle'>
             {title}
           </Text>
