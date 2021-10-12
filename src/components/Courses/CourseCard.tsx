@@ -1,9 +1,15 @@
 import React from 'react'
-import { View, Image, StyleSheet } from 'react-native'
+import { View, Image, StyleSheet, ImageProps } from 'react-native'
 import theme, { Card, Text } from '../../theme'
 import BookMarkIcon from '../../assets/svgs/bookmark-icon.svg'
 import { Dimensions } from 'react-native'
-const CourseCard = ({ title, thumbnail, author }: any) => {
+
+interface CourseCardProps {
+  title: string
+  thumbnail: ImageProps
+  teacherName: string
+}
+const CourseCard = ({ title, thumbnail, teacherName }: CourseCardProps) => {
   return (
     <Card
       variant='elevated'
@@ -24,7 +30,7 @@ const CourseCard = ({ title, thumbnail, author }: any) => {
           <BookMarkIcon style={{ marginLeft: theme.spacing.s }} />
         </View>
         <Text numberOfLines={1} variant='body' color='darkSilver'>
-          By {author}
+          By {teacherName}
         </Text>
       </View>
     </Card>

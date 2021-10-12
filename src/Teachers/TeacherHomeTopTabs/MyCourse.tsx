@@ -39,22 +39,22 @@ const MyCourse = () => {
             }}>
             <CountCard
               title='Completed course'
-              backgroundColor='skyBlue'
+              backgrounColor={{ color: 'lightOrange' }}
               count={18}
             />
             <CountCard
               title='Certificate earned'
-              backgroundColor='skyBlue'
+              backgrounColor={{ color: 'skyBlue' }}
               count={18}
             />
             <CountCard
               title='Course in progress'
-              backgroundColor='skyBlue'
+              backgrounColor={{ color: 'lightGreen' }}
               count={18}
             />
             <CountCard
               title='Form discussions'
-              backgroundColor='skyBlue'
+              backgrounColor={{ color: 'skyBlue' }}
               count={18}
             />
           </View>

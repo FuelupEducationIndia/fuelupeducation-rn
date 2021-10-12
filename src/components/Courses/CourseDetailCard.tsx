@@ -1,7 +1,18 @@
 import React from 'react'
-import { View, Image, StyleSheet } from 'react-native'
+import { View, Image, StyleSheet, ImageProps } from 'react-native'
 import theme, { Card, Text } from '../../theme'
 import { Button } from '..'
+
+interface CourseDetailCardProps {
+  title: string
+  thumbnail: ImageProps
+  teacherPicture: ImageProps
+  teacherName: string
+  postDate: string
+  description: string
+  cretLec?: boolean
+  thumbnailTitle?: string
+}
 
 const CourseDetailCard = ({
   title,
@@ -10,7 +21,9 @@ const CourseDetailCard = ({
   teacherPicture,
   postDate,
   description,
-}: any) => {
+  cretLec,
+  thumbnailTitle,
+}: CourseDetailCardProps) => {
   return (
     <Card
       variant='elevated'
@@ -19,7 +32,13 @@ const CourseDetailCard = ({
       padding='none'
       width={250}
       margin='s'>
+      {cretLec ? <View style={styles.eclips}></View> : null}
       <Image style={styles.thumbnail} source={thumbnail} />
+      <View style={styles.thumbnailText}>
+        <Text variant='button' textAlign='center' style={{ zIndex: 1 }}>
+          {thumbnailTitle}
+        </Text>
+      </View>
       <View style={{ padding: theme.spacing.s }}>
         <Text variant='courseTitle' marginBottom='s'>
           {title}
@@ -46,7 +65,7 @@ const CourseDetailCard = ({
           paddingHorizontal='m'
           variant='primary'
           marginVertical='s'
-          label='View'
+          label={cretLec ? 'Enter' : 'View'}
         />
       </View>
     </Card>
@@ -61,6 +80,14 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: theme.borderRadii.m,
     borderTopRightRadius: theme.borderRadii.m,
   },
+  thumbnailText: {
+    position: 'absolute',
+    width: '100%',
+    height: 160,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: theme.spacing.m,
+  },
   title: {
     display: 'flex',
     flexDirection: 'row',
@@ -72,6 +99,16 @@ const styles = StyleSheet.create({
     width: 35,
     resizeMode: 'cover',
     marginRight: theme.spacing.s,
+  },
+  eclips: {
+    width: 20,
+    height: 20,
+    backgroundColor: '#F16600',
+    borderRadius: 10,
+    position: 'absolute',
+    zIndex: 1,
+    right: 20,
+    marginTop: -5,
   },
 })
 

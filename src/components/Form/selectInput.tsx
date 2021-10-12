@@ -9,11 +9,15 @@ const SelectInput = ({
   placeholder,
   onValueChange,
   title,
+  value,
 }: CustomPickerProps & any) => {
   return (
     <View>
-      <Text variant='body'>{title}</Text>
+      <Text variant='body' color='darkSilver' marginBottom='s'>
+        {title} *
+      </Text>
       <CustomPicker
+        value={value}
         containerStyle={styles.container}
         options={options}
         placeholder={placeholder}
@@ -34,7 +38,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     height: 45,
     padding: 0,
-    marginBottom: theme.spacing.s,
+    marginBottom: theme.spacing.m,
   },
   innerContainer: {
     borderBottomWidth: 0,
