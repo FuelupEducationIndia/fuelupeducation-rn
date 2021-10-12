@@ -1,5 +1,5 @@
 import React from 'react'
-import { BaseButton, Text, useTheme } from '../../theme'
+import { BaseButton, Text, Theme, useTheme } from '../../theme'
 import Icon from 'react-native-vector-icons/Feather'
 import { ActivityIndicator } from 'react-native'
 

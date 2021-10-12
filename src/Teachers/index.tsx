@@ -4,7 +4,7 @@ import React from 'react'
 import { TouchableOpacity, View } from 'react-native'
 import { Text } from '../theme'
 import { TeacherRoutes } from '../types/navigation'
-import { HomeTab } from './TeacherBottomTabs'
+import { HomeTab, DemoTab } from './TeacherBottomTabs'
 import theme from '../theme'
 
 // Tab Icons import
@@ -41,7 +41,7 @@ const TeachersNavigator = () => (
     />
     <TeachersTab.Screen
       name='Search'
-      component={HomeTab}
+      component={DemoTab}
       options={{
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center' }}>
@@ -55,7 +55,7 @@ const TeachersNavigator = () => (
     />
     <TeachersTab.Screen
       name='MyCourse'
-      component={HomeTab}
+      component={DemoTab}
       options={{
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center' }}>
@@ -69,7 +69,7 @@ const TeachersNavigator = () => (
     />
     <TeachersTab.Screen
       name='Profile'
-      component={HomeTab}
+      component={DemoTab}
       options={{
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center' }}>
@@ -83,7 +83,7 @@ const TeachersNavigator = () => (
     />
     <TeachersTab.Screen
       name='More'
-      component={HomeTab}
+      component={DemoTab}
       options={{
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center' }}>
