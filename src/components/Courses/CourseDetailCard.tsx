@@ -41,7 +41,13 @@ const CourseDetailCard = ({
             </Text>
           </View>
         </View>
-        <Button variant='primary' marginVertical='s' label='View' />
+        <Button
+          alignSelf='flex-start'
+          paddingHorizontal='m'
+          variant='primary'
+          marginVertical='s'
+          label='View'
+        />
       </View>
     </Card>
   )
