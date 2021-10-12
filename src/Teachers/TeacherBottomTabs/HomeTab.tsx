@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, StyleSheet } from 'react-native'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
-import { BrowseCourse } from '../TeacherHomeTopTabs/index'
+import { BrowseCourse, MyCourse, Lectures } from '../TeacherHomeTopTabs/index'
 import { TeacherHomeTabRoutes } from '../../types/navigation'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import theme, { Card, Box } from '../../theme'
@@ -76,7 +76,7 @@ const HomeTab = () => {
         />
         <TeacherHomeTopTab.Screen
           name='MyCourse'
-          component={BrowseCourse}
+          component={MyCourse}
           options={{
             tabBarLabel: ({ focused }) => (
               <Text
@@ -88,7 +88,7 @@ const HomeTab = () => {
         />
         <TeacherHomeTopTab.Screen
           name='Lectures'
-          component={BrowseCourse}
+          component={Lectures}
           options={{
             tabBarLabel: ({ focused }) => (
               <Text
