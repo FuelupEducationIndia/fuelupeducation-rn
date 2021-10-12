@@ -102,7 +102,7 @@ const BrowserCourse = () => {
                 key={data.id}
                 title={data.title}
                 thumbnail={data.thumbnail}
-                author={data.author}
+                teacherName={data.author}
               />
             )
           })}

@@ -74,6 +74,8 @@ const Lectures = () => {
                       teacherName={data.teacherName}
                       teacherPicture={data.teacherPicture}
                       postDate={data.postDate}
+                      cretLec={true}
+                      thumbnailTitle={data.thubnailTitle}
                     />
                   )
                 })}
@@ -139,6 +141,7 @@ const createLecture = [
     id: '0',
     title: 'Micro-organisms',
     thumbnail: Thumbnail1,
+    thubnailTitle: 'Streaming Now',
     teacherName: 'Sarah William',
     teacherPicture: TeacherImage,
     description:
@@ -149,6 +152,7 @@ const createLecture = [
     id: '1',
     title: 'Micro-organisms',
     thumbnail: Thumbnail1,
+    thubnailTitle: 'Will be lived at 8:30 AM',
     teacherName: 'Sarah William',
     teacherPicture: TeacherImage,
     description:
