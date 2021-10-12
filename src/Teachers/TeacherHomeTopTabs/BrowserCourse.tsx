@@ -99,6 +99,7 @@ const BrowserCourse = () => {
           {data.map((data) => {
             return (
               <CourseCard
+                key={data.id}
                 title={data.title}
                 thumbnail={data.thumbnail}
                 author={data.author}

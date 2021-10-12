@@ -69,6 +69,7 @@ const MyCourse = () => {
             {data.map((data) => {
               return (
                 <CourseDetailCard
+                  key={data.id}
                   title={data.title}
                   thumbnail={data.thumbnail}
                   description={data.description}
@@ -112,6 +113,7 @@ const MyCourse = () => {
 
 const data = [
   {
+    id: '0',
     title: 'Micro-organisms',
     thumbnail: Thumbnail1,
     teacherName: 'Sarah William',
@@ -121,6 +123,7 @@ const data = [
     postDate: 'Jan 10th, 2021',
   },
   {
+    id: '1',
     title: 'Micro-organisms',
     thumbnail: Thumbnail1,
     teacherName: 'Sarah William',
