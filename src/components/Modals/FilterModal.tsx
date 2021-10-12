@@ -6,21 +6,25 @@ import { height, width } from '../../constants'
 import SelectInput from '../Form/selectInput'
 import { Button } from '..'
 
-const courseOptions = ['Jatt', 'Latt', 'cutt']
+const courseOptions = ['University', 'IITs', 'Nits']
 
 const FilterModal = ({ visible, onRequestClose }: ModalProps) => {
-  const [course, setCourse] = React.useState('')
+  const [college, setCollege] = React.useState()
+  const [course, setCourse] = React.useState()
+  const [lecture, setLecture] = React.useState()
+  const [lang, setLang] = React.useState()
+  const [date, setDate] = React.useState()
 
   return (
     <Modal visible={visible} animationType='slide' transparent={true}>
       <Card
-        top={height / 4}
         width={width / 1.2}
+        top={height / 5.5}
         variant='elevated'
         backgroundColor='white'
         borderRadius='l'>
         <View style={styles.header}>
-          <Text variant='body'>
+          <Text variant='body' fontWeight='600'>
             Filter |{' '}
             <Text variant='body' color='blue'>
               Clear All
@@ -30,6 +34,7 @@ const FilterModal = ({ visible, onRequestClose }: ModalProps) => {
         </View>
         <View style={{ marginBottom: theme.spacing.m }}>
           <SelectInput
+            value={college}
             placeholder='-Select-'
             containerStyle={{
               backgroundColor: theme.colors.danger,
@@ -37,11 +42,12 @@ const FilterModal = ({ visible, onRequestClose }: ModalProps) => {
             }}
             options={courseOptions}
             onValueChange={(value: any) => {
-              setCourse(value)
+              setCollege(value)
             }}
             title='Board/ University'
           />
           <SelectInput
+            value={course}
             placeholder='-Select-'
             containerStyle={{
               backgroundColor: theme.colors.danger,
@@ -54,6 +60,7 @@ const FilterModal = ({ visible, onRequestClose }: ModalProps) => {
             title='Course'
           />
           <SelectInput
+            value={lecture}
             placeholder='-Select-'
             containerStyle={{
               backgroundColor: theme.colors.danger,
@@ -61,11 +68,12 @@ const FilterModal = ({ visible, onRequestClose }: ModalProps) => {
             }}
             options={courseOptions}
             onValueChange={(value: any) => {
-              setCourse(value)
+              setLecture(value)
             }}
             title='Lecture'
           />
           <SelectInput
+            value={lang}
             placeholder='-Select-'
             containerStyle={{
               backgroundColor: theme.colors.danger,
@@ -73,11 +81,12 @@ const FilterModal = ({ visible, onRequestClose }: ModalProps) => {
             }}
             options={courseOptions}
             onValueChange={(value: any) => {
-              setCourse(value)
+              setLang(value)
             }}
             title='Languages'
           />
           <SelectInput
+            value={date}
             placeholder='-Select-'
             containerStyle={{
               backgroundColor: theme.colors.danger,
@@ -85,7 +94,7 @@ const FilterModal = ({ visible, onRequestClose }: ModalProps) => {
             }}
             options={courseOptions}
             onValueChange={(value: any) => {
-              setCourse(value)
+              setDate(value)
             }}
             title='Date Posted'
           />
