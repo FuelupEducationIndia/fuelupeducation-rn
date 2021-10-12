@@ -28,6 +28,7 @@ const RadioGroup = ({
         return (
           <RadioButton
             label={data}
+            key={data}
             activeButton={activeButton}
             buttonStyle={buttonStyle}
             onChange={onChange}
