@@ -1,13 +1,18 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
-import theme, { Card, Text } from '../../theme'
+import theme, { Card, Text, Theme } from '../../theme'
 import { Dimensions } from 'react-native'
-import { Theme } from '@react-navigation/native'
+import { ColorProps } from '@shopify/restyle'
 
-const CountCard = ({ title, count, backgroundColor }: Theme & any) => {
+interface CountCardProps {
+  title: string
+  count: number
+  backgrounColor: ColorProps<Theme>
+}
+const CountCard = ({ title, count, backgrounColor }: CountCardProps) => {
   return (
     <Card
-      backgroundColor={backgroundColor}
+      backgroundColor={backgrounColor.color}
       borderRadius='m'
       padding='s'
       width={(Dimensions.get('window').width - 6 * theme.spacing.s) / 2}
