@@ -49,6 +49,7 @@ const colors = {
   transparent: palette.transparent,
   lightGreen: palette.lightGreen,
   lightOrange: palette.lightOrange,
+  Orange:palette.orange,
 }
 
 export default colors

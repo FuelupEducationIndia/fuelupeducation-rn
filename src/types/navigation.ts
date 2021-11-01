@@ -33,6 +33,12 @@ export interface TeacherHomeTabProps<
   navigation: MaterialTopTabScreenProps<TeacherHomeTabRoutes, RouteName>
   route: RouteProp<TeacherHomeTabRoutes, RouteName>
 }
+export interface DashboardTabProps<
+  RouteName extends keyof DashboardTabRoutes
+> {
+  navigation: MaterialTopTabScreenProps<DashboardTabRoutes, RouteName>
+  route: RouteProp<DashboardTabRoutes, RouteName>
+}
 
 export type AuthRoutes = {
   Start: undefined
@@ -41,6 +47,7 @@ export type AuthRoutes = {
   BasicInfo: undefined
   SignUp: undefined
   SignUpInfo: undefined
+  HomeTab:undefined
   SignUpSuccess: String
 }
 
@@ -61,7 +68,12 @@ export type TeacherHomeTabRoutes = {
   Attendance: undefined
   Certificate: undefined
 }
-
+export type DashboardTabRoutes = {
+  Pending: undefined
+  InReview: undefined
+  CompletedDash: undefined
+ 
+}
 export const stackScreenOptions = {
   cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
   headerShown: false,
