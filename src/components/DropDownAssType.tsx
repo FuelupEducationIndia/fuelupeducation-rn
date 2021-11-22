@@ -10,7 +10,7 @@ const DropDownAssType = () => {
       <Picker
        mode='dropdown'
         selectedValue={selectedValue}
-        style={{ height: 30, width: 300}}
+        style={{ height: 30, width: 290}}
         onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
       >
           <Picker.Item label="--Select--" value="--Select--" />
@@ -31,11 +31,11 @@ const DropDownAssType = () => {
 
 const styles = StyleSheet.create({
   container: {
-    top:20,
-    flex: 1,
+    top:5,
+    // flex: 1,
     
-    height:30,
-    width:300,
+    height:40,
+    width:290,
     backgroundColor:'rgba(209, 214, 255, 0.5)',
     borderRadius:10,
     marginHorizontal:30,

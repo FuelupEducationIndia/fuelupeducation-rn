@@ -21,7 +21,7 @@ import Twitter from '../../assets/svgs/Twitter.svg'
 import { backgroundColor } from '@shopify/restyle'
 
 
-const Profiletab=({navigation})=>{
+const MainProfiletab=({navigation})=>{
   const [toggle, setToggle] = useState(false);
   const [isModalVisible, setIsModalVisible] = React.useState(false);
 
@@ -588,4 +588,4 @@ const styles = StyleSheet.create({
 });
  
 
-export default Profiletab
+export default MainProfiletab

@@ -101,7 +101,7 @@ const onNext = (Value: number) =>
     </Card>
 
 
-    <View style={{flexDirection:'row',position:'relative',left:110}}>
+    <View style={{flexDirection:'row',position:'relative',left:130}}>
             <TouchableOpacity
             style={{marginVertical:theme.spacing.xl,backgroundColor:'#380885',width:100,height:30,borderRadius:20,}}
          onPress={props.onPress}>
@@ -109,7 +109,7 @@ const onNext = (Value: number) =>
           </TouchableOpacity>
           <View style={{marginVertical:theme.spacing.xl,}}>
           <TouchableOpacity
-            style={{backgroundColor:'white',width:90,height:30,borderRadius:20,left:20}}>
+            style={{backgroundColor:'white',width:90,height:30,borderRadius:20,marginHorizontal:20}}>
          <Text style={{color:'#380885',}}>Save for Later</Text>
          <Text style={{height:1,width:'100%',backgroundColor:'#380885',}}>__________</Text>
           </TouchableOpacity>

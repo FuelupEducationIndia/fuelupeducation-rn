@@ -32,10 +32,10 @@ const DropDownLang = () => {
 
 const styles = StyleSheet.create({
   container: {
-  marginHorizontal:20,
+  marginHorizontal:30,
     flex: 1,
     // paddingTop: 40,
-    right:20,
+    bottom:10,
     height:40,
     width:130,
     backgroundColor:'rgba(209, 214, 255, 0.5)',

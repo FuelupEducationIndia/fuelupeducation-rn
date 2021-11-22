@@ -114,6 +114,11 @@ export const Profiletab=({navigation})=>{
       this.bs.current.snapTo(1)
     });
   }
+
+  const RemoveImage=()=>{
+    console.log("Your Image Successfully Removed")
+    
+  }
   
 // renderInner=()=>(
   return (
@@ -219,7 +224,7 @@ width:200,backgroundColor:'#E5E5E5',marginHorizontal:100,borderRadius:10}}
       > 
         <MenuItem onPress={Camera}>Take Photo</MenuItem>
         <MenuItem onPress={ChooseFile}>Upload Photo</MenuItem>
-        <MenuItem onPress={()=>alert("Are You Sure Remove this Photo ")}>Remove Photo</MenuItem>
+        <MenuItem onPress={()=>alert("Your Image Remove Succesfully")}>Remove Photo</MenuItem>
       </Menu> 
         </View>
 
@@ -719,7 +724,7 @@ placeholder=""
       </View>
         </View>
         <View style={{top:40}}>
-          <TouchableOpacity onPress={()=>alert("Your Data is Succesfully Updated")} style={{height:35,width:140,backgroundColor:'#F16600',borderRadius:10,marginHorizontal:170}}>
+          <TouchableOpacity onPress={()=>navigation.navigate('MainProfiletab')} style={{height:35,width:140,backgroundColor:'#F16600',borderRadius:10,marginHorizontal:170}}>
           <Text
                
                style={[

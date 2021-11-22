@@ -8,6 +8,7 @@ import {
   Blank,
   Exam,
   Assignment,
+  Certificate,
 } from '../TeacherHomeTopTabs/index'
 import { TeacherHomeTabRoutes } from '../../types/navigation'
 import { SafeAreaView } from 'react-native-safe-area-context'

@@ -1,7 +1,7 @@
 import React from 'react'
 import { View,  StyleSheet, TextInput ,Dimensions,TouchableOpacity, ScrollView ,Picker} from 'react-native'
 import theme, { Card, Text } from '../../theme'
-import Right from '../../assets/svgs/right.svg'
+import Right from '../../assets/svgs/Right.svg'
 import DownArrow from '../../assets/svgs/Darraow.svg'
 import { backgroundColor } from '@shopify/restyle'
 import DiffLevel from '../../components/DiffLevel'
@@ -420,7 +420,7 @@ const Createquestion2 =()=>{
   );
 
 }
-const width = Dimensions.get('window').width -220;
+const width = Dimensions.get('window').width -240;
 
 const styles = StyleSheet.create({
   container : {
@@ -438,7 +438,7 @@ const styles = StyleSheet.create({
     // paddingTop: 40,
     // top:10,
     height:40,
-    width:140,
+    width:width,
     backgroundColor:'rgba(209, 214, 255, 0.5)',
     borderRadius:10,
   //  bottom:20,

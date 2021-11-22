@@ -1,25 +1,44 @@
 import React, { createRef } from 'react'
-import { View, ScrollView ,Text, TouchableOpacity,Button,StyleSheet} from 'react-native'
+import { View, ScrollView ,Text, TouchableOpacity,StyleSheet,FlatList,SafeAreaView} from 'react-native'
 import theme, { Card } from '../../theme'
 import { Completed,CreateExam, CreateSection, RadioGroup ,CreateDashboard,CreateQuestion} from '../../components'
-import { Picker } from '@react-native-picker/picker'
-import DownArrow from '../../assets/svgs/Vector.svg'
-
 // import ActionSheet from "react-native-actions-sheet";
-import { Value } from 'react-native-reanimated'
-import { TERMINATORLESS_TYPES } from '@babel/types'
-import { backgroundColor } from '@shopify/restyle'
 import DropDownPicC from '../../components/PicCourseDropDown'
+import Minus from '../../assets/svgs/Minus.svg'
+import Add from '../../assets/svgs/AddR.svg'
 
 
 //const courseOptions = ['University', 'IITs', 'Nits']
 
 
-const topButtons = ['Dasboard', 'Create Lecture']
+const DATA = [
+  {
+   
+  },
+  {
+    
+  },
+  {
+   
+  },
+  {
+    
+   },
+   {
+  
+   },
+   {
+    
+   },
+];
+
+const topButtons = ['Dashboard', 'Create Lecture']
+
 const Exam = () => {
   const [activeButton, setActiveButton] = React.useState(topButtons[0])
   const [selectedValue, setSelectedValue] = React.useState("MO 2021 - Micro Organism");
   const [change,setChange] = React.useState(0);
+  const [data , setData] = React.useState(DATA)
 
   const onNext = (Value: number) =>
   {
@@ -39,7 +58,109 @@ const Exam = () => {
     }
   
   };
+
+
   
+  const onSelect = (index) => {
+
+    //  console.log("index:", index);
+       var temp = data;
+       console.log('temp:', temp);
+      temp.map((v, i, arr) => {
+         //return undefined.apply(v, i, arr)
+         // console.log('v:',v);
+         console.log('i:',i);
+         // // console.log('arr:',arr);
+         if (index == i) {
+           console.log("id condition run", index, " == ", i);
+         temp[index].collect = 1;
+         }
+       
+      });
+       setData([...temp]);
+     
+ 
+   }
+  
+const renderItem = ({ item, index }) =>{
+  if(item.collect == 1){
+    return(
+      <>
+      <View style={{backgroundColor:theme.colors.lightBlue}}>
+<View style={{flexDirection:'row',height:'auto'}}>
+<TouchableOpacity onPress={() => onSelect(item)} style={{height:20,width:20,justifyContent:'center',marginHorizontal:2,top:5}}>
+      <Minus/>
+</TouchableOpacity>
+        <View style={{flexDirection:'column',marginHorizontal:10}}>
+        <Text style={{color:theme.colors.darkSilver,fontWeight:'200',marginHorizontal:5}}>ss2021-</Text>
+        <Text style={{marginTop:-3,fontSize:11,color:theme.colors.darkSilver, marginHorizontal:5}}>The Solar System</Text>
+       </View>
+        <Text style={{marginHorizontal:20,marginVertical:10,color:theme.colors.darkSilver}}>Trigonometry</Text>
+  <Text style={{color:theme.colors.darkSilver,marginVertical:10,marginHorizontal:40}}>English
+  </Text>
+      </View>
+      <View style={{height:1,width:'100%',backgroundColor:'lightgrey',marginVertical:10,marginLeft:38}}></View>
+  <View style={{marginHorizontal:40,marginVertical:5}}>
+    <View style={{flexDirection:'row',marginVertical:5}}>
+    <Text>Board/Uni</Text>
+    <Text style={{marginHorizontal:62,color:theme.colors.darkSilver}}>Rajsthan</Text>
+    </View>
+    <View style={{flexDirection:'row',marginVertical:5}}>
+    <Text>Questions</Text>
+    <Text style={{marginHorizontal:65,color:theme.colors.darkSilver}}>40</Text>
+    </View>
+    <View style={{flexDirection:'row',marginVertical:5}}>
+    <Text>Instructor</Text>
+    <Text style={{marginHorizontal:69,color:theme.colors.darkSilver}}>Instructor Name</Text>
+    </View>
+    <View style={{flexDirection:'row',marginVertical:5}}>
+    <Text>Collabarators</Text>
+    <View style={{flexDirection:'column',}}>
+    <Text style={{marginHorizontal:46,color:theme.colors.darkSilver}}>Instructor1 Instructor2 </Text>
+    <Text  style={{color:theme.colors.darkSilver,marginTop:-12,marginHorizontal:46,}}>_______________________</Text>
+    </View>
+    </View>
+    <View style={{flexDirection:'row',marginVertical:5}}>
+    <Text>Status</Text>
+    <Text style={{marginHorizontal:90,color:theme.colors.secondary}}>Pending</Text>
+    </View>
+    <View style={{flexDirection:'column',}}>
+    <Text style={{color:'red'}}>Delete</Text>
+    <Text  style={{color:'red',marginTop:-14}}>_______</Text>
+    </View>
+  </View>
+  </View>
+  <View style={{height:1,width:'87%',backgroundColor:'grey',marginVertical:10,marginLeft:38}}></View>
+
+  </>
+    );
+  }
+  else if (item.collect != 1 ) {
+  return(
+    <View style={{flexDirection:'column'}}>
+    <View style={{flexDirection:'row',}}>
+    <TouchableOpacity onPress={() => onSelect(index)} style={{height:20,width:20,justifyContent:'center',left:5}}>
+        <Add/>
+         </TouchableOpacity>   
+        <View style={{flexDirection:'column',marginHorizontal:5}}>
+        <Text style={{color:theme.colors.darkSilver,fontWeight:'200',}}>ss2021-</Text>
+        <Text style={{marginTop:-3,fontSize:11,color:theme.colors.darkSilver}}>The Solar System</Text>
+       </View>
+        <Text style={{marginHorizontal:20,marginVertical:10,color:theme.colors.darkSilver}}>Trigonometry</Text>
+  <Text style={{color:theme.colors.darkSilver,marginVertical:10,marginHorizontal:40}}>English
+  </Text>
+      </View>
+      <View style={{height:1,width:'87%',backgroundColor:'grey',marginVertical:10,marginLeft:38}}></View>
+
+      </View>
+  );
+  }
+  else{
+    null;
+  }
+}
+
+
 
   return (
 
@@ -83,7 +204,7 @@ const Exam = () => {
       </Card>
       <View>
       {activeButton == topButtons[0] ? (
-     <View style={{marginVertical:20 ,}}>
+     <View style={{marginVertical:8 ,}}>
 
      </View>
            ) : (
@@ -121,13 +242,13 @@ const Exam = () => {
                        {backgroundColor: change >= 3 ? '#380885' : 'white'}
             ]}>
             </View>
-            <View    style={[styles.view,
+            {/* <View    style={[styles.view,
                             //  {backgroundColor: change >= 3 ? '#380885' : 'white'},
                              {borderColor : change == 3 ? '#380885' : 'white' },
                              {borderWidth : change == 3 ? 4 : 0}
 
             ]} >
-            </View>
+            </View> */}
     
             </View>
             )}
@@ -187,7 +308,7 @@ const Exam = () => {
       </Card>
       <View>
       {activeButton == topButtons[0] ? (
-     <View style={{marginVertical:20 ,}}>
+     <View style={{marginTop:-10}}>
          <Card
       
       variant='elevated'
@@ -205,114 +326,26 @@ const Exam = () => {
       // margin='s'
     >
     <View style={{height:2,width:'97%',marginHorizontal:5,backgroundColor:'lightgrey',marginVertical:10,}}></View>
-    <View style={{flexDirection:'row',marginHorizontal:0,}}>
+    <View style={{flexDirection:'row',marginHorizontal:20,}}>
       <Text style={{color:theme.colors. darkSilver,fontSize:15}} >Exam Title</Text>
       <Text  style={{marginHorizontal:50,color:theme.colors. darkSilver,fontSize:15}}  >Date Submitted</Text>
       <Text  style={{color:theme.colors. darkSilver,fontSize:15}} >Status</Text>
       </View>
 
       <View style={{height:2,width:'97%',marginHorizontal:5,backgroundColor:'lightgrey',marginVertical:10,}}></View>
-    <View style={{flexDirection:'row',}}>
-    <TouchableOpacity style={{backgroundColor:theme.colors.secondary,height:20,width:20,borderRadius:20,marginVertical:10,marginHorizontal:6}}>
-  <Text style={{fontSize:20,color:theme.colors.white,fontWeight:'bold',marginTop:-1,marginLeft:7}}>-</Text>
-</TouchableOpacity>
-        <View style={{flexDirection:'column',marginHorizontal:5}}>
-        <Text style={{color:theme.colors.darkSilver,fontWeight:'200',}}>ss2021-</Text>
-        <Text style={{marginTop:-3,fontSize:11,color:theme.colors.darkSilver}}>The Solar System</Text>
-       </View>
-        <Text style={{marginHorizontal:20,marginVertical:10,color:theme.colors.darkSilver}}>Trigonometry</Text>
-  <Text style={{color:theme.colors.darkSilver,marginVertical:10,marginHorizontal:25}}>English
-  </Text>
-      </View>
-      <View style={{height:1,width:'87%',backgroundColor:'grey',marginVertical:10,marginLeft:38}}></View>
-  <View style={{marginHorizontal:40,marginVertical:5}}>
-    <View style={{flexDirection:'row',marginVertical:5}}>
-    <Text>Board/Uni</Text>
-    <Text style={{marginHorizontal:62,color:theme.colors.darkSilver}}>Rajsthan</Text>
-    </View>
-    <View style={{flexDirection:'row',marginVertical:5}}>
-    <Text>Questions</Text>
-    <Text style={{marginHorizontal:65,color:theme.colors.darkSilver}}>40</Text>
-    </View>
-    <View style={{flexDirection:'row',marginVertical:5}}>
-    <Text>Instructor</Text>
-    <Text style={{marginHorizontal:69,color:theme.colors.darkSilver}}>Instructor Name</Text>
-    </View>
-    <View style={{flexDirection:'row',marginVertical:5}}>
-    <Text>Collabarators</Text>
-    <View style={{flexDirection:'column',}}>
-    <Text style={{marginHorizontal:46,color:theme.colors.darkSilver}}>Instructor1 Instructor2 </Text>
-    <Text  style={{color:theme.colors.darkSilver,marginTop:-12,marginHorizontal:46,}}>_______________________</Text>
-    </View>
-    </View>
-    <View style={{flexDirection:'row',marginVertical:5}}>
-    <Text>Status</Text>
-    <Text style={{marginHorizontal:90,color:theme.colors.secondary}}>Pending</Text>
-    </View>
-    <View style={{flexDirection:'column',}}>
-    <Text style={{color:'red'}}>Delete</Text>
-    <Text  style={{color:'red',marginTop:-14}}>_______</Text>
-    </View>
-  </View>
-      <View style={{height:1,width:'87%',backgroundColor:'grey',marginVertical:10,marginLeft:38}}></View>
+   
+      <SafeAreaView >
+      <FlatList
+        data={data}
+        keyExtractor={(item, index) => 'key'+index}
+        renderItem={renderItem}
+       // keyExtractor={item => item.id}
+      />
+    </SafeAreaView>
 
-      <View style={{flexDirection:'row',}}>
-    <TouchableOpacity style={{backgroundColor:theme.colors.primary,height:20,width:20,borderRadius:20,marginVertical:10,marginHorizontal:6}}>
-    <Text style={{fontSize:19,color:theme.colors.white,marginTop:-1,marginLeft:4.5}}>+</Text>
-</TouchableOpacity>
-        <View style={{flexDirection:'column',marginHorizontal:5}}>
-        <Text style={{color:theme.colors.darkSilver,fontWeight:'200',}}>ss2021-</Text>
-        <Text style={{marginTop:-3,fontSize:11,color:theme.colors.darkSilver}}>The Solar System</Text>
-       </View>
-        <Text style={{marginHorizontal:20,marginVertical:10,color:theme.colors.darkSilver}}>Trigonometry</Text>
-  <Text style={{color:theme.colors.darkSilver,marginVertical:10,marginHorizontal:25}}>English
-  </Text>
-      </View>
-      <View style={{height:1,width:'87%',backgroundColor:'grey',marginVertical:10,marginLeft:38}}></View>
-
-      <View style={{flexDirection:'row',}}>
-    <TouchableOpacity style={{backgroundColor:theme.colors.primary,height:20,width:20,borderRadius:20,marginVertical:10,marginHorizontal:6}}>
-    <Text style={{fontSize:19,color:theme.colors.white,marginTop:-1,marginLeft:4.5}}>+</Text>
-</TouchableOpacity>
-        <View style={{flexDirection:'column',marginHorizontal:5}}>
-        <Text style={{color:theme.colors.darkSilver,fontWeight:'200',}}>ss2021-</Text>
-        <Text style={{marginTop:-3,fontSize:11,color:theme.colors.darkSilver}}>The Solar System</Text>
-       </View>
-        <Text style={{marginHorizontal:20,marginVertical:10,color:theme.colors.darkSilver}}>Trigonometry</Text>
-  <Text style={{color:theme.colors.darkSilver,marginVertical:10,marginHorizontal:25}}>English
-  </Text>
-      </View>
-      <View style={{height:1,width:'87%',backgroundColor:'grey',marginVertical:10,marginLeft:38}}></View>
-
-      <View style={{flexDirection:'row',}}>
-    <TouchableOpacity style={{backgroundColor:theme.colors.primary,height:20,width:20,borderRadius:20,marginVertical:10,marginHorizontal:6}}>
-    <Text style={{fontSize:19,color:theme.colors.white,marginTop:-1,marginLeft:4.5}}>+</Text>
-</TouchableOpacity>
-        <View style={{flexDirection:'column',marginHorizontal:5}}>
-        <Text style={{color:theme.colors.darkSilver,fontWeight:'200',}}>ss2021-</Text>
-        <Text style={{marginTop:-3,fontSize:11,color:theme.colors.darkSilver}}>The Solar System</Text>
-       </View>
-        <Text style={{marginHorizontal:20,marginVertical:10,color:theme.colors.darkSilver}}>Trigonometry</Text>
-  <Text style={{color:theme.colors.darkSilver,marginVertical:10,marginHorizontal:25}}>English
-  </Text>
-      </View>
-      <View style={{height:1,width:'87%',backgroundColor:'grey',marginVertical:10,marginLeft:38}}></View>
-
-      <View style={{flexDirection:'row',}}>
-    <TouchableOpacity style={{backgroundColor:theme.colors.primary,height:20,width:20,borderRadius:20,marginVertical:10,marginHorizontal:6}}>
-  <Text style={{fontSize:19,color:theme.colors.white,marginTop:-1,marginLeft:4.5}}>+</Text>
-</TouchableOpacity>
-        <View style={{flexDirection:'column',marginHorizontal:5}}>
-        <Text style={{color:theme.colors.darkSilver,fontWeight:'200',}}>ss2021-</Text>
-        <Text style={{marginTop:-3,fontSize:11,color:theme.colors.darkSilver}}>The Solar System</Text>
-       </View>
-        <Text style={{marginHorizontal:20,marginVertical:10,color:theme.colors.darkSilver}}>Trigonometry</Text>
-  <Text style={{color:theme.colors.darkSilver,marginVertical:10,marginHorizontal:25}}>English
-  </Text>
-      </View>
-      <View style={{height:1,width:'87%',backgroundColor:'grey',marginVertical:10,marginLeft:38}}></View>
+     
       
-      <View style={{flexDirection:'row',marginVertical:30,marginLeft:170,marginTop:20}}>
+      <View style={{flexDirection:'row',marginVertical:30,marginLeft:200,marginTop:20}}>
        <TouchableOpacity>
        <Text style={{marginHorizontal:18,fontSize:15,color:theme.colors.darkSilver}}>Previous</Text></TouchableOpacity>
        <TouchableOpacity>

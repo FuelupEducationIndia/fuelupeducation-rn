@@ -10,7 +10,7 @@ const DropDownSG = () => {
       <Picker
         mode='dropdown'
         selectedValue={selectedValue}
-        style={{ height: 50, width: 300}}
+        style={{ height: 50, width: 290}}
         onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
       >
          <Picker.Item label="--Select--" value="--Select--" />
@@ -33,14 +33,13 @@ const DropDownSG = () => {
 
 const styles = StyleSheet.create({
   container: {
-    top:10,
     // paddingTop: 40,
     
     height:40,
-    width:300,
+    width:290,
     backgroundColor:'rgba(209, 214, 255, 0.5)',
     borderRadius:10,
-    marginHorizontal:30,
+    marginHorizontal:20,
   
     justifyContent:'center',
    alignContent:'center'

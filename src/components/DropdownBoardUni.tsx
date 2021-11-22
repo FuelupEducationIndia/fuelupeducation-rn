@@ -9,7 +9,7 @@ const App = () => {
       
       <Picker
         selectedValue={selectedValue}
-        style={{ height: 50, width: 300}}
+        style={{ height: 50, width: 290}}
         onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
       >
         <Picker.Item label="--Select--" value="--Select--" />
@@ -34,12 +34,12 @@ const styles = StyleSheet.create({
   container: {
     
     // paddingTop: 40,
-    top:20,
+    top:10,
     height:40,
-    width:300,
+    width:290,
     backgroundColor:'rgba(209, 214, 255, 0.5)',
     borderRadius:10,
-    marginHorizontal:30,
+    marginHorizontal:20,
   
     justifyContent:'center',
    alignContent:'center'

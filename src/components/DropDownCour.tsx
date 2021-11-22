@@ -34,10 +34,10 @@ const DropDownCour = () => {
 const styles = StyleSheet.create({
   container: {
     left:12,
-    marginHorizontal:30,
+    marginHorizontal:10,
     flex: 1,
     // paddingTop: 40,
-    
+    bottom:10,
     height:40,
     width:130,
     backgroundColor:'rgba(209, 214, 255, 0.5)',
