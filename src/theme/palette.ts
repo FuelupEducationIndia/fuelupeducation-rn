@@ -14,6 +14,7 @@ const palette = {
   lightGrey: '#c3c0c7',
 
   red: '#f44336',
+  lightRed:'#FF0505',
 
   blue: '#10A9E5',
   offBlue: '#9371c9',
@@ -27,6 +28,7 @@ const palette = {
 
   lightOrange: 'rgba(255, 201, 95, 0.5)',
   lightGreen: 'rgba(45, 162, 49, 0.5)',
+  green:'#2DA231',
 }
 
 const colors = {
@@ -49,6 +51,9 @@ const colors = {
   transparent: palette.transparent,
   lightGreen: palette.lightGreen,
   lightOrange: palette.lightOrange,
+  Orange:palette.orange,
+  lightRed:palette.lightRed,
+  Green:palette.green,
 }
 
 export default colors
