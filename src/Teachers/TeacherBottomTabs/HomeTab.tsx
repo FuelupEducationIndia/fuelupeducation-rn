@@ -6,9 +6,6 @@ import {
   MyCourse,
   Lectures,
   Blank,
-  Exam,
-  Assignment,
-  Certificate,
 } from '../TeacherHomeTopTabs/index'
 import { TeacherHomeTabRoutes } from '../../types/navigation'
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -108,7 +105,7 @@ const HomeTab = () => {
         />
         <TeacherHomeTopTab.Screen
           name='Exams'
-          component={Exam}
+          component={Blank}
           options={{
             tabBarLabel: ({ focused }) => (
               <Text
@@ -120,7 +117,7 @@ const HomeTab = () => {
         />
         <TeacherHomeTopTab.Screen
           name='Assignments'
-          component={Assignment}
+          component={Blank}
           options={{
             tabBarLabel: ({ focused }) => (
               <Text
