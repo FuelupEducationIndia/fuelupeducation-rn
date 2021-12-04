@@ -1,11 +1,9 @@
 import React from 'react'
 import { View,Text, ScrollView,StyleSheet } from 'react-native'
 import theme, { Card } from '../../theme'
-// import {CertificateStudentInfo,
-//   CertificateCreate,CertificateVerify,CertificateStyle} from '../../components/Courses'
-// import { CertificateDashboard } from '../../components/Courses'
-// import { CertificateInstitutioninfo } from '../../components/Courses'
-import { Button,RadioGroup } from '../../components'
+import { CertificateDashboard, Button, RadioGroup,CertificateInstitutionInfo,CertificateStudentInfo,
+  CertificateCreate,CertificateVerify,CertificateStyle} from '../../components'
+
 const topButtons = ['Dashboard', 'Create Lecture']
 
 const Lectures = () => {
@@ -125,38 +123,39 @@ const Lectures = () => {
               display: 'flex',
               flexDirection: 'row',
             }}>
-              </View>
-             {/* {activeButton == topButtons[0] ? (
+            {activeButton == topButtons[0] ? (
           
                <CertificateDashboard/>
+            
          
             ) : (
-            //   <>
-            //   {change === 0 ? (
-            //     <CertificateCreate
-            //     onPress={()=>onNext(1)}               
-            //     />
-            //   ):null}
-            //      {change === 1 ? (
-            //     <CertificateStudentInfo
-            //     onPress={()=>onNext(2)}
-            //     />
-            //   ):null}
-            //    {change === 2 ? (
-            //     <CertificateStyle
-            //     onPress={()=>onNext(3)}/>
-            //   ):null}
-            // {change === 3 ? (
-            //     <CertificateVerify
-            //     onPress={()=>onNext(4)}/>
-            //   ):null}
-            //      {change === 4 ? (
-            //     <CertificateCreate/>
-            //   ):null}
+              <>
+              {change === 0 ? (
+                <CertificateInstitutionInfo
+                onPress={()=>onNext(1)}               
+                />
+              ):null}
+                 {change === 1 ? (
+                <CertificateStudentInfo
+                onPress={()=>onNext(2)}
+                />
+              ):null}
+               {change === 2 ? (
+                <CertificateStyle
+                onPress={()=>onNext(3)}/>
+              ):null}
+            {change === 3 ? (
+                <CertificateVerify
+                onPress={()=>onNext(4)}/>
+              ):null}
+                 {change === 4 ? (
+                <CertificateCreate/>
+              ):null}
               
-            //   </>
+              </>
             )}
-            */}
+          </View>
+        {/* </ScrollView> */}
 
       </Card>
     </ScrollView>

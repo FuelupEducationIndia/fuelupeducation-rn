@@ -2,7 +2,6 @@ import React from 'react'
 import { View,  StyleSheet, TextInput ,Dimensions,TouchableOpacity, ScrollView ,Picker} from 'react-native'
 import theme, { Card, Text } from '../../theme'
 import Right from '../../assets/svgs/Right.svg'
-import DownArrow from '../../assets/svgs/Darraow.svg'
 import { backgroundColor } from '@shopify/restyle'
 import DiffLevel from '../../components/DiffLevel'
 // import { Menu, MenuItem, } from 'react-native-material-menu';

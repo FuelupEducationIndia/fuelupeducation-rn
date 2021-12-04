@@ -20,7 +20,7 @@ const App = () => {
 
 const styles = StyleSheet.create({
   container: {
-    top:10,
+    top:3,
     flex: 1,
     // paddingTop: 40,
     alignItems: "center",

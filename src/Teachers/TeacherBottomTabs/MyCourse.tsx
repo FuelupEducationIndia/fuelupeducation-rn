@@ -28,7 +28,7 @@ import { DashboardTabRoutes } from '../../types/navigation'
 import Overview from '../../components/TabPages/OverView'
 
 
-  const MyCourse=(rating)=>{
+  const MyCourse=(props)=>{
     const DashboardTopTab = createMaterialTopTabNavigator<DashboardTabRoutes>()
 
   //  const  bufferConfig=()=>{
@@ -57,7 +57,7 @@ import Overview from '../../components/TabPages/OverView'
     <>
     {/*For Hearder */}
     <SafeAreaView style={{ backgroundColor: theme.colors.primary ,height:190,borderBottomLeftRadius:25,borderBottomRightRadius:25}}>
-      <BackArrow style={{ position: 'absolute', top: 50, left: 20 }} />
+      <BackArrow onPress={props.onPress} style={{ position: 'absolute', top: 50, left: 20 }} />
       <Card padding='s'>
         <Box
           style={{
@@ -93,7 +93,7 @@ import Overview from '../../components/TabPages/OverView'
                 5.0
               </Text>
               <Rating   type='star'
-              ratingCount={5}
+              ratingCount={5.0}
               // showRating
               imageSize={15}
               tintColor='#380885'
@@ -149,7 +149,7 @@ import Overview from '../../components/TabPages/OverView'
             <Text
                 style={[
                   theme.textVariants.body,
-                  { color: theme.colors.primary,fontSize:18,textAlign:'center',top:15,left:5}
+                  { color: theme.colors.primary,fontSize:18,textAlign:'center',top:15}
                 ]}
                 >
                 Contents
@@ -162,7 +162,7 @@ import Overview from '../../components/TabPages/OverView'
           <Card backgroundColor='white'
           borderBottomLeftRadius='xl'
           borderBottomRightRadius='xl'>
-          <View style={{height:1000,backgroundColor:'white'}}>
+          <View style={{height:1200,backgroundColor:'white'}}>
           <DashboardTopTab.Navigator
         screenOptions={{
           tabBarShowLabel: true,

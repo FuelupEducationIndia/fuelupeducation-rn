@@ -12,11 +12,12 @@ import Cross from '../assets/svgs/Cross.svg'
 import RoundCheckbox from 'react-native-round-checkbox';
 import QuestionBankM from '../components/QuestionBank_Modal'
 import ImagePicker from 'react-native-image-crop-picker'
-
+import CreateQuiz1 from '../components/Create_Quiz_Modal'
 const CreateQuiz=(props)=>{
   const [isModalVisible1, setModalVisible1] = useState(false);
   const [visible, setVisible] = useState(false);
   const [QuestionBankEnabled, setQuestionBankEnabled] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const CheckRound = () => setQuestionBankEnabled(previousState => !previousState);
 
@@ -41,9 +42,10 @@ const CreateQuiz=(props)=>{
   const [isChecked, setIsChecked] = useState(false)
   const [isChecked1, setIsChecked1] = useState(false)
   const [isChecked2, setIsChecked2] = useState(false)
+  const [isModalVisible, setModalVisible] = useState(false);
 
-  const changeModalVisible1=(Boolean: boolean | ((prevState: boolean) => boolean))=>{
-    setModalVisible1(Boolean);
+  const changeModalVisible=(Boolean: boolean | ((prevState: boolean) => boolean))=>{
+    setModalVisible(Boolean);
   }
 
   return(
@@ -124,17 +126,30 @@ Q1
   <View style={{height:40,top:20}}>
   <DropDownMulti/>
   </View>
+
   <View style={{top:5}}>
+    <TouchableOpacity onPress={() => {setShowModal(!showModal); }}
+ style={{flexDirection:'row',marginHorizontal:60,top:20}}>
   <Text
 
     style={[
     theme.textVariants.body,
-    { color: theme.colors.secondary, fontSize:18,marginHorizontal:60,top:30},
+    { color: theme.colors.secondary, fontSize:18},
 ]}>
 Suggested questions
 </Text>
-<DownArrow style={{left:230,top:18}} />
+<DownArrow style={{top:10}} />
+</TouchableOpacity>
   </View>
+  <View>
+  <Modal
+          animationType={'fade'}
+          transparent={true}
+          visible={showModal}
+          onRequestClose={()=>setShowModal(false)}>
+            <CreateQuiz1 onPress={()=>setShowModal(false)} />
+   </Modal>
+    </View>
 <View>
   <View style={{height:1,width:310,borderColor:'#C1C1C1',borderWidth:.5,top:30,marginHorizontal:10}}/>
 </View>
@@ -222,7 +237,7 @@ theme.textVariants.body,
       visible={isModalVisible1}
       onRequestClose={()=>changeModalVisible1(false)}>
        
-       <QuestionBankM onPress={()=>changeModalVisible1(false)}/>
+       <CreateQuiz1 onPress={()=>changeModalVisible1(false)}/>
       </Modal>
        
         </View>

@@ -81,14 +81,34 @@ const Exam = () => {
      
  
    }
-  
+   const onSelect1 = (index) => {
+
+    //  console.log("index:", index);
+       var temp = data;
+       console.log('temp:', temp);
+      temp.map((v, i, arr) => {
+         //return undefined.apply(v, i, arr)
+         // console.log('v:',v);
+         console.log('i:',i);
+         // // console.log('arr:',arr);
+         if (index == i) {
+           console.log("id condition run", index, " == ", i);
+         temp[index].collect = 0;
+         }
+       
+      });
+       setData([...temp]);
+     
+ 
+   }
+
 const renderItem = ({ item, index }) =>{
   if(item.collect == 1){
     return(
       <>
       <View style={{backgroundColor:theme.colors.lightBlue}}>
 <View style={{flexDirection:'row',height:'auto'}}>
-<TouchableOpacity onPress={() => onSelect(item)} style={{height:20,width:20,justifyContent:'center',marginHorizontal:2,top:5}}>
+<TouchableOpacity onPress={() => onSelect1(index)} style={{height:20,width:20,justifyContent:'center',marginHorizontal:2,top:5}}>
       <Minus/>
 </TouchableOpacity>
         <View style={{flexDirection:'column',marginHorizontal:10}}>
@@ -96,7 +116,7 @@ const renderItem = ({ item, index }) =>{
         <Text style={{marginTop:-3,fontSize:11,color:theme.colors.darkSilver, marginHorizontal:5}}>The Solar System</Text>
        </View>
         <Text style={{marginHorizontal:20,marginVertical:10,color:theme.colors.darkSilver}}>Trigonometry</Text>
-  <Text style={{color:theme.colors.darkSilver,marginVertical:10,marginHorizontal:40}}>English
+  <Text style={{color:theme.colors.darkSilver,marginVertical:10,marginHorizontal:20}}>English
   </Text>
       </View>
       <View style={{height:1,width:'100%',backgroundColor:'lightgrey',marginVertical:10,marginLeft:38}}></View>
@@ -143,11 +163,11 @@ const renderItem = ({ item, index }) =>{
         <Add/>
          </TouchableOpacity>   
         <View style={{flexDirection:'column',marginHorizontal:5}}>
-        <Text style={{color:theme.colors.darkSilver,fontWeight:'200',}}>ss2021-</Text>
-        <Text style={{marginTop:-3,fontSize:11,color:theme.colors.darkSilver}}>The Solar System</Text>
+        <Text style={{color:theme.colors.darkSilver,fontWeight:'200',marginHorizontal:5}}>ss2021-</Text>
+        <Text style={{marginTop:-3,fontSize:11,color:theme.colors.darkSilver,marginHorizontal:5}}>The Solar System</Text>
        </View>
         <Text style={{marginHorizontal:20,marginVertical:10,color:theme.colors.darkSilver}}>Trigonometry</Text>
-  <Text style={{color:theme.colors.darkSilver,marginVertical:10,marginHorizontal:40}}>English
+  <Text style={{color:theme.colors.darkSilver,marginVertical:10,marginHorizontal:20}}>English
   </Text>
       </View>
       <View style={{height:1,width:'87%',backgroundColor:'grey',marginVertical:10,marginLeft:38}}></View>
@@ -242,13 +262,13 @@ const renderItem = ({ item, index }) =>{
                        {backgroundColor: change >= 3 ? '#380885' : 'white'}
             ]}>
             </View>
-            {/* <View    style={[styles.view,
+            <View    style={[styles.view,
                             //  {backgroundColor: change >= 3 ? '#380885' : 'white'},
                              {borderColor : change == 3 ? '#380885' : 'white' },
                              {borderWidth : change == 3 ? 4 : 0}
 
             ]} >
-            </View> */}
+            </View>
     
             </View>
             )}
@@ -328,7 +348,7 @@ const renderItem = ({ item, index }) =>{
     <View style={{height:2,width:'97%',marginHorizontal:5,backgroundColor:'lightgrey',marginVertical:10,}}></View>
     <View style={{flexDirection:'row',marginHorizontal:20,}}>
       <Text style={{color:theme.colors. darkSilver,fontSize:15}} >Exam Title</Text>
-      <Text  style={{marginHorizontal:50,color:theme.colors. darkSilver,fontSize:15}}  >Date Submitted</Text>
+      <Text  style={{marginHorizontal:40,color:theme.colors. darkSilver,fontSize:15}}  >Date Submitted</Text>
       <Text  style={{color:theme.colors. darkSilver,fontSize:15}} >Status</Text>
       </View>
 
@@ -345,7 +365,7 @@ const renderItem = ({ item, index }) =>{
 
      
       
-      <View style={{flexDirection:'row',marginVertical:30,marginLeft:200,marginTop:20}}>
+      <View style={{flexDirection:'row',marginVertical:30,marginLeft:180,marginTop:20}}>
        <TouchableOpacity>
        <Text style={{marginHorizontal:18,fontSize:15,color:theme.colors.darkSilver}}>Previous</Text></TouchableOpacity>
        <TouchableOpacity>

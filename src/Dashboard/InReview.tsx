@@ -38,7 +38,7 @@ const InReview =()=>{
         <Text style={{marginTop:-10,fontSize:11,color:theme.colors.darkSilver}}>Final Assessment</Text>
        </View>
         <Text style={{marginHorizontal:40,marginVertical:15,color:theme.colors.darkSilver}}>Jan 20, 2021</Text>
-<TouchableOpacity style={{backgroundColor:theme.colors.primary,paddingHorizontal:20,marginVertical:20,paddingVertical:5,borderRadius:15,marginHorizontal:10}}>
+<TouchableOpacity style={{backgroundColor:theme.colors.primary,paddingHorizontal:20,marginVertical:20,paddingVertical:5,borderRadius:15}}>
   <Text style={{color:theme.colors.white}}>View</Text>
 </TouchableOpacity>
       </View>
@@ -56,7 +56,7 @@ const InReview =()=>{
         <Text style={{marginTop:-10,fontSize:11,color:theme.colors.darkSilver}}>Final Assessment</Text>
        </View>
         <Text style={{marginHorizontal:40,marginVertical:15,color:theme.colors.darkSilver}}>Jan 20, 2021</Text>
-<TouchableOpacity style={{backgroundColor:theme.colors.primary,paddingHorizontal:20,marginVertical:20,paddingVertical:5,borderRadius:15,marginHorizontal:10}}>
+<TouchableOpacity style={{backgroundColor:theme.colors.primary,paddingHorizontal:20,marginVertical:20,paddingVertical:5,borderRadius:15}}>
   <Text style={{color:theme.colors.white}}>View</Text>
 </TouchableOpacity>
       </View>
@@ -74,7 +74,7 @@ const InReview =()=>{
         <Text style={{marginTop:-10,fontSize:11,color:theme.colors.darkSilver}}>Final Assessment</Text>
        </View>
         <Text style={{marginHorizontal:40,marginVertical:15,color:theme.colors.darkSilver}}>Jan 20, 2021</Text>
-<TouchableOpacity style={{backgroundColor:theme.colors.primary,paddingHorizontal:20,marginVertical:20,paddingVertical:5,borderRadius:15,marginHorizontal:10}}>
+<TouchableOpacity style={{backgroundColor:theme.colors.primary,paddingHorizontal:20,marginVertical:20,paddingVertical:5,borderRadius:15}}>
   <Text style={{color:theme.colors.white}}>View</Text>
 </TouchableOpacity>
       </View>

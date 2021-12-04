@@ -95,7 +95,7 @@ const h1 = Dimensions.get('window').width - 380 ;
       minimumTrackTintColor='rgba(209, 214, 255, 0.5)'
       maximumTrackTintColor="rgba(209, 214, 255, 0.5)"
       thumbStyle={{height:20,width:20,backgroundColor:'#380885'}}></Slider>
-<View style={{flexDirection:'row',position:'relative',left:130}}>
+<View style={{flexDirection:'row',position:'relative',left:110}}>
             <TouchableOpacity
             style={{marginVertical:theme.spacing.xl,backgroundColor:'#380885',width:100,height:30,borderRadius:20,}}
          onPress={props.onPress}>
@@ -103,10 +103,15 @@ const h1 = Dimensions.get('window').width - 380 ;
           </TouchableOpacity>
           <View style={{marginVertical:theme.spacing.xl,}}>
           <TouchableOpacity
-            style={{backgroundColor:'white',width:90,height:30,borderRadius:20,marginHorizontal:20}}>
+            style={{backgroundColor:'white',width:90,height:30,borderRadius:20,marginHorizontal:20,top:5}}>
          <Text style={{color:'#380885',}}>Save for Later</Text>
-         <Text style={{height:1,width:'100%',backgroundColor:'#380885',}}>__________</Text>
-          </TouchableOpacity>
+         <Text
+style={[
+theme.textVariants.body,
+{ color: theme.colors.primary, fontSize:17,textAlign:'center',bottom:15,right:5},
+]}>
+__________</Text>  
+        </TouchableOpacity>
         </View>
           </View>
         

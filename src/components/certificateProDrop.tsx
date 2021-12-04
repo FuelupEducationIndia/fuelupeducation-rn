@@ -10,7 +10,7 @@ const certificateProDrop = () => {
       <Picker
        mode='dropdown'
         selectedValue={selectedValue}
-        style={{ height: 50, width:width}}
+        style={{ height: 50, width:135}}
         onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
       >
         <Picker.Item label="-Select-" value="-Select-" />
@@ -36,10 +36,11 @@ const styles = StyleSheet.create({
     // paddingTop: 40,
     
     height:40,
-    width:width,
+    width:135,
     backgroundColor:'rgba(209, 214, 255, 0.5)',
     borderRadius:10,
     top:4,
+    right:10,
     justifyContent:'center',
    alignContent:'center'
   }

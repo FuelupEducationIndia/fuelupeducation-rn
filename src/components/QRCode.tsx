@@ -48,8 +48,6 @@ const QRCode=(props)=>{
        </View>
        <View style={{flexDirection:'row'}}>
          <QRcodeScanner/>
-         {/* <Square style={{justifyContent:"center",alignItems:'center',top:20,left:100}}/>
-         <QR style={{justifyContent:"center",alignItems:'center',top:30,left:15}}/> */}
        </View>
        <View>
        <Text

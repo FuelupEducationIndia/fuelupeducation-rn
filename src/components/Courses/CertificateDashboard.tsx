@@ -5,7 +5,11 @@ import theme, {  Card, Text } from '../../theme'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import Icon from 'react-native-vector-icons/Feather'
 import { SearchBar, CourseCard, Button, FilterModal1 } from '../../components'
-import { FilterModal} from '../Modals'
+import Minus from '../../assets/svgs/Minus.svg'
+import Add from '../../assets/svgs/AddR.svg'
+import Prevb from '../../assets/svgs/Prevbtn.svg'
+import Next from '../../assets/svgs/Next.svg'
+
 const DATA = [
   {
    
@@ -29,7 +33,7 @@ const DATA = [
 
 
 
-const CertificateDashboard =()=>{
+const CertificateDashboard =(props)=>{
   const [search, setSearch] = React.useState('')
   const [showFilter, setShowFilter] = React.useState(false)
 const [data , setData] = React.useState(DATA)
@@ -65,24 +69,45 @@ const [data , setData] = React.useState(DATA)
     
 
   }
+  const onSelect1 = (index) => {
+
+    //  console.log("index:", index);
+       var temp = data;
+       console.log('temp:', temp);
+      temp.map((v, i, arr) => {
+         //return undefined.apply(v, i, arr)
+         // console.log('v:',v);
+         console.log('i:',i);
+         // // console.log('arr:',arr);
+         if (index == i) {
+           console.log("id condition run", index, " == ", i);
+         temp[index].collect = 0;
+         }
+       
+      });
+       setData([...temp]);
+     
+ 
+   }
+ 
   const renderItem = ({ item, index }) => {
     if(item.collect == 1){
       return(
         <>
       <View style={{backgroundColor:theme.colors.lightBlue}}>
       <View style={{flexDirection:'row',height:'auto'}}>
-    <TouchableOpacity style={{backgroundColor:theme.colors.secondary,height:20,width:20,borderRadius:20,marginVertical:10,marginEnd:10}}>
-  <Text style={{fontSize:15,color:theme.colors.white,fontWeight:'bold',textAlign:'center',}}>-</Text>
+      <TouchableOpacity onPress={() => onSelect1(index)} style={{height:20,width:20,justifyContent:'center',marginHorizontal:2,top:5}}>
+      <Minus/>
 </TouchableOpacity>
-        <View style={{flexDirection:'column',}}>
+     <View style={{flexDirection:'column',marginHorizontal:20}}>
         <Text style={{color:theme.colors.darkSilver,fontWeight:'200',}}>ss2021-</Text>
-        <Text style={{marginTop:-3,fontSize:11,color:theme.colors.darkSilver}}>The Solar System</Text>
+        <Text style={{fontSize:11,color:theme.colors.darkSilver}}>The Solar System</Text>
        </View>
-       <View style={{flexDirection:'column',marginHorizontal:23}}>
+       <View style={{flexDirection:'column'}}>
         <Text style={{color:theme.colors.darkSilver,fontWeight:'200',}}>A012345-</Text>
-        <Text style={{marginTop:-3,fontSize:11,color:theme.colors.darkSilver}}>LastName FirstName</Text>
+        <Text style={{fontSize:11,color:theme.colors.darkSilver}}>LastName FirstName</Text>
        </View>
-         <Text style={{color:theme.colors.darkSilver,marginVertical:10,marginStart:10}}>1 day ago
+         <Text style={{color:theme.colors.darkSilver,marginVertical:5,marginStart:15}}>1 day ago
   </Text>
       </View>
       <View style={{height:1,width:'87%',backgroundColor:'grey',marginVertical:10,marginLeft:38}}></View>
@@ -124,20 +149,18 @@ const [data , setData] = React.useState(DATA)
       return (
         <View>
           <View style={{ flexDirection: 'row',height:'auto' }}>
-            <TouchableOpacity
-              onPress={() => onSelect(index)}
-              style={{ backgroundColor: theme.colors.primary, height: 20, width: 20, borderRadius: 20, marginVertical: 10, marginHorizontal: 6 }}>
-              <Text style={{ fontSize: 15, color: theme.colors.white, textAlign: 'center' }}>+</Text>
-            </TouchableOpacity>
-            <View style={{ flexDirection: 'column', marginHorizontal: 5 }}>
+          <TouchableOpacity onPress={() => onSelect(index)} style={{height:20,width:20,justifyContent:'center',left:5}}>
+        <Add/>
+         </TouchableOpacity>
+            <View style={{ flexDirection: 'column', marginHorizontal:11}}>
               <Text style={{ color: theme.colors.darkSilver, fontWeight: '200', }}>ss2021-</Text>
-              <Text style={{ marginTop: -3, fontSize: 11, color: theme.colors.darkSilver }}>The Solar System</Text>
+              <Text style={{ fontSize: 11, color: theme.colors.darkSilver }}>The Solar System</Text>
             </View>
-            <View style={{ flexDirection: 'column', marginHorizontal: 23 }}>
+            <View style={{ flexDirection: 'column', marginHorizontal: 20 }}>
               <Text style={{ color: theme.colors.darkSilver, fontWeight: '200', }}>A012345-</Text>
-              <Text style={{ marginTop: -3, fontSize: 11, color: theme.colors.darkSilver }}>LastName FirstName</Text>
+              <Text style={{  fontSize: 11, color: theme.colors.darkSilver }}>LastName FirstName</Text>
             </View>
-            <Text style={{ color: theme.colors.darkSilver, marginVertical: 10, marginStart: 10 }}>1 day ago
+            <Text style={{ color: theme.colors.darkSilver, marginVertical: 10,right:5}}>1 day ago
             </Text>
           </View>
           <View style={{ height: 1, width: '87%', backgroundColor: 'grey', marginVertical: 10, marginLeft: 38 }}></View>
@@ -170,7 +193,7 @@ const [data , setData] = React.useState(DATA)
           </TouchableOpacity>
         </View>
         <ScrollView>
-        <FilterModal
+        <FilterModal1
           visible={showFilter}
           onRequestClose={() => setShowFilter(false)}
         /></ScrollView>
@@ -185,9 +208,9 @@ const [data , setData] = React.useState(DATA)
         </View> */}
         <View style={{height:2,width:'92%',marginLeft:25,backgroundColor:'lightgrey',marginVertical:10,}}></View>
     <View style={{flexDirection:'row',marginHorizontal:28,justifyContent:'space-between'}}>
-      <Text style={{color:theme.colors. darkSilver,fontSize:15}} >Course</Text>
+      <Text style={{color:theme.colors. darkSilver,fontSize:15,marginHorizontal:10}} >Course</Text>
       <Text  style={{color:theme.colors. darkSilver,fontSize:15,}}>Student & ID</Text>
-      <Text  style={{color:theme.colors. darkSilver,fontSize:15 ,}} >Posted Date</Text>
+      <Text  style={{color:theme.colors. darkSilver,fontSize:15 }} >Posted Date</Text>
       </View>
 
       <View style={{height:2,width:'92%',marginLeft:28,backgroundColor:'lightgrey',marginVertical:10,}}></View>
@@ -203,12 +226,28 @@ const [data , setData] = React.useState(DATA)
 
         />
     </SafeAreaView>     
-      <View style={{flexDirection:'row',marginVertical:30,marginLeft:200,marginTop:20}}>
-       <TouchableOpacity>
-       <Text style={{marginHorizontal:18,fontSize:15,color:theme.colors.darkSilver}}>Previous</Text></TouchableOpacity>
-       <TouchableOpacity>
-<Text style={{color:theme.colors.secondary,fontSize:15}}>Next</Text></TouchableOpacity>
-
+      <View style={{flexDirection:'row',marginVertical:30,marginLeft:180,marginTop:20}}>
+      <TouchableOpacity onPress={props.onPress} style={{flexDirection:'row',justifyContent:'center'}}>
+              <Prevb  style={{top:5}}/>
+              <Text        
+       style={[
+         theme.textVariants.body,
+         { color: theme.colors.darkSilver, fontSize:14,top:3,marginHorizontal:10},
+       ]}>
+     Previous
+   </Text>
+   </TouchableOpacity>
+   <TouchableOpacity onPress={props.onPress} style={{flexDirection:'row',justifyContent:'center'}}>
+   <Text
+       
+       style={[
+         theme.textVariants.body,
+         { color: theme.colors.secondary, fontSize:14,top:3,marginHorizontal:5},
+       ]}>
+     Next
+   </Text>
+   <Next style={{marginHorizontal:3,top:6}}/>
+   </TouchableOpacity>
      </View>
 
     

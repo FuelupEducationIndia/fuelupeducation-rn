@@ -3,15 +3,13 @@ import { View,  StyleSheet, TextInput ,TouchableOpacity ,Dimensions,Image} from 
 import theme, {  Text } from '../../theme'
 import { Slider } from 'react-native-elements'
 import DropDownCour from '../../components/DropDownCourse1'
-import CertificateProDrop from '../../components/certificateProDrop'
-import certificateProDrop from '../../components/certificateProDrop'
-//const courseOptions = ['University', 'IITs', 'Nits']
-
+import CertificateProDrop from '../certificateProDrop'
+import DropProvince from '../../components/DropDownProvince'
+import DropTax from '../../components/DropDownTax'
+import DropCertiTax from '../../components/DropDownTax'
 const CertificateInstitutionInfo = (props)=>{
-//const [college, setCollege] = React.useState()
-// const [percentage , setPercentage] = React.useState();
 
-const width = Dimensions.get('window').width - 40;
+const width = Dimensions.get('window').width - 60;
 const width1 = Dimensions.get('window').width - 310 ;
 const h1 = Dimensions.get('window').width - 380 ;
 
@@ -26,27 +24,32 @@ const h1 = Dimensions.get('window').width - 380 ;
     <View style={{height:1,width:'100%',backgroundColor:'lightgrey',marginTop:10}}></View>
     <View>
       <View style={{marginVertical:10}}>
-      <Text style={{color:'#380885',marginVertical:4}}>Institution Name   <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
+      <Text style={{color:'#380885',marginVertical:4,marginHorizontal:10}}>Institution Name  
+       <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
      <TextInput 
            placeholder='Type institution name here...'
             style={{
               padding:13,
               height:40,
               width:width,
+              top:5,
               backgroundColor:'rgba(209, 214, 255, 0.5)',
-              borderRadius: 10,
+              borderRadius: 10,marginHorizontal:10
             }}    
          />
          </View>
          <View style={{marginVertical:10}}>
 
-         <Text style={{color:'#380885',marginVertical:4}}>Address   <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
+         <Text style={{color:'#380885',marginVertical:4,marginHorizontal:10}}>Address  
+          <Text style={{color:theme.colors.secondary,marginLeft:13}}>*</Text> </Text>
      <TextInput 
            placeholder='Type institution address here...'
             style={{
               padding:13,
               height:40,
               width:width,
+              marginHorizontal:10,
+              top:5,
               backgroundColor:'rgba(209, 214, 255, 0.5)',
               borderRadius: 10,
             }}    
@@ -55,41 +58,44 @@ const h1 = Dimensions.get('window').width - 380 ;
 
          <View style={{marginVertical:10}}>
          <View style={{flexDirection:'row',}}>
-            <Text style={{color:'#380885',}}>City  <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
-            <Text style={{color:'#380885',paddingLeft:150,}}>Province   <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
+            <Text style={{color:'#380885',marginHorizontal:10}}>City  
+            <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
+            <Text style={{color:'#380885',paddingLeft:130,}}>Province 
+              <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
             
          </View>
-         <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+         <View style={{flexDirection:'row',justifyContent:'space-between',top:7}}>
          <TextInput 
           // placeholder='Type institution address here...'
             style={{
               padding:13,
               height:40,
-              width:180,
+              width:135,
               backgroundColor:'rgba(209, 214, 255, 0.5)',
               borderRadius: 10,
-              top:4,
+              marginHorizontal:10,
 
             }}    
          />
-         <CertificateProDrop/>
-         
+          <DropProvince/>         
      
          </View>
          </View>
          <View style={{marginVertical:10}}>
-         <View style={{flexDirection:'row',}}>
-            <Text style={{color:'#380885',}}>Postal Code  <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
-            <Text style={{color:'#380885',paddingLeft:100,}}>Country   <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
+         <View style={{flexDirection:'row',top:5}}>
+            <Text style={{color:'#380885',marginHorizontal:10}}>Postal Code 
+             <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
+            <Text style={{color:'#380885',paddingLeft:80,}}>Country   <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
             
          </View>
-         <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+         <View style={{flexDirection:'row',justifyContent:'space-between',top:10}}>
          <TextInput 
           // placeholder='Type institution address here...'
             style={{
               padding:13,
               height:40,
-              width:180,
+              width:135,
+              marginHorizontal:10,
               backgroundColor:'rgba(209, 214, 255, 0.5)',
               borderRadius: 10,
               top:4,
@@ -101,8 +107,9 @@ const h1 = Dimensions.get('window').width - 380 ;
          </View>
          </View>
     </View>
-    <View style={{marginVertical:10}}>
-    <Text style={{color:'#380885',marginVertical:4}}>Email   <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
+    <View style={{marginVertical:10,marginHorizontal:10,top:5}}>
+    <Text style={{color:'#380885',marginVertical:4}}>Email   
+    <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
      <TextInput 
            placeholder='Type institution email here...'
             style={{
@@ -110,35 +117,36 @@ const h1 = Dimensions.get('window').width - 380 ;
               height:40,
               width:width,
               backgroundColor:'rgba(209, 214, 255, 0.5)',
-              borderRadius: 10,
+              borderRadius: 10,top:5
             }}    
          />
          </View>
-         <View style={{marginVertical:10}}>
+         <View style={{marginVertical:10,marginHorizontal:10,top:5}}>
          <View style={{flexDirection:'row',}}>
             <Text style={{color:'#380885',}}>Phone  <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
-            <Text style={{color:'#380885',paddingLeft:150,}}>Tax   </Text>
+            <Text style={{color:'#380885',paddingLeft:115,}}>Tax   </Text>
             
          </View>
-         <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+         <View style={{flexDirection:'row',justifyContent:'space-between',top:5}}>
          <TextInput 
           // placeholder='Type institution address here...'
             style={{
               padding:13,
               height:40,
-              width:180,
+              width:135,
               backgroundColor:'rgba(209, 214, 255, 0.5)',
               borderRadius: 10,
               top:4,
+              
 
             }}    
          />
-         <CertificateProDrop/>
+         <DropCertiTax/>
      
          </View>
          </View>
          <View style={{paddingTop:20}}>
-<View style={{flexDirection:'row',position:'relative',left:130,}}>
+<View style={{flexDirection:'row',position:'relative',marginHorizontal:100}}>
             <TouchableOpacity
             style={{marginVertical:theme.spacing.xl,backgroundColor:'#380885',width:100,height:30,borderRadius:20,}}
          onPress={props.onPress}>
@@ -146,9 +154,17 @@ const h1 = Dimensions.get('window').width - 380 ;
           </TouchableOpacity>
           <View style={{marginVertical:theme.spacing.xl,}}>
           <TouchableOpacity
-            style={{backgroundColor:'white',width:90,height:30,borderRadius:20,marginHorizontal:20}}>
-         <Text style={{color:'#380885',}}>Save for Later</Text>
-         <Text style={{height:1,width:'100%',backgroundColor:'#380885',}}>__________</Text>
+            style={{backgroundColor:'white',width:90,height:30,borderRadius:20,marginHorizontal:20,top:5}}>
+         <Text style={{color:'#380885',}}>Save for Later
+      
+         </Text>
+         <Text
+          style={[
+          theme.textVariants.body,
+          { color: theme.colors.primary, fontSize:15,bottom:12}]}>
+___________</Text>
+
+         {/* <Text style={{height:1,backgroundColor:'#380885',}}>______</Text> */}
           </TouchableOpacity>
         </View>
           </View>

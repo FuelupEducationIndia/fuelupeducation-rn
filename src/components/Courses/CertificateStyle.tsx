@@ -28,13 +28,16 @@ const [change ,setChange] = React.useState(0);
     </View>
     <View style={{height:1,width:'100%',backgroundColor:'lightgrey',marginTop:10,marginBottom:15}}></View>
     <View>
-     <Text style={{color:'#380885',marginVertical:0,}}>Board/University   <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
+     <Text style={{color:'#380885',marginVertical:0,marginHorizontal:5}}>Board/University 
+       <Text style={{color:theme.colors.secondary,marginLeft:13}}>*</Text> </Text>
         <CertificateStyleDrop/>     
-    <Text style={{color:'#380885',}}>Language   <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
+    <Text style={{color:'#380885',marginHorizontal:5}}>Language
+       <Text style={{color:theme.colors.secondary,marginLeft:13}}>*</Text> </Text>
             <CertificateStyleDrop/>
-           <Text style={{color:'#380885',}}>Pick a background   <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
+           <Text style={{color:'#380885',marginHorizontal:5}}>Pick a background  
+            <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
 <View style={{flexDirection:'row',marginVertical:11}}>
-<TouchableOpacity style={[{borderColor: change == 0 ? 'rgba(56, 8, 133, 0.5)' : 'white'},{borderWidth:3,}]}
+<TouchableOpacity style={[{borderColor: change == 0 ? 'rgba(56, 8, 133, 0.5)' : 'white'},{borderWidth:3,marginHorizontal:5}]}
 onPress ={()=>setChange(0)}>
  <Frm1/>
 </TouchableOpacity>
@@ -52,13 +55,13 @@ onPress ={()=>setChange(3)}>
 </TouchableOpacity>
 </View>
 <TouchableOpacity
-            style={{marginBottom:100,borderColor:theme.colors.secondary,borderWidth:1,width:90,height:26,borderRadius:20,}}
+            style={{marginBottom:80,borderColor:theme.colors.secondary,borderWidth:1,width:90,height:26,borderRadius:20,}}
          onPress={props.onPress}>
-         <Text style={{color:theme.colors.secondary,textAlign:'center',fontSize:15,top:2}}>Browse</Text>
+         <Text style={{color:theme.colors.secondary,textAlign:'center',fontSize:15,top:3,justifyContent:'center'}}>Browse</Text>
           </TouchableOpacity>
 </View>
    
-<View style={{flexDirection:'row',position:'relative',left:130,marginTop:theme.spacing.xl}}>
+<View style={{flexDirection:'row',position:'relative',left:110,marginTop:theme.spacing.xl}}>
         <TouchableOpacity
            style={{marginVertical:theme.spacing.xl,backgroundColor:'#380885',width:100,height:30,borderRadius:20,}}
            onPress={props.onPress}>
@@ -66,9 +69,14 @@ onPress ={()=>setChange(3)}>
           </TouchableOpacity>
           <View style={{marginVertical:theme.spacing.xl,}}>
           <TouchableOpacity
-            style={{backgroundColor:'white',width:90,height:30,borderRadius:20,marginHorizontal:20}}>
+            style={{backgroundColor:'white',width:90,height:30,borderRadius:20,marginHorizontal:20,top:5}}>
          <Text style={{color:'#380885',}}>Save for Later</Text>
-         <Text style={{height:1,width:'100%',backgroundColor:'#380885',}}>__________</Text>
+         <Text
+style={[
+theme.textVariants.body,
+{ color: theme.colors.primary, fontSize:15,bottom:12},
+]}>
+___________</Text>
           </TouchableOpacity>
         </View>
           </View>

@@ -73,7 +73,7 @@ backgroundColor='white'>
 
        style={[
          theme.textVariants.body,
-         { color: theme.colors.primary, fontSize:18,marginHorizontal:30},
+         { color: theme.colors.primary, fontSize:18,marginHorizontal:20},
        ]}>
    Board/University
    <Text
@@ -165,7 +165,7 @@ style={{
 
        style={[
          theme.textVariants.body,
-         { color: theme.colors.primary, fontSize:18,marginHorizontal:30,bottom:10},
+         { color: theme.colors.primary, fontSize:18,marginHorizontal:20,bottom:10},
        ]}>
    Instructor
    <Text
@@ -197,7 +197,7 @@ top:20,
 
        style={[
          theme.textVariants.body,
-         { color: theme.colors.primary, fontSize:18,marginHorizontal:30},
+         { color: theme.colors.primary, fontSize:18,marginHorizontal:40},
        ]}>
    Student/Group
    <Text
@@ -495,7 +495,7 @@ Upload Documnet(s)
 <Text
 style={[
 theme.textVariants.body,
-{ color: theme.colors.darkSilver, fontSize:13,marginHorizontal:40,top:20},
+{ color: theme.colors.darkSilver, fontSize:13,marginHorizontal:20,top:20},
 ]}>
 Drag and Drop or Click to   
 <Text  onPress={ChooseFile}
@@ -526,7 +526,7 @@ Browse
 flexDirection:'row',
 width:300,
 height:50,
-top:5,
+top:10,
 justifyContent:'center',
 alignItems:'center',
 alignContent:'space-between'}}>
@@ -550,7 +550,7 @@ style={{
 flexDirection:'row',
 width:300,
 height:50,
-top:5,
+top:10,
 justifyContent:'center',
 alignItems:'center',
 alignContent:'space-between'}}>
@@ -560,13 +560,13 @@ alignContent:'space-between'}}>
   height:40,
   backgroundColor:'rgba(209, 214, 255, 0.5)',
   borderRadius:8,
-  right:15}} multiline={true}/>
+  right:10}} multiline={true}/>
       <View
        style={{
          width:100,
          height:40,
          backgroundColor:'#380885',
-         borderRadius:8}}>
+         borderRadius:8,marginHorizontal:5}}>
               <Text
                  style={[
                   theme.textVariants.body,
@@ -583,18 +583,18 @@ alignContent:'space-between'}}>
 {/* For Update & AssignMent Summary */}
 <View
   style={{
-    marginVertical: theme.spacing.s,
+    marginVertical: theme.spacing.m,
     justifyContent: 'center',
     height:100,
     alignItems:'center',
     
   }}> 
 <View style={{flexDirection:'row',height:50}}>
-<TouchableOpacity onPress={props.onPress} style={{height:35,width:165,borderRadius:20,top:5,justifyContent:'center',alignContent:'center'}}>
+<TouchableOpacity onPress={props.onPress} style={{height:35,width:185,borderRadius:20,top:10,justifyContent:'center',alignContent:'center',right:10}}>
 <Text 
 style={[
 theme.textVariants.body,
-{ color: theme.colors.primary, fontSize:15,marginHorizontal:10,top:5},
+{ color: theme.colors.primary, fontSize:15,marginHorizontal:10,top:5,left:20},
 ]}>
 
 Assignment Summary
@@ -602,13 +602,13 @@ Assignment Summary
 <Text
 style={[
 theme.textVariants.body,
-{ color: theme.colors.primary, fontSize:15,marginHorizontal:10,bottom:7},
+{ color: theme.colors.primary, fontSize:15,marginHorizontal:10,bottom:7,left:20},
 ]}>
 ____________________</Text>
 
 </TouchableOpacity>
 
-<TouchableOpacity onPress={()=>alert('Your Assignment Updated Successfully')} style={{height:40,width:140,backgroundColor:'#F16600',borderRadius:20,top:5,left:5}}>
+<TouchableOpacity onPress={()=>alert('Your Assignment Updated Successfully')} style={{height:40,width:120,backgroundColor:'#F16600',borderRadius:20,top:5}}>
 <Text
 style={[
 theme.textVariants.body,

@@ -49,9 +49,7 @@ const CreateQuizSummary=(props)=>{
     </View>
     <View>
     <View>
-    
     <Text
-
        style={[
          theme.textVariants.body,
          { color: theme.colors.primary, fontSize:18,marginHorizontal:10,top:50},

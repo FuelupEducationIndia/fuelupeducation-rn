@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, StyleSheet } from 'react-native'
+import { Text, StyleSheet, View } from 'react-native'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import {
   BrowseCourse,
@@ -9,21 +9,22 @@ import {
   Exam,
   Assignment,
   Certificate,
+  Attendence,
 } from '../TeacherHomeTopTabs/index'
 import { TeacherHomeTabRoutes } from '../../types/navigation'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import theme, { Card, Box } from '../../theme'
-
 import DrawerIcon from '../../assets/svgs/drawer-icon.svg'
 import TopHero from '../../assets/svgs/top-hero.svg'
-
+import { TouchableOpacity } from 'react-native-gesture-handler'
 const TeacherHomeTopTab = createMaterialTopTabNavigator<TeacherHomeTabRoutes>()
 
-const HomeTab = () => {
+const HomeTab = ({navigation}) => {
+  
   return (
     <>
       <SafeAreaView style={{ backgroundColor: theme.colors.primary }}>
-        <DrawerIcon style={{ position: 'absolute', top: 70, left: 20 }} />
+
         <Card padding='s'>
           <Box
             style={{
@@ -32,6 +33,11 @@ const HomeTab = () => {
               justifyContent: 'space-around',
               alignItems: 'center',
             }}>
+         <TouchableOpacity 
+        style={{height:45,width:45,left:30,
+        justifyContent:'center',alignContent:'center',alignItems:'center'}}>
+        <DrawerIcon/>
+        </TouchableOpacity>
             <TopHero />
             <Box
               style={{
@@ -132,7 +138,7 @@ const HomeTab = () => {
         />
         <TeacherHomeTopTab.Screen
           name='Attendance'
-          component={Blank}
+          component={Attendence}
           options={{
             tabBarLabel: ({ focused }) => (
               <Text
@@ -144,7 +150,7 @@ const HomeTab = () => {
         />
         <TeacherHomeTopTab.Screen
           name='Certificate'
-          component={Blank}
+          component={Certificate}
           options={{
             tabBarLabel: ({ focused }) => (
               <Text
@@ -168,3 +174,9 @@ const styles = (focused: Boolean) =>
   })
 
 export default HomeTab
+
+
+
+
+
+

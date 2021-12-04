@@ -2,17 +2,35 @@ import React from 'react'
 import { View, ScrollView } from 'react-native'
 import theme, { Card, Text } from '../../theme'
 import { CountCard, CourseDetailCard, Button } from '../../components'
-
 import TeacherImage from '../../assets/images/teacherImage.png'
 import Thumbnail1 from '../../assets/images/thumbnail1.png'
+import MyCourse1 from '../TeacherBottomTabs/MyCourse'
+import MyCourseDetail from '../../components/Courses/MyCourseDetail'
 
 const MyCourse = () => {
-  const onPrev = () => {
-    return
-  }
-  const onNext = () => {
-    return
-  }
+  const [change,setChange] = React.useState(0);
+  const [prev,setPrev]=React.useState(1)
+
+  const onNext = (Value: number) =>
+    {
+      if(Value == 0){
+        setChange(1);
+      }
+      else if (Value == 1){
+        setChange(1);
+      }
+    }
+    const onPrev = (Value: number) =>
+    {
+      if(Value == 1){
+        setChange(0);
+      }
+      else if (Value == 0){
+        setChange(0);
+      }
+      
+    
+    };
   return (
     <ScrollView>
       <Card
@@ -23,64 +41,14 @@ const MyCourse = () => {
         marginBottom='l'
         padding='none'
         backgroundColor='white'>
-        <Card
-          padding='s'
-          backgroundColor='silver'
-          borderRadius='l'
-          marginBottom='s'>
-          <Text variant='body' marginVertical='s'>
-            This week you have
-          </Text>
-          <View
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              flexWrap: 'wrap',
-            }}>
-            <CountCard
-              title='Completed course'
-              backgrounColor={{ color: 'lightOrange' }}
-              count={18}
-            />
-            <CountCard
-              title='Certificate earned'
-              backgrounColor={{ color: 'skyBlue' }}
-              count={18}
-            />
-            <CountCard
-              title='Course in progress'
-              backgrounColor={{ color: 'lightGreen' }}
-              count={18}
-            />
-            <CountCard
-              title='Form discussions'
-              backgrounColor={{ color: 'skyBlue' }}
-              count={18}
-            />
+          <View>
+           {change === 0 ? (
+              <MyCourseDetail onPress={()=>onNext(1)}/>
+              ):null}
+           {change === 1 ? (
+            <MyCourse1 onPress1={()=>onPrev(0)}/>
+           ):null} 
           </View>
-        </Card>
-        <ScrollView horizontal>
-          <View
-            style={{
-              margin: theme.spacing.s,
-              display: 'flex',
-              flexDirection: 'row',
-            }}>
-            {data.map((data) => {
-              return (
-                <CourseDetailCard
-                  key={data.id}
-                  title={data.title}
-                  thumbnail={data.thumbnail}
-                  description={data.description}
-                  teacherName={data.teacherName}
-                  teacherPicture={data.teacherPicture}
-                  postDate={data.postDate}
-                />
-              )
-            })}
-          </View>
-        </ScrollView>
         <View
           style={{
             marginVertical: theme.spacing.s,
@@ -89,7 +57,7 @@ const MyCourse = () => {
             justifyContent: 'flex-end',
           }}>
           <Button
-            onPress={onPrev}
+            onPress={()=>onPrev(0)}
             variant='default'
             style={{ backgroundColor: 'white' }}
             iconSize={18}
@@ -97,7 +65,7 @@ const MyCourse = () => {
             icon='chevron-left'
           />
           <Button
-            onPress={onNext}
+            onPress={()=>onNext(1)}
             variant='default'
             style={{ backgroundColor: 'white' }}
             iconSize={18}
@@ -114,7 +82,7 @@ const MyCourse = () => {
 const data = [
   {
     id: '0',
-    title: 'Micro-organisms',
+    title: 'Solar System',
     thumbnail: Thumbnail1,
     teacherName: 'Sarah William',
     teacherPicture: TeacherImage,

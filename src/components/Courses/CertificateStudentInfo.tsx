@@ -5,11 +5,9 @@ import { Slider } from 'react-native-elements'
 import CertificateProDrop from '../certificateProDrop'
 import DatePicker from 'react-native-datepicker'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-//const courseOptions = ['University', 'IITs', 'Nits']
-
+import CertiStuIDrop from '../../components/CertiStuIDrop'
+import CertiStuCourDrop from '../../components/CertiStuCouDrop'
 const CertificateStudentInfo = (props)=>{
-//const [college, setCollege] = React.useState()
-// const [percentage , setPercentage] = React.useState();
 
 const width = Dimensions.get('window').width - 40;
 const width1 = Dimensions.get('window').width - 310 ;
@@ -27,9 +25,11 @@ const [date, setDate] = React.useState()
     <View style={{height:1,width:'100%',backgroundColor:'lightgrey',marginTop:10}}></View>
  <View>
  <View style={{marginVertical:10}}>
-         <View style={{flexDirection:'row',}}>
-            <Text style={{color:'#380885',}}>Student Name  <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
-            <Text style={{color:'#380885',paddingLeft:85,}}>Student ID   <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
+         <View style={{flexDirection:'row',marginHorizontal:10}}>
+            <Text style={{color:'#380885',}}>Student Name
+              <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
+            <Text style={{color:'#380885',paddingLeft:75,}}>Student ID 
+              <Text style={{color:theme.colors.secondary,marginLeft:13}}>*</Text> </Text>
             
          </View>
          <View style={{flexDirection:'row',justifyContent:'space-between'}}>
@@ -38,22 +38,23 @@ const [date, setDate] = React.useState()
             style={{
               padding:13,
               height:40,
-              width:178,
+              width:145,
+              marginHorizontal:10,
               backgroundColor:'rgba(209, 214, 255, 0.5)',
               borderRadius: 10,
-              top:4,
+              top:5,
 
             }}    
          />
          <TextInput 
            placeholder='A01012345'
             style={{
-              padding:13,
+              padding:10,
               height:40,
-              width:178,
+              width:145,
               backgroundColor:'rgba(209, 214, 255, 0.5)',
               borderRadius: 10,
-              top:4,
+              top:5,
 
             }}    
          />
@@ -63,8 +64,10 @@ const [date, setDate] = React.useState()
          </View>
          <View style={{marginVertical:10}}>
          <View style={{flexDirection:'row',}}>
-            <Text style={{color:'#380885',}}>Father Name  <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
-            <Text style={{color:'#380885',paddingLeft:95,}}>Mother Name   <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
+            <Text style={{color:'#380885',marginHorizontal:10}}>Father Name 
+             <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
+            <Text style={{color:'#380885',paddingLeft:75,}}>Mother Name
+               <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
             
          </View>
          <View style={{flexDirection:'row',justifyContent:'space-between'}}>
@@ -73,10 +76,11 @@ const [date, setDate] = React.useState()
             style={{
               padding:13,
               height:40,
-              width:178,
+              width:145,
               backgroundColor:'rgba(209, 214, 255, 0.5)',
               borderRadius: 10,
               top:4,
+              marginHorizontal:10
 
             }}    
          />
@@ -85,7 +89,7 @@ const [date, setDate] = React.useState()
             style={{
               padding:13,
               height:40,
-              width:178,
+              width:145,
               backgroundColor:'rgba(209, 214, 255, 0.5)',
               borderRadius: 10,
               top:4,
@@ -97,30 +101,33 @@ const [date, setDate] = React.useState()
          </View>
          </View>
          <View style={{marginVertical:10}}>
-         <View style={{flexDirection:'row',}}>
-            <Text style={{color:'#380885',}}>Semester  <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
-            <Text style={{color:'#380885',paddingLeft:120,}}>Course   <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
+         <View style={{flexDirection:'row',marginHorizontal:10}}>
+            <Text style={{color:'#380885',}}>Semester 
+             <Text style={{color:theme.colors.secondary,marginLeft:13}}>*</Text> </Text>
+            <Text style={{color:'#380885',paddingLeft:105,}}>Course 
+              <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
             
          </View>
          <View style={{flexDirection:'row',justifyContent:'space-between'}}>
-         <CertificateProDrop/>
-         <CertificateProDrop/>
+         <CertiStuIDrop/>
+         <CertiStuCourDrop/>
          
      
          </View>
          </View>
          <View style={{marginVertical:10}}>
          <View style={{flexDirection:'row',}}>
-            <Text style={{color:'#380885',}}>Start  <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
-            <Text style={{color:'#380885',paddingLeft:150,}}>End   <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
+            <Text style={{color:'#380885',marginHorizontal:10}}>Start  <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
+            <Text style={{color:'#380885',paddingLeft:120,}}>End  
+             <Text style={{color:theme.colors.secondary,marginLeft:13}}>*</Text> </Text>
             
          </View>
-         <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+         <View style={{flexDirection:'row',justifyContent:'space-between',top:5}}>
          <DatePicker
-            style={{ height:40,
-            width:178,
+            style={{ height:40,left:10,
+            width:135,
             backgroundColor:'rgba(209, 214, 255, 0.5)',
-            borderRadius: 10,}}
+            borderRadius: 10}}
             date={date}
             mode='date'
             placeholder='DD-MM-YYYY'
@@ -136,6 +143,7 @@ const [date, setDate] = React.useState()
                 borderBottomWidth: 0,
                 alignItems: 'flex-start',
                 paddingLeft: 4,
+                marginHorizontal:10
               },
             }}
             iconComponent={
@@ -148,9 +156,9 @@ const [date, setDate] = React.useState()
          {/* <CertificateProDrop/>      */}
          <DatePicker
             style={{ height:40,
-            width:178,
+            width:135,
             backgroundColor:'rgba(209, 214, 255, 0.5)',
-            borderRadius: 10,}}
+            borderRadius: 10,right:5}}
             date={date}
             mode='date'
             placeholder='DD-MM-YYYY'
@@ -179,8 +187,8 @@ const [date, setDate] = React.useState()
          </View>
          <View style={{marginVertical:10}}>
          <View style={{flexDirection:'row',}}>
-            <Text style={{color:'#380885',}}>Total Credit  <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
-            <Text style={{color:'#380885',paddingLeft:110,}}>Grade   <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
+            <Text style={{color:'#380885',marginHorizontal:10}}>Total Credit  <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
+            <Text style={{color:'#380885',paddingLeft:80,}}>Grade   <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
             
          </View>
          <View style={{flexDirection:'row',justifyContent:'space-between'}}>
@@ -189,10 +197,11 @@ const [date, setDate] = React.useState()
             style={{
               padding:13,
               height:40,
-              width:178,
+              width:135,
               backgroundColor:'rgba(209, 214, 255, 0.5)',
               borderRadius: 10,
-              top:4,
+              top:5,
+              marginHorizontal:10
 
             }}    
          />
@@ -201,10 +210,11 @@ const [date, setDate] = React.useState()
             style={{
               padding:13,
               height:40,
-              width:178,
+              width:135,
               backgroundColor:'rgba(209, 214, 255, 0.5)',
               borderRadius: 10,
               top:4,
+              marginRight:5
 
             }}    
          />
@@ -213,7 +223,7 @@ const [date, setDate] = React.useState()
          </View>
  </View>
    
-<View style={{flexDirection:'row',position:'relative',left:130,paddingTop:80}}>
+<View style={{flexDirection:'row',position:'relative',left:100,paddingTop:40}}>
             <TouchableOpacity
             style={{marginVertical:theme.spacing.xl,backgroundColor:'#380885',width:100,height:30,borderRadius:20,}}
          onPress={props.onPress}>
@@ -223,7 +233,11 @@ const [date, setDate] = React.useState()
           <TouchableOpacity
             style={{backgroundColor:'white',width:90,height:30,borderRadius:20,marginHorizontal:20}}>
          <Text style={{color:'#380885',}}>Save for Later</Text>
-         <Text style={{height:1,width:'100%',backgroundColor:'#380885',}}>__________</Text>
+         <Text
+          style={[
+          theme.textVariants.body,
+          { color: theme.colors.primary, fontSize:15,bottom:12}]}>
+___________</Text>
           </TouchableOpacity>
         </View>
           </View>

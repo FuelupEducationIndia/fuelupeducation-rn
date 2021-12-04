@@ -1,6 +1,7 @@
 import React from 'react'
 import { View,  StyleSheet, TextInput ,TouchableOpacity ,Dimensions,Image} from 'react-native'
 import theme, {  Text } from '../../theme'
+import ImagePicker from 'react-native-image-crop-picker'
 
 import DatePicker from 'react-native-datepicker'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -10,11 +11,24 @@ const CertificateVerify = (props)=>{
 //const [college, setCollege] = React.useState()
 // const [percentage , setPercentage] = React.useState();
 
-const width = Dimensions.get('window').width - 40;
+const width = Dimensions.get('window').width - 50;
 const width1 = Dimensions.get('window').width - 310 ;
 const h1 = Dimensions.get('window').width - 380 ;
 const [date, setDate] = React.useState()
 
+const ChooseFile=()=>{
+  ImagePicker.openPicker({
+    width:300,
+    height:300,
+    cropping:true,
+    compressImageQuality:0.7
+
+  }).then(image=>{
+    console.log(image.path);
+    setImage(image.path);
+    this.bs.current.snapTo(1)
+  });
+}
 
 
   return (
@@ -25,7 +39,8 @@ const [date, setDate] = React.useState()
     </View>
     <View style={{height:1,width:'100%',backgroundColor:'lightgrey',marginTop:10,marginBottom:15}}></View>
     <View>
-     <Text style={{color:'#380885',marginVertical:0,}}>Instructor Name   <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
+     <Text style={{color:'#380885',marginVertical:0,marginHorizontal:10}}>Instructor Name  
+      <Text style={{color:theme.colors.secondary,marginLeft:13}}>*</Text> </Text>
      <TextInput 
          //  placeholder='Type institution address here...'
             style={{
@@ -34,35 +49,39 @@ const [date, setDate] = React.useState()
               width:width,
               backgroundColor:'rgba(209, 214, 255, 0.5)',
               borderRadius: 10,
+              marginHorizontal:10,
+              top:5,
               marginBottom:15,
             }}    
          />
       
 
-    <Text style={{color:'#380885',}}>Instructor Signature   <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
+    <Text style={{color:'#380885',marginHorizontal:10}}>Instructor Signature   <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
     <View style={{flexDirection:'row'}}>
     <TextInput 
           // placeholder='Type institution address here...'
             style={{
               padding:13,
               height:40,
-              width:260,
+              width:210,
               backgroundColor:'rgba(209, 214, 255, 0.5)',
               borderRadius: 10,
               marginBottom:15,
-
+              marginHorizontal:10,
+              top:5
             }}    
          />
-         <TouchableOpacity
-            style={{borderColor:theme.colors.secondary,borderWidth:1,width:90,height:26,borderRadius:20,marginStart:20,marginTop:10}}
+         <TouchableOpacity onPress={ChooseFile}
+            style={{borderColor:theme.colors.secondary,borderWidth:1,width:90,height:30,borderRadius:20,marginStart:5,marginTop:5}}
         >
-         <Text style={{color:theme.colors.secondary,textAlign:'center',fontSize:15,top:2}}>Upload</Text>
+         <Text style={{color:theme.colors.secondary,textAlign:'center',fontSize:15,top:5}}>Upload</Text>
           </TouchableOpacity>
          </View>
-         <Text style={{color:'#380885',}}>Date   <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
+         <Text style={{color:'#380885',marginHorizontal:10}}>Date 
+           <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
 
          <DatePicker
-            style={{ height:40,
+            style={{ height:40,left:10,top:5,
             width:178,
             backgroundColor:'rgba(209, 214, 255, 0.5)',
             borderRadius: 10,marginBottom:15}}
@@ -91,7 +110,7 @@ const [date, setDate] = React.useState()
             }}
           />
 
-<Text style={{color:'#380885',marginVertical:0,}}>Enter Captcha  <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
+<Text style={{color:'#380885',marginVertical:0,marginHorizontal:10}}>Enter Captcha  <Text style={{color:theme.colors.secondary,marginLeft:15}}>*</Text> </Text>
      <TextInput 
          //  placeholder='Type institution address here...'
             style={{
@@ -101,20 +120,21 @@ const [date, setDate] = React.useState()
               backgroundColor:'rgba(209, 214, 255, 0.5)',
               borderRadius: 10,
               marginBottom:15,
+              marginHorizontal:10,top:5
             }}    
          />
      
 <View style={{flexDirection:'row-reverse',marginVertical:10,marginBottom:90}}>
 <View style={{flexDirection:'row'}}>
-<Text style={{color:'#380885',marginVertical:3,marginHorizontal:15,fontSize:15}}>Captcha code </Text>
+<Text style={{color:'#380885',marginVertical:5,marginHorizontal:15,fontSize:15}}>Captcha code </Text>
 <TouchableOpacity
             style={{backgroundColor:'#380885',width:80,height:30,borderRadius:5,}}>
-         <Text style={{color:'white',textAlign:'center',fontSize:15,top:4.5}}>11f32g</Text>
+         <Text style={{color:'white',textAlign:'center',fontSize:15,top:5}}>11f32g</Text>
           </TouchableOpacity>
 </View>
 </View>
 </View>
-<View style={{flexDirection:'row',position:'relative',left:130}}>
+<View style={{flexDirection:'row',position:'relative',left:100}}>
             <TouchableOpacity
             style={{marginVertical:theme.spacing.xl,backgroundColor:'#380885',width:100,height:30,borderRadius:20,}}
          onPress={props.onPress}>
@@ -122,9 +142,14 @@ const [date, setDate] = React.useState()
           </TouchableOpacity>
           <View style={{marginVertical:theme.spacing.xl,}}>
           <TouchableOpacity
-            style={{backgroundColor:'white',width:90,height:30,borderRadius:20,marginHorizontal:20}}>
+            style={{backgroundColor:'white',width:90,height:30,borderRadius:20,marginHorizontal:20,top:5}}>
          <Text style={{color:'#380885',}}>Save for Later</Text>
-         <Text style={{height:1,width:'100%',backgroundColor:'#380885',}}>__________</Text>
+         <Text
+            style={[
+                theme.textVariants.body,
+                { color: theme.colors.primary, fontSize:15,bottom:10},
+            ]}>
+___________</Text>
           </TouchableOpacity>
         </View>
           </View>

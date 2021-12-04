@@ -12,7 +12,7 @@ import Learners from '../../assets/svgs/Learner.svg'
 const OverView=()=>{
   return(
    
-    <View style={{height:1000,backgroundColor:'white',borderBottomLeftRadius:20,marginVertical:5}}>
+    <View style={{height:1100,backgroundColor:'white',borderBottomLeftRadius:20,marginVertical:5}}>
       <ScrollView>
      
       <View>
@@ -129,7 +129,7 @@ const OverView=()=>{
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
               </Text>
         </View>
-        <View style={{top:15,height:100}}>
+        <View style={{top:15,height:100,marginVertical:10}}>
         <Text 
                 style={[
                   theme.textVariants.body,

@@ -29,11 +29,12 @@ const App = () => {
     </View>
   );
 }
-const width = Dimensions.get('window').width - 40;
+const width = Dimensions.get('window').width - 50;
 
 const styles = StyleSheet.create({
   container: {
 marginVertical:5,
+marginHorizontal:5,
     // paddingTop: 40,
     height:40,
     width:width,

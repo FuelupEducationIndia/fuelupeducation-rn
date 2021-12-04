@@ -68,6 +68,27 @@ const ReviewSummary=(props)=>{
      
  
    }
+   const onSelect1 = (index) => {
+
+    //  console.log("index:", index);
+       var temp = data;
+       console.log('temp:', temp);
+      temp.map((v, i, arr) => {
+         //return undefined.apply(v, i, arr)
+         // console.log('v:',v);
+         console.log('i:',i);
+         // // console.log('arr:',arr);
+         if (index == i) {
+           console.log("id condition run", index, " == ", i);
+         temp[index].collect = 0;
+         }
+       
+      });
+       setData([...temp]);
+     
+ 
+   }
+
   
 const renderItem = ({ item, index }) =>{
   if(item.collect == 1){
@@ -75,7 +96,7 @@ const renderItem = ({ item, index }) =>{
       <>
       <View style={{backgroundColor:theme.colors.lightBlue}}>
 <View style={{flexDirection:'row',height:'auto'}}>
-<TouchableOpacity onPress={() => onSelect(item)} style={{height:20,width:20,justifyContent:'center',marginHorizontal:2,top:5}}>
+<TouchableOpacity onPress={() => onSelect1(index)} style={{height:20,width:20,justifyContent:'center',marginHorizontal:2,top:5}}>
       <Minus/>
 </TouchableOpacity>
         <View style={{flexDirection:'column',marginHorizontal:5,top:5}}>
@@ -140,11 +161,11 @@ const renderItem = ({ item, index }) =>{
   }
   else if (item.collect != 1 ) {
   return(
-    <View style={{flexDirection:'row',height:75,borderTopWidth:1,borderBottomWidth:1}}>
+    <View style={{flexDirection:'row',height:85,borderTopWidth:1,borderBottomWidth:1}}>
        <TouchableOpacity onPress={() => onSelect(index)} style={{height:20,width:20,justifyContent:'center',top:15,left:5}}>
         <Add/>
          </TouchableOpacity>
-    <View style={{height:40,width:85,marginHorizontal:10}}>
+    <View style={{height:90,width:85,marginHorizontal:10}}>
     <Text
      
      style={[
@@ -155,7 +176,7 @@ const renderItem = ({ item, index }) =>{
 The Solar System
  </Text>
  </View>
- <View style={{width:110,height:70}}>
+ <View style={{width:120,height:70}}>
  <Text
      
      style={[
@@ -163,22 +184,22 @@ The Solar System
        { color: theme.colors.darkSilver, fontSize:13,top:8,},
      ]}>
       Lorem ipsum dolor sit amet, tempor incididunt ut labore
- </Text>
  <Text
      
      style={[
        theme.textVariants.body,
-       { color: theme.colors.text, fontSize:15,top:8,fontWeight:'bold'},
+       { color: theme.colors.text, fontSize:15,fontWeight:'bold'},
      ]}>
       See more...
  </Text>
- 
+ </Text>
+
  </View>
  <Text
      
      style={[
        theme.textVariants.body,
-       { color: theme.colors.danger, fontSize:14,top:8,marginHorizontal:10},
+       { color: theme.colors.danger, fontSize:13,top:8,},
      ]}>
   Need Improve
  </Text>
@@ -252,7 +273,7 @@ The Solar System
           <FlatList
               data={DATA}
               renderItem={renderItem}
-              keyExtractor={item => item.id}
+              keyExtractor={(item, index) => 'key'+index}
 
           />
           </View>

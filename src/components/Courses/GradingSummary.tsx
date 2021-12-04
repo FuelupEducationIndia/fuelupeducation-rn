@@ -69,14 +69,34 @@ const GradingSummary=(props)=>{
      
  
    }
-  
+   const onSelect1 = (index) => {
+
+    //  console.log("index:", index);
+       var temp = data;
+       console.log('temp:', temp);
+      temp.map((v, i, arr) => {
+         //return undefined.apply(v, i, arr)
+         // console.log('v:',v);
+         console.log('i:',i);
+         // // console.log('arr:',arr);
+         if (index == i) {
+           console.log("id condition run", index, " == ", i);
+         temp[index].collect = 0;
+         }
+       
+      });
+       setData([...temp]);
+     
+ 
+   }
+
 const renderItem = ({ item, index }) =>{
   if(item.collect == 1){
     return(
       <>
       <View style={{backgroundColor:theme.colors.lightBlue}}>
 <View style={{flexDirection:'row',height:'auto'}}>
-<TouchableOpacity onPress={() => onSelect(item)} style={{height:20,width:20,justifyContent:'center',marginHorizontal:2,top:5}}>
+<TouchableOpacity onPress={() => onSelect1(index)} style={{height:20,width:20,justifyContent:'center',marginHorizontal:2,top:5}}>
       <Minus/>
 </TouchableOpacity>
         <View style={{flexDirection:'column',marginHorizontal:5,top:5}}>
@@ -129,11 +149,11 @@ const renderItem = ({ item, index }) =>{
   }
   else if (item.collect != 1 ) {
   return(
-    <View style={{flexDirection:'row',height:60,borderTopWidth:1,borderBottomWidth:1}}>
+    <View style={{flexDirection:'row',height:80,borderTopWidth:1,borderBottomWidth:1}}>
       <TouchableOpacity onPress={() => onSelect(index)} style={{height:20,width:20,justifyContent:'center',top:15,left:5}}>
         <Add/>
          </TouchableOpacity>   
-          <View style={{height:40,width:85,marginHorizontal:10}}>
+          <View style={{height:'auto',width:85,marginHorizontal:10}}>
     <Text
      
      style={[
@@ -211,7 +231,7 @@ The Solar System
        
        style={[
          theme.textVariants.body,
-         { color: theme.colors.text, fontSize:18,top:10,marginHorizontal:20},
+         { color: theme.colors.text, fontSize:18,top:10,marginHorizontal:17},
        ]}>
      Student/Group
    </Text>
@@ -219,7 +239,7 @@ The Solar System
        
        style={[
          theme.textVariants.body,
-         { color: theme.colors.text, fontSize:18,top:10,marginHorizontal:20},
+         { color: theme.colors.text, fontSize:18,top:10,marginHorizontal:17},
        ]}>
      Grades
    </Text>
@@ -232,7 +252,7 @@ The Solar System
           <FlatList
               data={DATA}
               renderItem={renderItem}
-              keyExtractor={item => item.id}
+              keyExtractor={(item, index) => 'key'+index}
 
           />
           </View>

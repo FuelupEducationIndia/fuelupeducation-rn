@@ -52,127 +52,154 @@ const GradingAssignment=(props)=>{
      {/* For File Data */}
      <View style={{top:35,height:50}}>
         <View style={{height:40,flexDirection:'row'}}>
-       <FileI style={{marginHorizontal:30,top:3}}/>
-       <Text onPress={() => Linking.openURL('https://archive.nwp.org/cs/public/download/nwp_file/15410/Writing_Assignment_Framework_and_Overview.pdf?x-r=pcfile_d')}
-      style={[
-      theme.textVariants.body,
-      { color: theme.colors.primary, fontSize:16,right:20,top:2},
-      ]}>
-      LastName_Assgn1_AssignName.pdf 
-       </Text>
-       <Text 
+        <TouchableOpacity onPress={() => Linking.openURL('https://archive.nwp.org/cs/public/download/nwp_file/15410/Writing_Assignment_Framework_and_Overview.pdf?x-r=pcfile_d')} style={{height:30,width:300,flexDirection:'row',marginHorizontal:20}}>
+          <FileI style={{top:3,}}/>
+          <View style={{flexDirection:'column',height:30}}>
+          <Text 
          style={[
          theme.textVariants.body,
-         { color: theme.colors.primary, fontSize:16,right:270,top:5},
+         { color: theme.colors.primary, fontSize:15,top:2,marginHorizontal:20},
          ]}>
-         __________________________________
+         LastName_Assgn1_AssignName.pdf 
           </Text>
+          <Text 
+         style={[
+         theme.textVariants.body,
+         { color: theme.colors.primary, fontSize:15,bottom:12,marginHorizontal:20},
+         ]}>
+         _________________________________
+          </Text>
+          </View>
+          </TouchableOpacity>
+         
           
        </View>
      </View>
 
      <View style={{top:35,height:50}}>
         <View style={{height:40,flexDirection:'row'}}>
-       <FileI style={{marginHorizontal:30,top:3}}/>
-       <Text onPress={() => Linking.openURL('https://archive.nwp.org/cs/public/download/nwp_file/15410/Writing_Assignment_Framework_and_Overview.pdf?x-r=pcfile_d')}
-      style={[
-      theme.textVariants.body,
-      { color: theme.colors.primary, fontSize:16,right:20,top:2},
-      ]}>
-      LastName_Assgn1_AssignName.pdf 
-       </Text>
-       <Text onPress={() => Linking.openURL('https://archive.nwp.org/cs/public/download/nwp_file/15410/Writing_Assignment_Framework_and_Overview.pdf?x-r=pcfile_d')}
+        <TouchableOpacity onPress={() => Linking.openURL('https://archive.nwp.org/cs/public/download/nwp_file/15410/Writing_Assignment_Framework_and_Overview.pdf?x-r=pcfile_d')} style={{height:30,width:300,flexDirection:'row',marginHorizontal:20}}>
+          <FileI style={{top:3,}}/>
+          <View style={{flexDirection:'column',height:30}}>
+          <Text 
          style={[
          theme.textVariants.body,
-         { color: theme.colors.primary, fontSize:16,right:270,top:5},
+         { color: theme.colors.primary, fontSize:15,top:2,marginHorizontal:20},
          ]}>
-         __________________________________
+         LastName_Assgn1_AssignName.pdf 
           </Text>
+          <Text 
+         style={[
+         theme.textVariants.body,
+         { color: theme.colors.primary, fontSize:15,bottom:12,marginHorizontal:20},
+         ]}>
+         _________________________________
+          </Text>
+          </View>
+          </TouchableOpacity>
+         
           
        </View>  
      </View>
 
      <View style={{top:35,height:50}}>
         <View style={{height:40,flexDirection:'row'}}>
-       <FileI style={{marginHorizontal:30,top:3}}/>
-       <Text onPress={() => Linking.openURL('https://archive.nwp.org/cs/public/download/nwp_file/15410/Writing_Assignment_Framework_and_Overview.pdf?x-r=pcfile_d')}
-      style={[
-      theme.textVariants.body,
-      { color: theme.colors.primary, fontSize:16,right:20,top:2},
-      ]}>
-      LastName_Assgn1_AssignName.pdf 
-       </Text>
-       <Text 
+        <TouchableOpacity onPress={() => Linking.openURL('https://archive.nwp.org/cs/public/download/nwp_file/15410/Writing_Assignment_Framework_and_Overview.pdf?x-r=pcfile_d')} style={{height:30,width:300,flexDirection:'row',marginHorizontal:20}}>
+          <FileI style={{top:3,}}/>
+          <View style={{flexDirection:'column',height:30}}>
+          <Text 
          style={[
          theme.textVariants.body,
-         { color: theme.colors.primary, fontSize:16,right:270,top:5},
+         { color: theme.colors.primary, fontSize:15,top:2,marginHorizontal:20},
          ]}>
-         __________________________________
+         LastName_Assgn1_AssignName.pdf 
           </Text>
+          <Text 
+         style={[
+         theme.textVariants.body,
+         { color: theme.colors.primary, fontSize:15,bottom:12,marginHorizontal:20},
+         ]}>
+         _________________________________
+          </Text>
+          </View>
+          </TouchableOpacity>
+         
           
        </View>
        
      </View>
      <View style={{top:35,height:50}}>
         <View style={{height:40,flexDirection:'row'}}>
-       <FileI style={{marginHorizontal:30,top:3}}/>
-       <Text onPress={() => Linking.openURL('https://archive.nwp.org/cs/public/download/nwp_file/15410/Writing_Assignment_Framework_and_Overview.pdf?x-r=pcfile_d')}
-      style={[
-      theme.textVariants.body,
-      { color: theme.colors.primary, fontSize:16,right:20,top:2},
-      ]}>
-      LastName_Assgn1_AssignName.pdf 
-       </Text>
-       <Text 
+        <TouchableOpacity onPress={() => Linking.openURL('https://archive.nwp.org/cs/public/download/nwp_file/15410/Writing_Assignment_Framework_and_Overview.pdf?x-r=pcfile_d')} style={{height:30,width:300,flexDirection:'row',marginHorizontal:20}}>
+          <FileI style={{top:3,}}/>
+          <View style={{flexDirection:'column',height:30}}>
+          <Text 
          style={[
          theme.textVariants.body,
-         { color: theme.colors.primary, fontSize:16,right:270,top:5},
+         { color: theme.colors.primary, fontSize:15,top:2,marginHorizontal:20},
          ]}>
-         __________________________________
+         LastName_Assgn1_AssignName.pdf 
           </Text>
-          
+          <Text 
+         style={[
+         theme.textVariants.body,
+         { color: theme.colors.primary, fontSize:15,bottom:12,marginHorizontal:20},
+         ]}>
+         _________________________________
+          </Text>
+          </View>
+          </TouchableOpacity>
+            
        </View>  
      </View>
 
      <View style={{top:35,height:50}}>
         <View style={{height:40,flexDirection:'row'}}>
-       <FileI style={{marginHorizontal:30,top:3}}/>
-       <Text onPress={() => Linking.openURL('https://archive.nwp.org/cs/public/download/nwp_file/15410/Writing_Assignment_Framework_and_Overview.pdf?x-r=pcfile_d')}
-      style={[
-      theme.textVariants.body,
-      { color: theme.colors.primary, fontSize:16,right:20,top:2},
-      ]}>
-      LastName_Assgn1_AssignName.pdf 
-       </Text>
-       <Text 
+        <TouchableOpacity onPress={() => Linking.openURL('https://archive.nwp.org/cs/public/download/nwp_file/15410/Writing_Assignment_Framework_and_Overview.pdf?x-r=pcfile_d')} style={{height:30,width:300,flexDirection:'row',marginHorizontal:20}}>
+          <FileI style={{top:3,}}/>
+          <View style={{flexDirection:'column',height:30}}>
+          <Text 
          style={[
          theme.textVariants.body,
-         { color: theme.colors.primary, fontSize:16,right:270,top:5},
+         { color: theme.colors.primary, fontSize:15,top:2,marginHorizontal:20},
          ]}>
-         __________________________________
+         LastName_Assgn1_AssignName.pdf 
           </Text>
-          
+          <Text 
+         style={[
+         theme.textVariants.body,
+         { color: theme.colors.primary, fontSize:15,bottom:12,marginHorizontal:20},
+         ]}>
+         _________________________________
+          </Text>
+          </View>
+          </TouchableOpacity>
+             
        </View>
      </View>
 
      <View style={{top:35,height:50}}>
         <View style={{height:40,flexDirection:'row'}}>
-       <FileI style={{marginHorizontal:30,top:3}}/>
-       <Text onPress={() => Linking.openURL('https://archive.nwp.org/cs/public/download/nwp_file/15410/Writing_Assignment_Framework_and_Overview.pdf?x-r=pcfile_d')}
-      style={[
-      theme.textVariants.body,
-      { color: theme.colors.primary, fontSize:16,right:20,top:2},
-      ]}>
-      LastName_Assgn1_AssignName.pdf 
-       </Text>
-       <Text 
+        <TouchableOpacity onPress={() => Linking.openURL('https://archive.nwp.org/cs/public/download/nwp_file/15410/Writing_Assignment_Framework_and_Overview.pdf?x-r=pcfile_d')} style={{height:30,width:300,flexDirection:'row',marginHorizontal:20}}>
+          <FileI style={{top:3,}}/>
+          <View style={{flexDirection:'column',height:30}}>
+          <Text 
          style={[
          theme.textVariants.body,
-         { color: theme.colors.primary, fontSize:16,right:270,top:5},
+         { color: theme.colors.primary, fontSize:15,top:2,marginHorizontal:20},
          ]}>
-         __________________________________
+         LastName_Assgn1_AssignName.pdf 
           </Text>
-          
+          <Text 
+         style={[
+         theme.textVariants.body,
+         { color: theme.colors.primary, fontSize:15,bottom:12,marginHorizontal:20},
+         ]}>
+         _________________________________
+          </Text>
+          </View>
+          </TouchableOpacity>
+             
        </View>     
      </View>
      {/* For Button */}
@@ -199,7 +226,7 @@ const GradingAssignment=(props)=>{
 
         style={[
           theme.textVariants.body,
-          { color: theme.colors.primary, fontSize:18,marginHorizontal:30},
+          { color: theme.colors.primary, fontSize:18,marginHorizontal:20},
         ]}>
     Instructor
     <Text
@@ -306,7 +333,7 @@ alignContent:'space-between'}}>
 <Text
 style={[
 theme.textVariants.body,
-{ color: theme.colors.primary, fontSize:18,right:40},
+{ color: theme.colors.primary, fontSize:18,right:30},
 ]}>
 Enter Captcha</Text>
 <Text

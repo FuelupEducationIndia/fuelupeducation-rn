@@ -4,7 +4,7 @@ import React from 'react'
 import { TouchableOpacity, View } from 'react-native'
 import { Text } from '../theme'
 import { TeacherRoutes } from '../types/navigation'
-import { HomeTab, DemoTab, Profiletab,MainProfiletab, MyCourse } from './TeacherBottomTabs'
+import { HomeTab, DemoTab, CompletedProfile  } from './TeacherBottomTabs'
 import theme from '../theme'
 
 // Tab Icons import
@@ -13,7 +13,7 @@ import SearchIcon from '../assets/svgs/search-icon.svg'
 import MyCourseIcon from '../assets/svgs/my-course-icon.svg'
 import ProfileIcon from '../assets/svgs/profile-icon.svg'
 import MoreIcon from '../assets/svgs/more-icon.svg'
-
+import { Blank } from './TeacherHomeTopTabs'
 const TeachersTab = createBottomTabNavigator<TeacherRoutes>()
 
 const TeachersNavigator = () => (
@@ -41,7 +41,7 @@ const TeachersNavigator = () => (
     />
     <TeachersTab.Screen
       name='Search'
-      component={DemoTab}
+      component={Blank}
       options={{
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center' }}>
@@ -55,7 +55,7 @@ const TeachersNavigator = () => (
     />
     <TeachersTab.Screen
       name='MyCourse'
-      component={MyCourse}
+      component={Blank}
       options={{
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center' }}>
@@ -69,7 +69,7 @@ const TeachersNavigator = () => (
     />
     <TeachersTab.Screen
       name='Profile'
-      component={MainProfiletab}
+      component={CompletedProfile}
       options={{
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center' }}>

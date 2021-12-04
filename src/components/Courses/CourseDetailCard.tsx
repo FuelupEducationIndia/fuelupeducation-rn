@@ -2,6 +2,9 @@ import React from 'react'
 import { View, Image, StyleSheet, ImageProps } from 'react-native'
 import theme, { Card, Text } from '../../theme'
 import { Button } from '..'
+import { MyCourse } from '../../Teachers/TeacherHomeTopTabs'
+
+
 
 interface CourseDetailCardProps {
   title: string
@@ -23,7 +26,7 @@ const CourseDetailCard = ({
   description,
   cretLec,
   thumbnailTitle,
-}: CourseDetailCardProps) => {
+}: CourseDetailCardProps,props) => {
   return (
     <Card
       variant='elevated'
@@ -60,7 +63,7 @@ const CourseDetailCard = ({
             </Text>
           </View>
         </View>
-        <Button
+        <Button onPress={props.onPress}
           alignSelf='flex-start'
           paddingHorizontal='m'
           variant='primary'

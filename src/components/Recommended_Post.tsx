@@ -149,18 +149,26 @@ Captcha Code</Text>
     </View>
     {/* For Upload Button */}
     <View style={{flexDirection:'row',height:70,top:200}}>
-    <TouchableOpacity onPress={props.onPress} style={{height:30,justifyContent:'center',alignContent:'center',top:15}}>
+    <TouchableOpacity onPress={props.onPress} 
+    style={{height:30,width:'auto',justifyContent:'center',alignContent:'center',top:23,right:10}}>
 <Text 
 style={[
 theme.textVariants.body,
-{ color: theme.colors.primary, fontSize:15,right:15},
+{ color: theme.colors.primary, fontSize:15,top:5},
 ]}>
 
 Recommendation PodCast
 </Text>
+<Text
+style={[
+theme.textVariants.body,
+{ color: theme.colors.primary, fontSize:17,textAlign:'center',bottom:15,},
+]}>
+______________________</Text>
+
 </TouchableOpacity>
 
-<TouchableOpacity onPress={()=>alert('Your Assignment Uploaded Successfully')} style={{height:40,width:140,backgroundColor:'#F16600',borderRadius:20,top:10,right:5}}>
+<TouchableOpacity onPress={()=>alert('Your Assignment Uploaded Successfully')} style={{height:40,width:110,backgroundColor:'#F16600',borderRadius:20,top:10,left:10}}>
 <Text
 style={[
 theme.textVariants.body,
@@ -168,12 +176,6 @@ theme.textVariants.body,
 ]}>
 Update</Text>
 </TouchableOpacity>
-<Text
-style={[
-theme.textVariants.body,
-{ color: theme.colors.primary, fontSize:17,textAlign:'center',right:325,top:22},
-]}>
-______________________</Text>
 
     </View>
 </View>

@@ -1,11 +1,11 @@
 import React from 'react'
 import { View,  StyleSheet, TextInput ,TouchableOpacity ,Dimensions,Image} from 'react-native'
-import theme, {  Text } from '../theme'
+import theme, {  Text } from '../../theme'
 
 import Frm1 from '../../assets/svgs/Framecplt.svg'
 import Print from '../../assets/svgs/i32.svg'
 import Cloud from '../../assets/svgs/cloud.svg'
-import { SearchBar} from '.'
+import { SearchBar} from '../../components'
 
 
 //const courseOptions = ['University', 'IITs', 'Nits']

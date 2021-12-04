@@ -344,8 +344,7 @@ alignContent:'space-between'}}>
     
   }}> 
 <View style={{flexDirection:'row',height:50,bottom:30}}>
-<TouchableOpacity onPress={props.onPress} style={{height:30,width:150,borderRadius:20,top:10,left:5}}>
-{/* <Link to={{screen:'AssignmentSummary'}}> */}
+<TouchableOpacity onPress={props.onPress} style={{height:40,width:150,borderRadius:20,top:10,left:5}}>
 <Text 
 style={[
 theme.textVariants.body,
@@ -354,7 +353,13 @@ theme.textVariants.body,
 
 Notebook Summary
 </Text>
-{/* </Link> */}
+<Text
+style={[
+theme.textVariants.body,
+{ color: theme.colors.primary, fontSize:18,bottom:20},
+]}>
+_______________</Text>
+
 </TouchableOpacity>
 
 <TouchableOpacity onPress={()=>alert('Your Notebook Uploaded Successfully')} style={{height:40,width:140,backgroundColor:'#F16600',borderRadius:20,left:15}}>
@@ -367,12 +372,6 @@ Upload</Text>
 </TouchableOpacity>
 </View>
 <View>
-<Text
-style={[
-theme.textVariants.body,
-{ color: theme.colors.primary, fontSize:18,right:80,bottom:70},
-]}>
-________________</Text>
 </View>
 </View>
     

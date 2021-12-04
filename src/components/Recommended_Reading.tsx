@@ -28,7 +28,7 @@ const Recommended_Reading=(props)=>{
   return(
     <>
     
-    <View style={{height:1000}}>
+    <View style={{height:1300}}>
      <View>
     
     <Text
@@ -135,7 +135,7 @@ style={[
 ]}>
 Short Descriptin
 </Text>
-    <Box style={{borderRadius:5,borderStyle:'dashed',borderWidth:1,top:80,height:80,width:290}}>
+    <Box style={{borderRadius:5,borderStyle:'dashed',borderWidth:1,top:80,height:100,width:290}}>
         <PinUpload style={{justifyContent:'center',alignContent:'center',marginHorizontal:100}}/>
         <Text
 
@@ -213,7 +213,8 @@ alignContent:'space-between'}}>
         </View>
 </View></View>
 <View style={{height:50,top:155,flexDirection:'row',right:10}}>
-<TouchableOpacity onPress={props.onPress} style={{height:30,justifyContent:'center',alignContent:'center',top:15}}>
+<TouchableOpacity onPress={props.onPress}
+ style={{flexDirection:'column',height:30,justifyContent:'center',alignContent:'center',top:15}}>
 <Text 
 style={[
 theme.textVariants.body,
@@ -221,10 +222,19 @@ theme.textVariants.body,
 ]}>
 
 Recommendation Summary 
+
 </Text>
+<Text
+style={[
+theme.textVariants.body,
+{ color: theme.colors.primary, fontSize:17,textAlign:'center',bottom:12},
+]}>
+______________________</Text>
+
 </TouchableOpacity>
 
-<TouchableOpacity onPress={()=>alert('Your Assignment Uploaded Successfully')} style={{height:40,width:140,backgroundColor:'#F16600',borderRadius:20,top:5,left:5,}}>
+<TouchableOpacity onPress={()=>alert('Your Assignment Uploaded Successfully')} 
+style={{height:40,width:110,backgroundColor:'#F16600',borderRadius:20,top:5,left:15,}}>
 <Text
 style={[
 theme.textVariants.body,
@@ -232,12 +242,6 @@ theme.textVariants.body,
 ]}>
 Update</Text>
 </TouchableOpacity>
-<Text
-style={[
-theme.textVariants.body,
-{ color: theme.colors.primary, fontSize:17,textAlign:'center',right:315,top:22},
-]}>
-______________________</Text>
 </View>
 </View>
 {/* For Upload Button */}

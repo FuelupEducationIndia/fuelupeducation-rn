@@ -8,6 +8,7 @@ import Prevb from '../assets/svgs/Prevbtn.svg'
 import Next from '../assets/svgs/Next.svg'
 import { useNavigation } from '@react-navigation/native';
 import Video from '../assets/svgs/Video.svg'
+import Minus from '../assets/svgs/Minus.svg'
 
 
 const DATA=[
@@ -35,7 +36,7 @@ const Recommended_Post_Summary=(props)=>{
 
   const navigation = useNavigation();
   // const history= useHistory();
-  const onSelect = (index) => {
+  const onSelect6 = (index) => {
 
     //  console.log("index:", index);
        var temp = data;
@@ -55,7 +56,27 @@ const Recommended_Post_Summary=(props)=>{
      
  
    }
-  
+   const onSelect7 = (index) => {
+
+    //  console.log("index:", index);
+       var temp = data;
+       console.log('temp:', temp);
+      temp.map((v, i, arr) => {
+         //return undefined.apply(v, i, arr)
+         // console.log('v:',v);
+         console.log('i:',i);
+         // // console.log('arr:',arr);
+         if (index == i) {
+           console.log("id condition run", index, " == ", i);
+         temp[index].collect = 0;
+         }
+       
+      });
+       setData([...temp]);
+     
+ 
+   }
+
 const renderItem = ({ item, index }) =>{
   if(item.collect == 1){
     return(
@@ -63,8 +84,8 @@ const renderItem = ({ item, index }) =>{
       <ScrollView>
       <View style={{backgroundColor:theme.colors.lightBlue}}>
 <View style={{flexDirection:'row',height:'auto'}}>
-    <TouchableOpacity onPress={() => onSelect(item)} style={{backgroundColor:theme.colors.secondary,height:20,width:20,borderRadius:20,marginVertical:10,marginHorizontal:6}}>
-  <Text style={{fontSize:15,color:theme.colors.white,fontWeight:'bold',textAlign:'center',}}>-</Text>
+<TouchableOpacity onPress={() => onSelect7(index)} style={{height:20,width:20,justifyContent:'center',marginHorizontal:2,top:5}}>
+      <Minus/>
 </TouchableOpacity>
         <View style={{flexDirection:'column',marginHorizontal:5}}>
         <Text style={{color:theme.colors.darkSilver,fontWeight:'200',}}>ss2021-</Text>
@@ -127,11 +148,12 @@ const renderItem = ({ item, index }) =>{
   }
   else if (item.collect != 1 ) {
   return(
-    <View style={{flexDirection:'row',height:60,borderTopWidth:1,borderBottomWidth:1}}>
-    <TouchableOpacity onPress={() => onSelect(index)} style={{height:20,width:20,justifyContent:'center',top:15,left:5}}>
+    <View style={{flexDirection:'row',height:70,borderTopWidth:1,borderBottomWidth:1}}>
+    <TouchableOpacity onPress={() => onSelect6(index)} 
+    style={{height:20,width:20,justifyContent:'center',top:15,marginHorizontal:5}}>
     <Add/>
     </TouchableOpacity>
-    <View style={{height:40,width:85,marginHorizontal:10}}>
+    <View style={{height:40,width:85,marginHorizontal:5}}>
     <Text
      
      style={[
@@ -168,19 +190,22 @@ The Solar System
 
 
   return(
-    
     <Card
     // variant='elevated'
     borderRadius='l'
     marginBottom='m'
     padding='none'
-    backgroundColor='white'>
+    backgroundColor='white'
+    height={1000}>
+      
+ <View style={{height:'auto'}}>
+
 <View
   style={{
     marginVertical: theme.spacing.m,
     display: 'flex',
     flexDirection:'row',
-    height:50,
+    height:'auto',
   }}>
     <TouchableOpacity onPress={props.onPress} style={{height:30,width:20,backgroundColor:'white',top:5,marginHorizontal:5,left:10}}>
       <Prev  style={{top:7}}/>
@@ -208,7 +233,7 @@ The Solar System
        
        style={[
          theme.textVariants.body,
-         { color: theme.colors.text, fontSize:18,top:10,marginHorizontal:20},
+         { color: theme.colors.text, fontSize:18,top:10,marginHorizontal:10},
        ]}>
      Reading Title
    </Text>
@@ -229,7 +254,7 @@ The Solar System
           <FlatList
               data={DATA}
               renderItem={renderItem}
-              keyExtractor={item => item.id}
+              keyExtractor={(item, index) => 'key'+index}
 
           />
           </View>
@@ -259,7 +284,7 @@ The Solar System
           </View>
      
        </View>
-      
+       </View> 
   </Card>
   )}
   export default Recommended_Post_Summary
