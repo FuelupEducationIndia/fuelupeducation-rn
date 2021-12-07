@@ -11,7 +11,9 @@ import { Text } from '../../theme'
 import { View,TextInput,StyleSheet,Switch,Modal,Linking,Image} from 'react-native'
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { MainProfile,Profile } from '../../components/Courses'
-const CompletedProfile=({navigation})=>{
+import CreateTicket from '../../components/Ticket/CreateTicket'
+import ReportHistory from '../../components/Ticket/ReportHistory'
+const Ticket=({navigation})=>{
     const [change,setChange] = React.useState(0);
     const onNext = (Value: number) =>
     {
@@ -80,16 +82,16 @@ style={{
 </Card>
 
 </SafeAreaView>
-<View style={{height:550}}>
+<View>
 {change === 0 ? (
-<MainProfile onPress={()=>onNext(1)}/>
- ):null}
-  {change === 1 ? (
-<Profile onPress={()=>onPrev(0)}/>
- ):null} 
+    <CreateTicket onPress={()=>onNext(1)}/>
+    ):null}
+    {change === 1 ? (
+      <ReportHistory onPress={()=>onPrev(0)}/>
+      ):null} 
 
 </View>
 </>
   )
 }
-export default CompletedProfile
+export default Ticket

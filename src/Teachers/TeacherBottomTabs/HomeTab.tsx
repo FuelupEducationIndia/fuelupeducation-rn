@@ -33,18 +33,18 @@ const HomeTab = ({navigation}) => {
               justifyContent: 'space-around',
               alignItems: 'center',
             }}>
-         <TouchableOpacity 
-        style={{height:45,width:45,left:30,
+         <TouchableOpacity onPress={()=>navigation.openDrawer()}
+        style={{height:45,width:55, marginHorizontal:40,bottom:20,
         justifyContent:'center',alignContent:'center',alignItems:'center'}}>
-        <DrawerIcon/>
+        <DrawerIcon style={{right:10}}/>
         </TouchableOpacity>
-            <TopHero />
+            <TopHero style={{right:40}} />
             <Box
               style={{
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
-                width: '50%',
+                width: '50%',right:20
               }}>
               <Text
                 style={[

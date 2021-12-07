@@ -5,13 +5,11 @@ import theme, { Card, Box } from '../../theme'
 // import DrawerIcon from '../../assets/svgs/drawer-icon.svg'
 import TopHero from '../../assets/svgs/top-hero.svg'
 import DrawerIcon from '../../assets/svgs/drawer-icon.svg'
-import Editbtn from '../../assets/svgs/Edit.svg'
-import Userbtn from '../../assets/svgs/User.svg'
 import { Text } from '../../theme'
 import { View,TextInput,StyleSheet,Switch,Modal,Linking,Image} from 'react-native'
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
-import { MainProfile,Profile } from '../../components/Courses'
-const CompletedProfile=({navigation})=>{
+import Create_Schedule from '../../components/schedule/CreateSchedule'
+const Schedule=({navigation})=>{
     const [change,setChange] = React.useState(0);
     const onNext = (Value: number) =>
     {
@@ -80,16 +78,10 @@ style={{
 </Card>
 
 </SafeAreaView>
-<View style={{height:550}}>
-{change === 0 ? (
-<MainProfile onPress={()=>onNext(1)}/>
- ):null}
-  {change === 1 ? (
-<Profile onPress={()=>onPrev(0)}/>
- ):null} 
-
+<View>
+    <Create_Schedule/>
 </View>
 </>
   )
 }
-export default CompletedProfile
+export default Schedule

@@ -11,6 +11,7 @@ import RIconSvg from './../../assets/icons/recaptcha.svg'
 import CheckBox from '@react-native-community/checkbox'
 import DatePicker from 'react-native-datepicker'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import { ScrollView } from 'react-native-gesture-handler'
 
 const countryOption = ['India', 'Indonesia', 'Pakistan', 'USA']
 const cityOption = ['Jaipur', 'Jakarta']
@@ -42,6 +43,7 @@ const SignUpInfo = ({ navigation }: AuthNavigationProps<'SignUpInfo'>) => {
   }
 
   return (
+    <ScrollView>
     <TouchBox
       flex={1}
       backgroundColor='background'
@@ -246,6 +248,7 @@ const SignUpInfo = ({ navigation }: AuthNavigationProps<'SignUpInfo'>) => {
         />
       </Card>
     </TouchBox>
+    </ScrollView>
   )
 }
 

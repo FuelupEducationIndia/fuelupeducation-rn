@@ -4,7 +4,7 @@ import React from 'react'
 import { TouchableOpacity, View } from 'react-native'
 import { Text } from '../theme'
 import { TeacherRoutes } from '../types/navigation'
-import { HomeTab, DemoTab, CompletedProfile  } from './TeacherBottomTabs'
+import { HomeTab, DemoTab, CompletedProfile,Schedule } from './TeacherBottomTabs'
 import theme from '../theme'
 
 // Tab Icons import
@@ -41,7 +41,7 @@ const TeachersNavigator = () => (
     />
     <TeachersTab.Screen
       name='Search'
-      component={Blank}
+      component={Schedule}
       options={{
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center' }}>

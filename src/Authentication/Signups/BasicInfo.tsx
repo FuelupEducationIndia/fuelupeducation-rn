@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Keyboard, StyleSheet } from 'react-native'
+import { View, Keyboard, StyleSheet, ScrollView } from 'react-native'
 import { Box, Card, Text, TouchBox } from '../../theme'
 import { RoundedIconButton, TextInput } from '../../components'
 import IconSvg from '../../assets/icons/icon.svg'
@@ -7,11 +7,13 @@ import { AuthNavigationProps } from '../../types/navigation'
 
 const BasicInfo = ({ navigation }: AuthNavigationProps<'BasicInfo'>) => {
   return (
+    <ScrollView>
     <TouchBox
       flex={1}
       backgroundColor='background'
       activeOpacity={1}
       onPress={() => Keyboard.dismiss()}>
+        <ScrollView>
       <Card variant='top' justifyContent='flex-end'>
         <RoundedIconButton
           icon='x-circle'
@@ -104,7 +106,9 @@ const BasicInfo = ({ navigation }: AuthNavigationProps<'BasicInfo'>) => {
           </Box>
         </Box>
       </View>
+      </ScrollView>
     </TouchBox>
+    </ScrollView>
   )
 }
 const styles = StyleSheet.create({

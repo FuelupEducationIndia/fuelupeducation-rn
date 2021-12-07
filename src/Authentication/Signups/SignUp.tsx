@@ -3,19 +3,24 @@ import theme, { Box, Card, Text, TouchBox } from '../../theme'
 import { Button, TextInput, Divider, IconButton } from '../../components'
 
 import { AuthNavigationProps } from '../../types/navigation'
-import { Keyboard, KeyboardAvoidingView } from 'react-native'
+import { Keyboard, KeyboardAvoidingView ,Linking,ToastAndroid} from 'react-native'
 import IconSvg from './../../assets/icons/icon.svg'
 import GoogleSvg from './../../assets/icons/google.svg'
 import FacebookSvg from './../../assets/icons/facebook.svg'
 import Microsoft from './../../assets/icons/mirosoft.svg'
 import Telegram from './../../assets/icons/telegram.svg'
 import Whatsapp from './../../assets/icons/whatsapp.svg'
+import DeviceInfo from 'react-native-device-info';
 
 const SignUp = ({ navigation }: AuthNavigationProps<'SignUp'>) => {
   const [email, setEmail] = useState('')
-  const [Password, setPassword] = useState('')
+  const [password, setPassword] = useState('')
   const [PasswordC, setPasswordC] = useState('')
+  const [UID, setUID] = useState('');
 
+  const [isLoading, setIsLoading] = useState(false);
+
+  
   return (
     <TouchBox
       flex={1}
@@ -51,7 +56,7 @@ const SignUp = ({ navigation }: AuthNavigationProps<'SignUp'>) => {
           <TextInput
             placeholder='Password'
             secureTextEntry={true}
-            value={Password}
+            value={password}
             onSubmitEditing={() => passwordInputFormC.focus()}
             ref={(input) => {
               passwordInputForm = input
@@ -80,11 +85,11 @@ const SignUp = ({ navigation }: AuthNavigationProps<'SignUp'>) => {
         </KeyboardAvoidingView>
         <Divider text='or' width={150} widthText={20} left={70} />
         <Box justifyContent='center' top={8} flexDirection='row'>
-          <IconButton Icon={GoogleSvg} />
-          <IconButton Icon={FacebookSvg} />
-          <IconButton Icon={Microsoft} />
-          <IconButton Icon={Telegram} />
-          <IconButton Icon={Whatsapp} />
+        <IconButton Icon={GoogleSvg} onPress={() => Linking.openURL('https://www.google.com/')} />
+            <IconButton Icon={FacebookSvg} onPress={() => Linking.openURL('https://www.facebook.com/')} />
+            <IconButton Icon={Microsoft} onPress={() => Linking.openURL('https://www.microsoft.com/')} />
+            <IconButton Icon={Telegram} onPress={() => Linking.openURL('https://www.telegram.com/')}/>
+            <IconButton Icon={Whatsapp} onPress={() => Linking.openURL('https://www.whatsapp.com/')} />
         </Box>
 
         <TouchBox

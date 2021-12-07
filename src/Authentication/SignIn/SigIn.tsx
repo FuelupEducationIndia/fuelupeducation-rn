@@ -10,9 +10,8 @@ import {
 } from '../../components'
 import { CustomPicker } from 'react-native-custom-picker'
 import QRCodeScanner from 'react-native-qrcode-scanner'
-
 import { AuthNavigationProps } from '../../types/navigation'
-import { Keyboard, KeyboardAvoidingView, LogBox, Modal } from 'react-native'
+import { Keyboard, KeyboardAvoidingView, LogBox, Modal,Linking,ToastAndroid} from 'react-native'
 import IconSvg from './../../assets/icons/icon.svg'
 import RIconSvg from './../../assets/icons/recaptcha.svg'
 import GoogleSvg from './../../assets/icons/google.svg'
@@ -43,7 +42,7 @@ import { ScrollView } from 'react-native-gesture-handler'
 
 const SignIn = ({ navigation }: AuthNavigationProps<'SignIn'>) => {
   const [email, setEmail] = useState('')
-  const [Password, setPassword] = useState('')
+  const [password, setPassword] = useState('')
   const [Role, setRole] = useState('')
 
   const [SignInMethod, setSignInMethod] = useState('')
@@ -67,7 +66,7 @@ const SignIn = ({ navigation }: AuthNavigationProps<'SignIn'>) => {
   const onSuccess = (e: any) => {
     console.log(e)
   }
-
+  
   return (
     <ScrollView>
       <TouchBox
@@ -147,7 +146,7 @@ const SignIn = ({ navigation }: AuthNavigationProps<'SignIn'>) => {
               placeholder='Password'
               secureTextEntry={true}
               ref={passRef}
-              value={Password}
+              value={password}
               onChangeText={(text) => setPassword(text)}
             />
             <CustomPicker
@@ -254,11 +253,11 @@ const SignIn = ({ navigation }: AuthNavigationProps<'SignIn'>) => {
           />
           <Divider text='or' width={150} widthText={20} left={70} />
           <Box justifyContent='center' top={8} flexDirection='row'>
-            <IconButton Icon={GoogleSvg} />
-            <IconButton Icon={FacebookSvg} />
-            <IconButton Icon={Microsoft} />
-            <IconButton Icon={Telegram} />
-            <IconButton Icon={Whatsapp} />
+            <IconButton Icon={GoogleSvg} onPress={() => Linking.openURL('https://www.google.com/')} />
+            <IconButton Icon={FacebookSvg} onPress={() => Linking.openURL('https://www.facebook.com/')} />
+            <IconButton Icon={Microsoft} onPress={() => Linking.openURL('https://www.microsoft.com/')} />
+            <IconButton Icon={Telegram} onPress={() => Linking.openURL('https://www.telegram.com/')}/>
+            <IconButton Icon={Whatsapp} onPress={() => Linking.openURL('https://www.whatsapp.com/')} />
           </Box>
           <Divider
             text='Use Biometric Sign In'

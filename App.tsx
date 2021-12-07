@@ -13,6 +13,9 @@ import { GradingSummary } from './src/components/Courses'
 import { GradingAssignment } from './src/components/Courses'
 import { MyCourse } from './src/Teachers/TeacherHomeTopTabs'
 import { CourseDetailCard } from './src/components'
+import AppStack1 from './src/components/Navigation/AppStack'
+import Authstack from './src/components/Navigation/AuthStack'
+import { NavigationContainer } from '@react-navigation/native'
 const AppStack = createStackNavigator<AppRoutes>()
 
 const App = () => {
@@ -21,28 +24,11 @@ const App = () => {
   }, [])
 
   return (
-    <AppStack.Navigator 
-      initialRouteName='Authentication'
-      screenOptions={stackScreenOptions}>
-      <AppStack.Screen name='Authentication' component={AuthNavigator} />
-      <AppStack.Screen name='Teacher' component={TeachersNavigator} />
-      <AppStack.Screen name='AssignmentSummary' component={AssignmentSummary} />
-      <AppStack.Screen name='Create Assignment' component={CreateAssignment} />
-      <AppStack.Screen name='Review assignment' component={ReviewAssignment} />
-      <AppStack.Screen name='Review Summary' component={ReviewSummary} />
-      <AppStack.Screen name='Grading Assignmnet' component={GradingAssignment} />
-      <AppStack.Screen name='Grading Summary' component={GradingSummary} />
-      <AppStack.Screen name='MyCourse' component={MyCourse} />
-      <AppStack.Screen name='CourseDetailCard' component={CourseDetailCard} />
-      <AppStack.Screen name='CompletedProfile' component={CompletedProfile} />
-
-
-
-
-
-      
-
-    </AppStack.Navigator>
+    
+    <NavigationContainer independent={true} >
+        <AppStack1/>
+        {/* <Authstack/> */}
+    </NavigationContainer>
   )
 }
 
