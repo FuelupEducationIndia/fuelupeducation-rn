@@ -244,6 +244,7 @@ const SignIn = ({ navigation }: AuthNavigationProps<'SignIn'>) => {
             />
           </TouchBox>
           <Button
+          onPress={()=>navigation.navigate('Teacher')}
             label='Sign In'
             variant='secondary'
             paddingHorizontal='s'
